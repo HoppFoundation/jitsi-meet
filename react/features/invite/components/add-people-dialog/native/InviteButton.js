@@ -46,10 +46,9 @@ class InviteButton extends AbstractButton<Props, *> {
  */
 function _mapStateToProps(state, ownProps: Props) {
     const { disableInviteFunctions } = state['features/base/config'];
-    const flag = getFeatureFlag(state, INVITE_ENABLED, true);
 
     return {
-        visible: flag && !disableInviteFunctions && ownProps.visible
+        visible: !disableInviteFunctions && ownProps.visible
     };
 }
 
