@@ -420,10 +420,14 @@ DEPENDENCIES:
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
+  master:
+    - Amplitude-iOS
   trunk:
     - AppAuth
     - boost-for-react-native
     - CocoaLumberjack
+    - Crashlytics
+    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -586,4 +590,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 5be5132e41831a98362eeed760558227a4df89ae
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.9.1
