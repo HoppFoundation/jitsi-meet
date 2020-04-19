@@ -21,7 +21,7 @@ android {
     }
 
     defaultConfig {
-        applicationId 'org.jitsi.meet'
+        applicationId 'de.hoppfoundation.klassenzimmer'
         versionCode vcode
         versionName project.appVersion
 
@@ -52,8 +52,8 @@ android {
             //signingConfig signingConfigs.debug
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules-release.pro'
-            buildConfigField "boolean", "GOOGLE_SERVICES_ENABLED", "${googleServicesEnabled}"
-            buildConfigField "boolean", "LIBRE_BUILD", "${rootProject.ext.libreBuild}"
+            buildConfigField "boolean", "GOOGLE_SERVICES_ENABLED", "false"
+            buildConfigField "boolean", "LIBRE_BUILD", "true"
         }
     }
 

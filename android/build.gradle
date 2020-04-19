@@ -4,6 +4,21 @@ import org.gradle.util.VersionNumber
 // Top-level build file where you can add configuration options common to all
 // sub-projects/modules.
 
+def getPassword(String currentUser, String keyChain) {
+    def stdout = new ByteArrayOutputStream()
+    def stderr = new ByteArrayOutputStream()
+    exec {
+        commandLine 'security', '-q', 'find-generic-password', '-a', currentUser, '-s', keyChain, '-w'
+        standardOutput = stdout
+        errorOutput = stderr
+        ignoreExitValue true
+    }
+    //noinspection GroovyAssignabilityCheck
+    stdout.toString().trim()
+}
+def pass = getPassword("android_keystore","android_keystore")
+
+
 buildscript {
     repositories {
         google()
@@ -162,6 +177,28 @@ allprojects {
     }
 }
 
+ext {
+    buildToolsVersion = "28.0.3"
+    compileSdkVersion = 28
+    minSdkVersion    = 21
+    targetSdkVersion = 28
+    supportLibVersion = "28.0.0"
+
+    // The Maven artifact groupdId of the third-party react-native modules which
+    // Jitsi Meet SDK for Android depends on and which are not available in
+    // third-party Maven repositories so we have to deploy to a Maven repository
+    // of ours.
+    moduleGroupId = 'com.facebook.react'
+
+    // Maven repo where artifacts will be published
+    mavenRepo = System.env.MVN_REPO ?: ""
+    mavenUser = System.env.MVN_USER ?: ""
+    mavenPassword = System.env.MVN_PASSWORD ?: ""
+
+    // Libre build
+    libreBuild = (System.env.LIBRE_BUILD ?: "true").toBoolean()
+}
+
 // Force the version of the Android build tools we have chosen on all
 // subprojects. The forcing was introduced for react-native and the third-party
 // modules that we utilize such as react-native-background-timer.
@@ -175,4 +212,6 @@ subprojects { subproject ->
             }
         }
     }
+
+
 }
