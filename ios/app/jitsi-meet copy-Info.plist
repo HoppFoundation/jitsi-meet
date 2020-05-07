@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>20.2.3</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -56,10 +56,10 @@
 	<string>See your scheduled meetings in the app.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Participate in meetings with video.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Participate in meetings with voice.</string>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>Local network is used for establishing Peer-to-Peer connections.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>de.hopp-foundation.jitsi.ios.conference</string>
@@ -89,7 +89,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>FirebaseCrashlyticsCollectionEnabled</key>
+	<key>firebase_crashlytics_collection_enabled</key>
 	<string>false</string>
 </dict>
 </plist>
