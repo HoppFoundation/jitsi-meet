@@ -100,8 +100,6 @@ class SettingsView extends AbstractSettingsView<Props, State> {
     constructor(props) {
         super(props);
         const {
-            disableCallIntegration,
-            disableCrashReporting,
             disableP2P,
             displayName,
             email,
@@ -111,13 +109,12 @@ class SettingsView extends AbstractSettingsView<Props, State> {
         } = props._settings || {};
 
         this.state = {
-            disableCallIntegration,
-            disableCrashReporting,
+            disableCallIntegration: true, // eslint-disable no-unused-vars
             disableP2P,
             displayName,
             email,
             serverURL,
-            showAdvanced: false,
+            showAdvanced: true,
             startWithAudioMuted,
             startWithVideoMuted
         };
