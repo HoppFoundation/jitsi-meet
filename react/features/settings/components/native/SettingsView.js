@@ -112,7 +112,7 @@ class SettingsView extends AbstractSettingsView<Props, State> {
             disableCallIntegration: true, // eslint-disable no-unused-vars
             disableP2P,
             displayName,
-            email,
+            email:'',
             serverURL,
             showAdvanced: true,
             startWithAudioMuted,
@@ -128,7 +128,9 @@ class SettingsView extends AbstractSettingsView<Props, State> {
         this._onShowAdvanced = this._onShowAdvanced.bind(this);
         this._setURLFieldReference = this._setURLFieldReference.bind(this);
         this._showURLAlert = this._showURLAlert.bind(this);
+       
     }
+
 
     /**
      * Implements React's {@link Component#render()}, renders the settings page.
@@ -160,18 +162,7 @@ class SettingsView extends AbstractSettingsView<Props, State> {
                             textContentType = { 'name' } // iOS only
                             value = { displayName } />
                     </FormRow>
-                    <FormRow
-                        label = 'settingsView.email'
-                        layout = 'column'>
-                        <TextInput
-                            autoCapitalize = 'none'
-                            autoCorrect = { false }
-                            keyboardType = { 'email-address' }
-                            onChangeText = { this._onChangeEmail }
-                            placeholder = 'email@example.com'
-                            textContentType = { 'emailAddress' } // iOS only
-                            value = { email } />
-                    </FormRow>
+                   
                     <FormSectionHeader
                         label = 'settingsView.conferenceSection' />
                     <FormRow
@@ -335,7 +326,8 @@ class SettingsView extends AbstractSettingsView<Props, State> {
      */
     _onClose() {
         this.setState({ showAdvanced: false });
-
+        this.setState({email:''})
+        this._onChangeEmail('')
         return this._processServerURL(true /* hideOnSuccess */);
     }
 

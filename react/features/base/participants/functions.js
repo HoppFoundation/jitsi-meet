@@ -31,16 +31,8 @@ const AVATAR_CHECKER_FUNCTIONS = [
     (participant, _) => {
         return participant && participant.avatarURL ? participant.avatarURL : null;
     },
-    (participant, store) => {
-        if (participant && participant.email) {
-            // TODO: remove once libravatar has deployed their new scaled up infra. -saghul
-            const gravatarBaseURL
-                = store.getState()['features/base/config'].gravatarBaseURL ?? 'https://www.gravatar.com/avatar/';
-
-            return getGravatarURL(participant.email, gravatarBaseURL);
-        }
-
-        return null;
+    participant => {
+        return participant && participant.email ? null : null;
     }
 ];
 /* eslint-enable arrow-body-style, no-unused-vars */
