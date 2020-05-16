@@ -27,6 +27,9 @@ import RaiseHandButton from './RaiseHandButton';
 import ScreenSharingButton from './ScreenSharingButton.js';
 import ToggleCameraButton from './ToggleCameraButton';
 import styles from './styles';
+import MuteEveryoneElseButton from './MuteEveryoneElseButton';
+
+import { jitsiLocalStorage } from 'js-utils';
 
 /**
  * The type of the React {@code Component} props of {@link OverflowMenu}.
@@ -64,7 +67,12 @@ type State = {
     /**
      * True if the 'more' button set needas to be rendered.
      */
-    showMore: boolean
+    showMore: boolean,
+
+    /**
+     *  whether we are a moderator - we currently check whether there is a sessionId saved in the app
+     */
+    isModerator: boolean
 }
 
 /**
@@ -89,16 +97,32 @@ class OverflowMenu extends PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = {
-            scrolledToTop: true,
-            showMore: false
-        };
+     
 
         // Bind event handlers so they are only bound once per instance.
         this._onCancel = this._onCancel.bind(this);
         this._onSwipe = this._onSwipe.bind(this);
         this._onToggleMenu = this._onToggleMenu.bind(this);
         this._renderMenuExpandToggle = this._renderMenuExpandToggle.bind(this);
+        this._renderModeratorButtons = this._renderModeratorButtons.bind(this)
+
+        var sessionId = jitsiLocalStorage.getItem('sessionId');
+        console.log(jitsiLocalStorage.getItem('sessionId'))
+        if(sessionId){
+            this.state = {
+                scrolledToTop: true,
+                showMore: false,
+                isModerator:true
+
+            };
+        }else{ 
+            this.state = {
+                scrolledToTop: true,
+                showMore: false,
+                isModerator:false
+
+            };
+         }
     }
 
     /**
@@ -136,6 +160,7 @@ class OverflowMenu extends PureComponent<Props, State> {
                 <ScreenSharingButton { ...buttonProps } />
                 <MoreOptionsButton { ...moreOptionsButtonProps } />
                 <Collapsible collapsed = { !showMore }>
+                {this._renderModeratorButtons(buttonProps)}          
                     <ToggleCameraButton { ...buttonProps } />
                     <TileViewButton { ...buttonProps } />
                     <RecordButton { ...buttonProps } />
@@ -151,6 +176,20 @@ class OverflowMenu extends PureComponent<Props, State> {
         );
     }
 
+
+    _renderModeratorButtons: () => React$Element<any>;
+
+    _renderModeratorButtons(buttonProps){
+        const { isModerator } = this.state;
+
+        if(isModerator){
+            return(
+                <MuteEveryoneElseButton { ...buttonProps } />
+            );
+        }
+        return
+
+    }
     _renderMenuExpandToggle: () => React$Element<any>;
 
     /**
@@ -228,6 +267,7 @@ class OverflowMenu extends PureComponent<Props, State> {
      * @returns {void}
      */
     _onToggleMenu() {
+        console.log(this)
         this.setState({
             showMore: !this.state.showMore
         });
