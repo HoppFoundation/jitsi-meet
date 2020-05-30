@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 
+// automagically activated with google-services.json
+
+
 // Use the number of seconds/10 since Jan 1 2019 as the versionCode.
 // This lets us upload a new build at most every 10 seconds for the
 // next ~680 years.
@@ -25,6 +28,7 @@ android {
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
+        signingConfig signingConfigs.debug
     }
 
     signingConfigs {
@@ -74,15 +78,7 @@ dependencies {
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 
-    if (!rootProject.ext.libreBuild) {
-        implementation 'com.google.android.gms:play-services-auth:16.0.1'
 
-        // Firebase
-        //  - Crashlytics
-        //  - Dynamic Links
-        implementation 'com.google.firebase:firebase-core:16.0.6'
-        implementation 'com.google.firebase:firebase-dynamic-links:16.1.5'
-    }
 
     implementation project(':sdk')
 }
