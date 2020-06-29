@@ -5,10 +5,12 @@ install! 'cocoapods', :deterministic_uuids => false
 
 target 'JitsiMeet' do
   project 'app/app.xcodeproj'
-
-  pod 'Firebase/Analytics', '~> 6.33.0'
-  pod 'Firebase/Crashlytics', '~> 6.33.0'
-  pod 'Firebase/DynamicLinks', '~> 6.33.0'
+  
+  pod 'BlueSocket'
+  pod 'Crashlytics', '~> 3.14.0'
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Firebase/Core', '~> 6.16.0'
+  pod 'Firebase/DynamicLinks', '~> 6.16.0'
 end
 
 target 'JitsiMeetSDK' do
@@ -79,10 +81,29 @@ target 'JitsiMeetSDK' do
   use_native_modules!
 end
 
+
+target 'ScreenRecorderHopp' do
+  project 'app/app.xcodeproj'
+  
+  pod 'BlueSocket'
+  pod 'JitsiMeetSDK'
+end
+
+target 'ScreenRecorderHoppSetupUI' do
+  project 'app/app.xcodeproj'
+
+  pod 'JitsiMeetSDK'
+end
+
+
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['ENABLE_BITCODE'] = 'YES'
+      if target.name == 'ScreenRecorderHopp' or target.name == 'ScreenRecorderHoppSetupUI'
+        config.build_settings['ENABLE_BITCODE'] = 'NO'
+      else
+        config.build_settings['ENABLE_BITCODE'] = 'YES'
+      end
       config.build_settings['SUPPORTS_MACCATALYST'] = 'NO'
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
     end
