@@ -33,8 +33,9 @@ import KickEveryoneElseButton from './KickEveryoneElseButton';
 import { jitsiLocalStorage } from 'js-utils';
 
 import { requireNativeComponent } from 'react-native';
-
-import * as RCTWebRTC from 'react-native-webrtc';
+import {getDisplayMedia} from 'react-native-webrtc';
+import { getLocalTrack, getLocalVideoTrack, createLocalTracksF, replaceLocalTrack } from '../../../base/tracks';
+import DesktopSharingButton from './DesktopSharingButton';
 import {NativeModules} from 'react-native';
 const {WebRTCModule} = NativeModules;
 
@@ -142,9 +143,9 @@ class OverflowMenu extends PureComponent<Props, State> {
      * @returns {ReactElement}
      */
     render() {
-        const { _bottomSheetStyles } = this.props;
+        const { _bottomSheetStyles, __localVideo } = this.props;
         const { showMore } = this.state;
-
+        let {dispatch} = this.props;
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
@@ -179,12 +180,29 @@ class OverflowMenu extends PureComponent<Props, State> {
                         // onClick={() => {console.log(WebRTCModule.checkArgss("type"));}}
                         ref={comp => {
                             this.recordComponent = comp; 
-                            if (!this.clicked) {
-                                WebRTCModule.checkArgss("type");
-                                this.clicked = true;
-                            } else {
-                                console.log('already clicked');
-                            }
+                            // if (!this.clicked) {
+                            //     getDisplayMedia({"video": {}}).then((desktopStream) => {
+                            //         console.log("swtching to scren sharing")
+                            //         const tracks = __localVideo;
+                            //         // console.log(tracks);
+                            //         const localVideo = getLocalVideoTrack(tracks);
+                            //         // console.log(localVideo);
+                            //         console.log(desktopStream);
+                            //         const _initObj = {
+                            //             streamId: desktopStream.id,
+                            //             streamReactTag: desktopStream._reactTag,
+                            //             tracks: desktopStream._tracks
+                            //         }
+                            //         console.log(_initObj);
+                            //         let initStream = new MediaStream(_initObj)
+                            //         console.log(initStream);
+                            //         console.log(initStream.getTracks()[0]);
+                            //         dispatch(replaceLocalTrack(localVideo.jitsiTrack, initStream.getTracks()[0]));
+                            //     });
+                            //     this.clicked = true;
+                            // } else {
+                            //     console.log('already clicked');
+                            // }
                              
                         }} 
                     />
@@ -195,6 +213,10 @@ class OverflowMenu extends PureComponent<Props, State> {
                     <SharedDocumentButton { ...buttonProps } />
                     <MuteEveryoneButton { ...buttonProps } />
                     <HelpButton { ...buttonProps } />
+                    {
+                        this.props._desktopSharingEnabled
+                            && <DesktopSharingButton  { ...buttonProps } />
+                    }
                 </Collapsible>
             </BottomSheet>
         );
@@ -309,9 +331,19 @@ class OverflowMenu extends PureComponent<Props, State> {
  * @returns {Props}
  */
 function _mapStateToProps(state) {
+    let { desktopSharingEnabled } = state['features/base/conference'];
+    if (state['features/base/config'].enableFeaturesBasedOnToken) {
+        // we enable desktop sharing if any participant already have this
+        // feature enabled
+        desktopSharingEnabled = getParticipants(state)
+            .find(({ features = {} }) =>
+                String(features['screen-sharing']) === 'true') !== undefined;
+    }
     return {
+        __localVideo: state['features/base/tracks'],
         _bottomSheetStyles: ColorSchemeRegistry.get(state, 'BottomSheet'),
-        _isOpen: isDialogOpen(state, OverflowMenu_)
+        _isOpen: isDialogOpen(state, OverflowMenu_),
+        _desktopSharingEnabled: Boolean(desktopSharingEnabled)
     };
 }
 
