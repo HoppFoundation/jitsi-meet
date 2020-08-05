@@ -82,6 +82,8 @@ import HelpButton from '../HelpButton';
 import MuteEveryoneButton from '../MuteEveryoneButton';
 
 import AudioSettingsButton from './AudioSettingsButton';
+import MuteEveryoneButton from './MuteEveryoneButton';
+import KickEveryoneButton from './KickEveryoneButton';
 import OverflowMenuButton from './OverflowMenuButton';
 import OverflowMenuProfileItem from './OverflowMenuProfileItem';
 import ToolbarButton from './ToolbarButton';
@@ -1059,6 +1061,10 @@ class Toolbox extends Component<Props, State> {
                 key = 'mute-everyone'
                 showLabel = { true }
                 visible = { this._shouldShowButton('mute-everyone') } />,
+            <KickEveryoneButton
+                key = 'kick-everyone'
+                showLabel = { true }
+                visible = { this._shouldShowButton('mute-everyone') } />,
             this._shouldShowButton('stats')
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.speakerStats') }
@@ -1253,6 +1259,8 @@ class Toolbox extends Component<Props, State> {
             / 2 // divide by the number of groups(left and right group)
         );
 
+        const showOverflowMenu = this.state.windowWidth >= verySmallThreshold || isMobileBrowser();
+
         if (this._shouldShowButton('chat')) {
             buttonsLeft.push('chat');
         }
@@ -1266,7 +1274,7 @@ class Toolbox extends Component<Props, State> {
         if (this._shouldShowButton('closedcaptions')) {
             buttonsLeft.push('closedcaptions');
         }
-        if (overflowHasItems) {
+        if (overflowHasItems && showOverflowMenu) {
             buttonsRight.push('overflowmenu');
         }
         if (this._shouldShowButton('invite')) {
@@ -1289,13 +1297,13 @@ class Toolbox extends Component<Props, State> {
             movedButtons.push(...buttonsLeft.splice(
                 maxNumberOfButtonsPerGroup,
                 buttonsLeft.length - maxNumberOfButtonsPerGroup));
-            if (buttonsRight.indexOf('overflowmenu') === -1) {
+            if (buttonsRight.indexOf('overflowmenu') === -1 && showOverflowMenu) {
                 buttonsRight.unshift('overflowmenu');
             }
         }
 
         if (buttonsRight.length > maxNumberOfButtonsPerGroup) {
-            if (buttonsRight.indexOf('overflowmenu') === -1) {
+            if (buttonsRight.indexOf('overflowmenu') === -1 && showOverflowMenu) {
                 buttonsRight.unshift('overflowmenu');
             }
 

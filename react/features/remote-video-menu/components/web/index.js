@@ -6,8 +6,12 @@ export { default as KickButton } from './KickButton';
 export { default as KickRemoteParticipantDialog } from './KickRemoteParticipantDialog';
 export { default as MuteButton } from './MuteButton';
 export { default as MuteEveryoneDialog } from './MuteEveryoneDialog';
-export { default as MuteEveryoneElseButton } from './MuteEveryoneElseButton';
-export { default as MuteRemoteParticipantDialog } from './MuteRemoteParticipantDialog';
+export { default as KickEveryoneElseButton } from './KickEveryoneElseButton';
+export { default as KickEveryoneDialog } from './KickEveryoneDialog';
+
+export {
+    default as MuteRemoteParticipantDialog
+} from './MuteRemoteParticipantDialog';
 export { default as PrivateMessageMenuButton } from './PrivateMessageMenuButton';
 export { REMOTE_CONTROL_MENU_STATES, default as RemoteControlButton } from './RemoteControlButton';
 export { default as RemoteVideoMenu } from './RemoteVideoMenu';
