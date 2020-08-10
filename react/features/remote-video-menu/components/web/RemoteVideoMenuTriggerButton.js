@@ -18,6 +18,7 @@ import {
     GrantModeratorButton,
     MuteButton,
     KickButton,
+    KickEveryoneElseButton,
     PrivateMessageMenuButton,
     RemoteControlButton,
     RemoteVideoMenu,
