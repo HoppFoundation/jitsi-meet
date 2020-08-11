@@ -153,7 +153,22 @@ import CoreImage
     let timestamp = NSDate().timeIntervalSince1970 * 1000000000 // Need timestamp in nano secs - Ns
     let rtcPixelBuffer = RTCCVPixelBuffer.init(pixelBuffer:pixelBuffer)
     
-    videoFrame = RTCVideoFrame(buffer: rtcPixelBuffer, rotation: RTCVideoRotation._0, timeStampNs: Int64(timestamp))
+    var rotation:RTCVideoRotation;
+
+    switch UIDevice.current.orientation{
+      case .portrait:
+        rotation = RTCVideoRotation._0
+      case .portraitUpsideDown:
+          rotation = RTCVideoRotation._180
+      case .landscapeLeft:
+          rotation = RTCVideoRotation._270
+      case .landscapeRight:
+        rotation = RTCVideoRotation._90
+      default:
+          rotation = RTCVideoRotation._0
+    }
+    
+    videoFrame = RTCVideoFrame(buffer: rtcPixelBuffer, rotation: rotation, timeStampNs: Int64(timestamp))
 //    self.frameQueue.enqueue(buffer.base64EncodedString())
 //      print(" pushing video frame - \(videoFrame)")
       sampleFrame = videoFrame
