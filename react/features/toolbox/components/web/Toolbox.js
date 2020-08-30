@@ -10,7 +10,7 @@ import {
 } from '../../../analytics';
 import { openDialog, toggleDialog } from '../../../base/dialog';
 import { isMobileBrowser } from '../../../base/environment/utils';
-import { translate } from '../../../base/i18n';
+import { translate, i18next } from '../../../base/i18n';
 import {
     IconChat,
     IconCodeBlock,
@@ -29,15 +29,16 @@ import JitsiMeetJS from '../../../base/lib-jitsi-meet';
 import {
     getLocalParticipant,
     getParticipants,
-    participantUpdated
+    participantUpdated,
+    getParticipantDisplayName
 } from '../../../base/participants';
 import { connect, equals } from '../../../base/redux';
 import { OverflowMenuItem } from '../../../base/toolbox/components';
 import { getLocalVideoTrack, toggleScreensharing } from '../../../base/tracks';
 import { isVpaasMeeting } from '../../../billing-counter/functions';
 import { VideoBlurButton } from '../../../blur';
-import { CHAT_SIZE, ChatCounter, toggleChat } from '../../../chat';
 import { EmbedMeetingDialog } from '../../../embed-meeting';
+import { CHAT_SIZE, ChatCounter, toggleChat, sendMessage } from '../../../chat';
 import { SharedDocumentButton } from '../../../etherpad';
 import { openFeedbackDialog } from '../../../feedback';
 import { beginAddPeople } from '../../../invite';
@@ -471,9 +472,12 @@ class Toolbox extends Component<Props, State> {
      * @returns {void}
      */
     _doToggleRaiseHand() {
-        const { _localParticipantID, _raisedHand } = this.props;
-        const newRaisedStatus = !_raisedHand;
+        const { _localParticipantID, _raisedHand, _localParticipantName } = this.props;
 
+        // uncomment this to enable chat message on raise hand for web
+        // if(!_raisedHand) {
+        //     this.props.dispatch(sendMessage(i18next.t('raisedHandMessage', {'name': _localParticipantName})));
+        // }
         this.props.dispatch(participantUpdated({
             // XXX Only the local participant is allowed to update without
             // stating the JitsiConference instance (i.e. participant property
@@ -857,6 +861,7 @@ class Toolbox extends Component<Props, State> {
             { enable: !this.props._raisedHand }));
 
         this._doToggleRaiseHand();
+
     }
 
     _onToolbarToggleScreenshare: () => void;
@@ -1454,6 +1459,7 @@ function _mapStateToProps(state) {
         _fullScreen: fullScreen,
         _tileViewEnabled: shouldDisplayTileView(state),
         _localParticipantID: localParticipant.id,
+        _localParticipantName: getParticipantDisplayName(state, localParticipant.id),
         _localRecState: localRecordingStates,
         _locked: locked,
         _overflowMenuVisible: overflowMenuVisible,
