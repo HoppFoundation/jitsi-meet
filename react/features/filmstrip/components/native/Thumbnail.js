@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableOpacity} from 'react-native';
 import type { Dispatch } from 'redux';
 
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
@@ -31,6 +31,7 @@ import RaisedHandIndicator from './RaisedHandIndicator';
 import ScreenShareIndicator from './ScreenShareIndicator';
 import VideoMutedIndicator from './VideoMutedIndicator';
 import styles, { AVATAR_SIZE } from './styles';
+import MoreOptionsIndicator from './MoreOptionsIndicator';
 
 /**
  * Thumbnail component's property types.
@@ -150,6 +151,7 @@ function Thumbnail(props: Props) {
             ] }
             touchFeedback = { false }>
 
+
             <ParticipantView
                 avatarSize = { tileView ? AVATAR_SIZE * 1.5 : AVATAR_SIZE }
                 disableVideo = { isScreenShare || participant.isFakeParticipant }
@@ -167,15 +169,25 @@ function Thumbnail(props: Props) {
                 && <View style = { styles.moderatorIndicatorContainer }>
                     <ModeratorIndicator />
                 </View>}
-
-            { !participant.isFakeParticipant && <View
-                style = { [
+                
+            { !participant.isFakeParticipant && 
+           <TouchableOpacity 
+           onPress={ participant.local ? undefined : _onShowRemoteVideoMenu}  
+     style = { [
                     styles.thumbnailTopIndicatorContainer,
-                    styles.thumbnailTopLeftIndicatorContainer
-                ] }>
+                    styles.thumbnailTopLeftIndicatorContainer,
+                  styles.moreInfoButton 
+                ] } >
+                    <View>
+                 <MoreOptionsIndicator/>
+
                 <RaisedHandIndicator participantId = { participant.id } />
                 { renderDominantSpeakerIndicator && <DominantSpeakerIndicator /> }
-            </View> }
+                </View>
+
+
+            </TouchableOpacity>
+}
 
             { !participant.isFakeParticipant && <View
                 style = { [

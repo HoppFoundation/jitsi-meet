@@ -109,7 +109,8 @@ class SettingsView extends AbstractSettingsView<Props, State> {
         } = props._settings || {};
 
         this.state = {
-            disableCallIntegration: true, // eslint-disable no-unused-vars
+            disableCallIntegration, // eslint-disable no-unused-vars
+            disableCrashReporting,
             disableP2P,
             displayName,
             email:'',
