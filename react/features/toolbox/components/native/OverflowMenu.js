@@ -178,10 +178,10 @@ class OverflowMenu extends PureComponent<Props, State> {
                     <SharedDocumentButton { ...buttonProps } />
                     <MuteEveryoneButton { ...buttonProps } />
                     <HelpButton { ...buttonProps } />
-                     <Collapsible collapsed = { !showScreenshare }>
+                     <Collapsible collapsed = { showScreenshare }>
                         <ScreenshareButton {...buttonProps} />
                      </Collapsible>
-                    <Collapsible collapsed = { showScreenshare }>
+                    <Collapsible collapsed = { !showScreenshare }>
                         {
                         this.props._desktopSharingEnabled
                             && <IOSRecordButtonWrapper />
