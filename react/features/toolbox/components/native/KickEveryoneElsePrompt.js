@@ -5,7 +5,7 @@ import type { Dispatch } from 'redux';
 
 import { ConfirmDialog, hideDialog } from '../../../base/dialog';
 import { connect } from '../../../base/redux';
-import { jitsiLocalStorage } from '@jitsi/js-utils';
+import { kickAllParticipants } from '../../../remote-video-menu/actions';
 /**
  * The type of the React {@code Component} props of {@link RoomLockPrompt}.
  */
@@ -26,7 +26,7 @@ type Props = {
 /**
  * Implements a React Component which prompts the user for a confirmation to kick everyone in the room
  */
-class ScreenshareWarningPrompt extends Component<Props> {
+class KickEveryoneElsePrompt extends Component<Props> {
     /**
      * Initializes a new KickEveryonePrompt instance.
      *
@@ -52,7 +52,7 @@ class ScreenshareWarningPrompt extends Component<Props> {
 
         return (
             <ConfirmDialog
-                contentKey='dialog.screenShareWarning'
+                contentKey='dialog.kickEveryoneDialog'
                 onCancel={this._onCancel}
                 onSubmit={this._onSubmit}
             />
@@ -68,8 +68,9 @@ class ScreenshareWarningPrompt extends Component<Props> {
      * @returns {boolean} True to hide this dialog/prompt; otherwise, false.
      */
     _onCancel() {
-        this.props.dispatch(hideDialog(ScreenshareWarningPrompt))
-
+        // An undefined password is understood to cancel the request to lock the
+        // conference/room.
+        this.props.dispatch(hideDialog(KickEveryoneElsePrompt))
         return true;
     }
 
@@ -86,8 +87,8 @@ class ScreenshareWarningPrompt extends Component<Props> {
      * after setting the password is resolved.
      */
     _onSubmit() {
-        jitsiLocalStorage.setItem('showScreenshare', true)
-        this.props.dispatch(hideDialog(ScreenshareWarningPrompt))
+        this.props.dispatch(kickAllParticipants(exclude));
+        this.props.dispatch(hideDialog(KickEveryoneElsePrompt))
 
 
         return true;
@@ -95,5 +96,5 @@ class ScreenshareWarningPrompt extends Component<Props> {
 
 }
 
-export default connect()(ScreenshareWarningPrompt);
+export default connect()(KickEveryoneElsePrompt);
 
