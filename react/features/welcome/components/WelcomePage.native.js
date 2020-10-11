@@ -36,9 +36,7 @@ import VideoSwitch from './VideoSwitch';
 import WelcomePageLists from './WelcomePageLists';
 import WelcomePageSideBar from './WelcomePageSideBar';
 import styles, { PLACEHOLDER_TEXT_COLOR } from './styles';
-
-import { jitsiLocalStorage } from '@jitsi/js-utils';
-import {clearSessionId, unmarkClearSessionId} from '../../base/conference';
+import { updateSettings } from '../../base/settings';
 /**
  * The native container rendering the welcome page.
  *
@@ -79,11 +77,6 @@ class WelcomePage extends AbstractWelcomePage {
     componentDidMount() {
         super.componentDidMount();
         
-        if (jitsiLocalStorage.getItem('clearSessionId') === 'true') {
-            this.props.dispatch(clearSessionId());
-            this.props.dispatch(unmarkClearSessionId());
-        }
-
         this._updateRoomname();
 
         const { dispatch } = this.props;

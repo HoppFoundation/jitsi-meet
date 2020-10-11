@@ -7,11 +7,10 @@ import { appNavigate } from '../../app/actions';
 import { disconnect } from '../../base/connection';
 import { translate } from '../../base/i18n';
 import { connect } from '../../base/redux';
-import { AbstractHangupButton } from '../../base/toolbox';
-import type { AbstractButtonProps } from '../../base/toolbox';
-import { ScreenShareController } from './native/IOSRecordButton';
+import { AbstractHangupButton } from '../../base/toolbox/components';
+import type { AbstractButtonProps } from '../../base/toolbox/components';
+const {ScreenShareController} =  require('./native/IOSRecordButton');
 import { jitsiLocalStorage } from '@jitsi/js-utils';
-import {clearSessionId, unmarkClearSessionId} from '../../base/conference';
 import { Platform } from 'react-native';
 
 
@@ -53,10 +52,6 @@ class HangupButton extends AbstractHangupButton<Props, *> {
                 ScreenShareController.stopRecording();
             }
             sendAnalytics(createToolbarEvent('hangup'));
-            if (jitsiLocalStorage.getItem('clearSessionId') === 'true') {
-                this.props.dispatch(clearSessionId());
-                this.props.dispatch(unmarkClearSessionId());
-            }
             jitsiLocalStorage.removeItem('showScreenshare')
             // FIXME: these should be unified.
             if (navigator.product === 'ReactNative') {
