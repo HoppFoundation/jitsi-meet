@@ -71,10 +71,17 @@ function _updateLastN({ getState }) {
 
     let lastN = typeof config.channelLastN === 'undefined' ? -1 : config.channelLastN;
 
-    if (appState !== 'active') {
-        // lastN = 0;
-        const localVideo = getLocalVideoTrack(state['features/base/tracks']);
-        lastN = localVideo && localVideo.videoType === 'desktop' ? 1 : 0;
+    // Apply last N limit based on the # of participants and channelLastN settings.
+    const limitedLastN = limitLastN(participantCount, lastNLimits);
+
+    if (limitedLastN !== undefined) {
+        lastN = lastN === -1 ? limitedLastN : Math.min(limitedLastN, lastN);
+    }
+
+    if (typeof appState !== 'undefined' && appState !== 'active') {
+        lastN = isLocalVideoTrackDesktop(state) ? 1 : 0;
+
+      //  lastN = localVideo && localVideo.videoType === 'desktop' ? 1 : 0;
     } else if (audioOnly) {
         const { screenShares, tileViewEnabled } = state['features/video-layout'];
         const largeVideoParticipantId = state['features/large-video'].participantId;
