@@ -470,7 +470,8 @@ class Toolbox extends Component<Props, State> {
      * @returns {void}
      */
     _doToggleRaiseHand() {
-        const { _localParticipantID, _raisedHand, _localParticipantName } = this.props;
+        const { _localParticipantID, _raisedHand } = this.props;
+        const newRaisedStatus = !_raisedHand;
 
         // uncomment this to enable chat message on raise hand for web
         // if(!_raisedHand) {
@@ -485,8 +486,10 @@ class Toolbox extends Component<Props, State> {
 
             id: _localParticipantID,
             local: true,
-            raisedHand: !_raisedHand
+            raisedHand: newRaisedStatus
         }));
+
+        APP.API.notifyRaiseHandUpdated(_localParticipantID, newRaisedStatus);
     }
 
     /**
