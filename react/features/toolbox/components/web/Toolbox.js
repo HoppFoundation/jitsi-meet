@@ -30,7 +30,8 @@ import {
     getLocalParticipant,
     getParticipants,
     participantUpdated,
-    getParticipantDisplayName
+    getParticipantDisplayName,
+    PARTICIPANT_ROLE
 } from '../../../base/participants';
 import { connect, equals } from '../../../base/redux';
 import { OverflowMenuItem } from '../../../base/toolbox/components';
@@ -102,6 +103,11 @@ type Props = {
      * The {@code JitsiConference} for the current conference.
      */
     _conference: Object,
+
+    /**
+     * Store if local participant is a moderator or not
+     */
+    _isModerator: boolean,
 
     /**
      * The tooltip key to use when screensharing is disabled. Or undefined
@@ -923,10 +929,11 @@ class Toolbox extends Component<Props, State> {
     _isDesktopSharingButtonVisible() {
         const {
             _desktopSharingEnabled,
-            _desktopSharingDisabledTooltipKey
+            _desktopSharingDisabledTooltipKey,
+            _isModerator
         } = this.props;
 
-        return _desktopSharingEnabled || _desktopSharingDisabledTooltipKey;
+        return _isModerator && (_desktopSharingEnabled || _desktopSharingDisabledTooltipKey);
     }
 
     /**
@@ -1448,6 +1455,7 @@ function _mapStateToProps(state) {
         _desktopSharingDisabledTooltipKey: desktopSharingDisabledTooltipKey,
         _dialog: Boolean(state['features/base/dialog'].component),
         _feedbackConfigured: Boolean(callStatsID),
+        _isModerator: localParticipant.role === PARTICIPANT_ROLE.MODERATOR,
         _isProfileDisabled: Boolean(state['features/base/config'].disableProfile),
         _isVpaasMeeting: isVpaasMeeting(state),
         _fullScreen: fullScreen,
