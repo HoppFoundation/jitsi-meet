@@ -38,6 +38,8 @@
     jitsiMeet.universalLinkDomains = @[@"meet.jit.si", @"alpha.jitsi.net", @"beta.meet.jit.si", @"jitsi.hopp-foundation.de",@"jitsi.mannheim.ccc.de"];
 
     jitsiMeet.defaultConferenceOptions = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
+        [builder setFeatureFlag:@"resolution" withValue:@(360)];
+      [builder setFeatureFlag:@"video-share.enabled" withBoolean:YES];
         builder.serverURL = [NSURL URLWithString:@"https://jitsi.hopp-foundation.de"];
         builder.welcomePageEnabled = YES;
 

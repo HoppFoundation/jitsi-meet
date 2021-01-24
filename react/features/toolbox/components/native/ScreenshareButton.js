@@ -80,7 +80,7 @@ function _mapStateToProps(state, ownProps): Object {
     var visible_generally = true
 
     if (MODERATOR_KEYS){
-        visible_generally = visible_generally && isModerator && MODERATOR_KEYS.includes('screenshare')
+        visible_generally = visible_generally &&((isModerator && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'))
     }
     return {
         _localParticipant,
