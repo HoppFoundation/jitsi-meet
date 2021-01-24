@@ -104,15 +104,12 @@ function _mapStateToProps(state, ownProps): Object {
     const enabled = getFeatureFlag(state, VIDEO_SHARE_BUTTON_ENABLED, true);
     var { visible = enabled } = ownProps;
     const localParticipant = getLocalParticipant(state);
-    console.log(localParticipant)
-    console.log('localParticipant')
     const isModerator = localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
     const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS
 
     if (MODERATOR_KEYS){
-        visible = visible&isModerator&MODERATOR_KEYS.includes('youtube')
+        visible = visible && ((isModerator && MODERATOR_KEYS.includes('sharedvideo')) || !MODERATOR_KEYS.includes('sharedvideo'))
     }
-  
 
     if (ownerId !== localParticipantId) {
         return {
