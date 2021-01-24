@@ -108,7 +108,7 @@ function _mapStateToProps(state, ownProps): Object {
     const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS
 
     if (MODERATOR_KEYS){
-        visible = visible&isModerator&MODERATOR_KEYS.includes('youtube')
+        visible = visible && ((isModerator && MODERATOR_KEYS.includes('sharedvideo')) || !MODERATOR_KEYS.includes('sharedvideo'))
     }
   
 
