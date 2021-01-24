@@ -7,7 +7,7 @@ apply plugin: 'com.android.application'
 // This lets us upload a new build at most every 10 seconds for the
 // next ~680 years.
 // https://stackoverflow.com/a/38643838
-def vcode = (int) (((new Date().getTime() / 1000) - 1546297200) / 10)
+//def vcode = (int) (((new Date().getTime() / 1000) - 1546297200) / 10) We will hard code the version codes now
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -19,7 +19,7 @@ android {
 
     defaultConfig {
         applicationId 'de.hoppfoundation.klassenzimmer'
-        versionCode vcode
+        versionCode 6518915
         versionName project.appVersion
 
         minSdkVersion rootProject.ext.minSdkVersion

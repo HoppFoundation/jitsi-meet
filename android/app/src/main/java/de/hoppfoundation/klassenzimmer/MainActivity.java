@@ -82,6 +82,7 @@ public class MainActivity extends JitsiMeetActivity {
                 .setWelcomePageEnabled(true)
                 .setServerURL(buildURL("https://jitsi.hopp-foundation.de"))
                 .setFeatureFlag("call-integration.enabled", false)
+                .setFeatureFlag("video-share.enabled",true)
                 .build();
         JitsiMeet.setDefaultConferenceOptions(defaultOptions);
 
