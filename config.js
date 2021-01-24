@@ -629,6 +629,9 @@ var config = {
     // Sets the conference subject
     // subject: 'Conference Subject',
 
+    // Local test for a new feature
+    HOPP_MODERATOR_KEYS: ['sharedvideo','desktop'],
+
     // List of undocumented settings used in jitsi-meet
     /**
      _immediateReloadThreshold
