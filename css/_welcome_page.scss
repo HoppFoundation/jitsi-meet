@@ -212,8 +212,9 @@ body.welcome-page {
 
     .welcome-watermark {
         position: absolute;
-        width: 100%;
-        height: 100%;
+        width: 415px;
+        height: 105px;
+        margin-left: 40px;
 
         .watermark.leftwatermark {
             width: $welcomePageWatermarkWidth;

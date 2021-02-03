@@ -3,8 +3,8 @@
         "add": "Einladen",
         "addContacts": "Laden Sie Ihre Kontakte ein",
         "copyInvite": "Sitzungseinladung kopieren",
-        "copyLink": "Konferenzlink kopieren",
-        "copyStream": "Livestreaminglink kopieren",
+        "copyLink": "Meeting-Link kopieren",
+        "copyStream": "Live-Streaming-Link kopieren",
         "countryNotSupported": "Wir unterstützen dieses Land noch nicht.",
         "countryReminder": "Telefonnummer nicht in den USA? Bitte sicherstellen, dass die Telefonnummer mit dem Ländercode beginnt.",
         "defaultEmail": "Ihre Standard-E-Mail",
@@ -26,8 +26,8 @@
         "searchPeople": "Nach Teilnehmern suchen",
         "searchPeopleAndNumbers": "Nach Teilnehmen suchen oder deren Telefonnummern hinzufügen",
         "shareInvite": "Einladung zur Versammlung teilen",
-        "shareLink": "Teilen Sie den Konferenzlink, um andere einzuladen",
-        "shareStream": "Den Livestreaminglink freigeben",
+        "shareLink": "Teilen Sie den Meeting-Link, um andere einzuladen",
+        "shareStream": "Den Live-Streaming-Link freigeben",
         "telephone": "Telefon: {{number}}",
         "title": "Teilnehmer zu dieser Konferenz einladen",
         "yahooEmail": "Yahoo-E-Mail"
@@ -40,10 +40,10 @@
         "none": "Keine Audiogeräte verfügbar"
     },
     "audioOnly": {
-        "audioOnly": "Geringe Bandbreite"
+        "audioOnly": "Nur Audio"
     },
     "calendarSync": {
-        "addMeetingURL": "Konferenzlink hinzufügen",
+        "addMeetingURL": "Meeting-Link hinzufügen",
         "confirmAddLink": "Möchten Sie einen Jitsi-Link zu diesem Termin hinzufügen?",
         "error": {
             "appConfiguration": "Kalenderintegration ist nicht richtig konfiguriert.",
@@ -92,9 +92,9 @@
         "DISCONNECTED": "Getrennt",
         "DISCONNECTING": "Verbindung wird getrennt",
         "ERROR": "Fehler",
-        "FETCH_SESSION_ID": "Sitzungs-ID abrufen …",
+        "FETCH_SESSION_ID": "Sitzungs-ID erhalten …",
         "GET_SESSION_ID_ERROR": "Sitzungs-ID-Fehler erhalten: {{code}}",
-        "GOT_SESSION_ID": "Sitzungs-ID abrufen … beendet",
+        "GOT_SESSION_ID": "Sitzungs-ID erhalten … beendet",
         "LOW_BANDWIDTH": "Video für {{displayName}} wurde ausgeschaltet, um Bandbreite einzusparen"
     },
     "connectionindicator": {
@@ -206,8 +206,8 @@
         "enterDisplayName": "Bitte geben Sie hier Ihren Namen ein",
         "error": "Fehler",
         "gracefulShutdown": "Der Dienst steht momentan wegen Wartungsarbeiten nicht zur Verfügung. Bitte versuchen Sie es später noch einmal.",
-        "grantModeratorDialog": "Möchten Sie diesen Teilnehmer wirklich zum Moderator machen?",
-        "grantModeratorTitle": "Zum Moderator machen",
+        "grantModeratorDialog": "Sind Sie sicher, dass Sie diesen Teilnehmer zum Moderator ernennen wollen?",
+        "grantModeratorTitle": "Zum Moderator befördern",
         "IamHost": "Ich bin der Organisator",
         "incorrectRoomLockPassword": "Falsches Passwort",
         "incorrectPassword": "Benutzername oder Passwort ungültig",
@@ -227,7 +227,7 @@
         "liveStreamingDisabledForGuestTooltip": "Gäste können kein Livestreaming starten.",
         "liveStreamingDisabledTooltip": "Starten des Livestreams deaktiviert.",
         "lockMessage": "Die Konferenz konnte nicht gesperrt werden.",
-        "lockRoom": "Konferenz$t(lockRoomPassword) hinzufügen",
+        "lockRoom": "Meeting-$t(lockRoomPasswordUppercase) hinzufügen",
         "lockTitle": "Sperren fehlgeschlagen",
         "logoutQuestion": "Sind Sie sicher, dass Sie sich abmelden und die Konferenz verlassen möchten?",
         "logoutTitle": "Abmelden",
@@ -250,8 +250,8 @@
         "muteParticipantDialog": "Wollen Sie diesen Teilnehmer wirklich stummschalten? Sie können die Stummschaltung nicht wieder aufheben, der Teilnehmer kann dies aber jederzeit selbst tun.",
         "muteParticipantTitle": "Teilnehmer stummschalten?",
         "Ok": "OK",
-        "passwordLabel": "Dieses Meeting wurde von einem Teilnehmer gesichert. Bitte geben Sie das $t(lockRoomPasswordUppercase) ein, um dem Meeting beizutreten.",
-        "passwordNotSupported": "Das Festlegen eines Konferenzpassworts wird nicht unterstützt.",
+        "passwordLabel": "Dieses Meeting wurde von einem Teilnehmer gesichert. Bitte geben Sie das $t(lockRoomPassword) ein, um dem Meeting beizutreten.",
+        "passwordNotSupported": "Das Festlegen von einem $t(lockRoomPassword) für das Meeting wird nicht unterstützt.",
         "passwordNotSupportedTitle": "$t(lockRoomPasswordUppercase) nicht unterstützt",
         "passwordRequired": "$t(lockRoomPasswordUppercase) erforderlich",
         "popupError": "Ihr Browser blockiert Pop-ups von dieser Website. Bitte aktivieren Sie Pop-ups in den Sicherheitseinstellungen des Browsers und versuchen Sie es erneut.",
@@ -270,7 +270,7 @@
         "remoteControlStopMessage": "Die Fernsteuerung wurde beendet!",
         "remoteControlTitle": "Fernsteuerung",
         "Remove": "Entfernen",
-        "removePassword": "$t(lockRoomPasswordUppercase) entfernen",
+        "removePassword": "$t(lockRoomPassword) entfernen",
         "removeSharedVideoMsg": "Sind Sie sicher, dass Sie das geteilte Video entfernen möchten?",
         "removeSharedVideoTitle": "Freigegebenes Video entfernen",
         "reservationError": "Fehler im Reservierungssystem",
@@ -307,7 +307,7 @@
         "tokenAuthFailed": "Sie sind nicht berechtigt, dieser Konferenz beizutreten.",
         "tokenAuthFailedTitle": "Authentifizierung fehlgeschlagen",
         "transcribing": "Wird transkribiert",
-        "unlockRoom": "Konferenz$t(lockRoomPassword) entfernen",
+        "unlockRoom": "Meeting-$t(lockRoomPassword) entfernen",
         "userPassword": "Benutzerpasswort",
         "WaitForHostMsg": "Die Konferenz <b>{{room}}</b> wurde noch nicht gestartet. Wenn Sie der Organisator sind, authentifizieren Sie sich. Warten Sie andernfalls, bis der Organisator erscheint.",
         "WaitForHostMsgWOk": "Die Konferenz <b>{{room}}</b> wurde noch nicht gestartet. Wenn Sie der Organisator sind, drücken Sie zum Authentifizieren auf OK. Warten Sie andernfalls, bis der Organisator erscheint.",
@@ -359,7 +359,7 @@
         "genericError": "Es ist leider etwas schiefgegangen.",
         "inviteLiveStream": "Klicken Sie auf {{url}}, um den Livestream dieser Konferenz zu öffnen",
         "invitePhone": "Wenn Sie stattdessen per Telefon beitreten möchten, wählen sie: {{number}},,{{conferenceID}}#\n",
-        "invitePhoneAlternatives": "Suchen Sie nach einer anderen Einwahlnummer ?\nEinwahlnummern der Konferenz anzeigen: {{url}}\n\n\nWenn Sie sich auch über ein Raumtelefon einwählen, nehmen Sie teil, ohne sich mit dem Ton zu verbinden: {{silentUrl}}",
+        "invitePhoneAlternatives": "Suchen Sie nach einer anderen Einwahlnummer ?\nMeeting-Einwahlnummern anzeigen: {{url}}\n\n\nWenn Sie sich auch über ein Raumtelefon einwählen, nehmen Sie teil, ohne sich mit dem Ton zu verbinden: {{silentUrl}}",
         "inviteURLFirstPartGeneral": "Sie wurden zur Teilnahme an einem Meeting eingeladen.",
         "inviteURLFirstPartPersonal": "{{name}} lädt Sie zu einem Meeting ein.\n",
         "inviteURLSecondPart": "\nAm Meeting teilnehmen:\n{{url}}\n",
@@ -372,7 +372,7 @@
         "password": "$t(lockRoomPasswordUppercase):",
         "title": "Teilen",
         "tooltip": "Freigabe-Link und Einwahlinformationen für dieses Meeting",
-        "label": "Einwahlinformationen"
+        "label": "Meeting-Informationen"
     },
     "inviteDialog": {
         "alertText": "Die Einladung einiger Teilnehmer ist fehlgeschlagen.",
@@ -468,7 +468,7 @@
         "stop": "Aufnahme stoppen",
         "yes": "Ja"
     },
-    "lockRoomPassword": "passwort",
+    "lockRoomPassword": "Passwort",
     "lockRoomPasswordUppercase": "Passwort",
     "me": "ich",
     "notify": {
@@ -601,7 +601,7 @@
         "expandedOn": "Das Meeting wird momentan aufgezeichnet.",
         "expandedPending": "Aufzeichnung wird gestartet…",
         "failedToStart": "Die Aufnahme konnte nicht gestartet werden",
-        "fileSharingdescription": "Aufzeichnung mit Konferenzteilnehmer teilen",
+        "fileSharingdescription": "Aufzeichnung mit Meeting-Teilnehmer teilen",
         "live": "LIVE",
         "loggedIn": "Als {{userName}} angemeldet",
         "off": "Aufnahme gestoppt",
@@ -706,8 +706,8 @@
             "download": "Unsere Apps herunterladen",
             "embedMeeting": "Konferenz einbetten",
             "feedback": "Feedback hinterlassen",
-            "fullScreen": "Vollbildmodus ein-/ausschalten",
-            "grantModerator": "Zum Moderator machen",
+            "fullScreen": "Vollbildmodus aktivieren/deaktivieren",
+            "grantModerator": "Zum Moderator befördern",
             "hangup": "Anruf beenden",
             "help": "Hilfe",
             "invite": "Teilnehmer einladen",
@@ -715,7 +715,7 @@
             "kickEveryone": "Sitzung für jeden beenden",
             "lobbyButton": "Lobbymodus ein-/ausschalten",
             "localRecording": "Lokale Aufzeichnungssteuerelemente ein-/ausschalten",
-            "lockRoom": "Konferenzpasswort ein-/ausschalten",
+            "lockRoom": "Meeting-Passwort ein-/ausschalten",
             "moreActions": "Menü „Weitere Aktionen“ ein-/ausschalten",
             "moreActionsMenu": "Menü „Weitere Aktionen“",
             "moreOptions": "Menü „Weitere Optionen“",
@@ -839,10 +839,9 @@
     },
     "videoStatus": {
         "audioOnly": "AUD",
-        "audioOnlyExpanded": "Mit Aktivierung dieser Funktion werden alle Kameraübertragungen zu Ihnen und von Ihnen unterbunden. Sie hören nur noch mit. Sie sehen jedoch geteilte Bildschirme bzw. das geteilte Dokument. Diese Funktion sollte bei geringer Bandbreite aktiviert werden.",
+        "audioOnlyExpanded": "Sie befinden sich im Modus „Nur Audio“. Dieser Modus benötigt weniger Bandbreite, Sie sehen jedoch nicht die Videos der anderen.",
         "audioOnlyExpandedOff": "Mit Deaktivierung dieser Funktion werden alle Kameraübertragungen zu Ihnen und von Ihnen unterbunden. Sie hören nur noch mit. Sie sehen jedoch geteilte Bildschirme bzw. das geteilte Dokument. Diese Funktion sollte bei geringer Bandbreite aktiviert werden.",
-
-        "callQuality": "Videoqualität",
+        "callQuality": "Videoqualität - Geteilte Bildschirme sieht man in jeder Qualitätseinstellung",
         "hd": "HD",
         "hdTooltip": "Video wird in hoher Auflösung angezeigt",
         "highDefinition": "Hohe Auflösung",
@@ -861,7 +860,7 @@
         "domute": "Stummschalten",
         "domuteOthers": "Alle anderen stummschalten",
         "flip": "Spiegeln",
-        "grantModerator": "Zum Moderator machen",
+        "grantModerator": "Zum Moderator befördern",
         "kick": "Hinauswerfen",
         "moderator": "Moderator",
         "mute": "Teilnehmer ist stumm geschaltet",
@@ -875,7 +874,7 @@
             "join": "Zum Teilnehmen tippen",
             "roomname": "Konferenzname eingeben"
         },
-        "appDescription": "Auf geht's! Starten Sie eine Videokonferenz mit Ihrem Team oder besser noch: Laden Sie alle ein, die Sie kennen. {{app}} ist eine vollständig verschlüsselte und 100 % quelloffene Videokonferenzlösung, die Sie immer und überall kostenlos verwenden können – ohne Registrierung.",
+        "appDescription": "Wenn du Lehrer*in bist und bereits einen Account hast, dann gib den Wunschnamen für dein digitales Klassenzimmer ein und leg sofort los! Wir empfehlen dir Schule-Klasse-Fach. Dein digitales Klassenzimmer ist verschlüsselt und du kannst es mit einem Passwort deiner Wahl schützen! Wenn du noch keinen Account hast, sprich mit deiner Schulleitung bzw. mit der Hopp Foundation und wir erstellen dir schnell und kostenlos einen solchen. Voraussetzung ist, dass du in der Metropolregion Rhein-Neckar unterrichtest! Viel Spaß mit deiner Klasse!",
         "audioVideoSwitch": {
             "audio": "Audio",
             "video": "Video"
@@ -891,20 +890,20 @@
         "join": "ERSTELLEN / BEITRETEN",
         "moderatedMessage": "Oder <a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">reservieren Sie sich eine Konferenz-URL</a>, unter der Sie der einzige Moderator sind.",
         "privacy": "Datenschutz",
-        "recentList": "Verlauf",
-        "recentListDelete": "Eintrag löschen",
-        "recentListEmpty": "Ihr Konferenzverlauf ist derzeit leer. Reden Sie mit Ihrem Team und Ihre vergangenen Konferenzen landen hier.",
+        "recntListDelete": "Löschen",
+        "recentLientList": "Letzte",
+        "recestEmpty": "Die Liste „Letzte“ ist momentan leer. Chatten Sie mit Ihrem Team. Sie finden all Ihre letzten Meetings hier.",
         "reducedUIText": "Willkommen bei {{app}}!",
-        "roomNameAllowedChars": "Der Konferenzname sollte keines der folgenden Zeichen enthalten: ?, &, :, ', \", %, #.",
+        "roomNameAllowedChars": "Der Meeting-Name sollte keines der folgenden Zeichen enthalten: ?, &, :, ', \", %, #.",
         "roomname": "Konferenzname eingeben",
         "roomnameHint": "Name oder URL der Konferenz, der Sie beitreten möchten. Sie können einen Namen erfinden, er muss nur den anderen Teilnehmern übermittelt werden, damit diese der gleichen Konferenz beitreten.",
         "sendFeedback": "Feedback senden",
         "terms": "AGB",
-        "title": "Sichere, voll funktionale und komplett kostenlose Videokonferenzen"
+        "title": "Euer digitales Klassenzimmer!"
     },
     "lonelyMeetingExperience": {
         "button": "Andere einladen",
-        "youAreAlone": "Sie sind alleine in dieser Konferenz"
+        "youAreAlone": "Nur Sie sind in diesem Meeting"
     },
     "helpView": {
         "header": "Hilfecenter"
