@@ -6,26 +6,32 @@ var config = {
 
     hosts: {
         // XMPP domain.
-        domain: 'jitsi-meet.example.com',
+        domain: 'meet.jitsi',
 
         // When using authentication, domain for guest users.
-        // anonymousdomain: 'guest.example.com',
+        anonymousdomain: 'guest.meet.jitsi',
 
         // Domain for authenticated users. Defaults to <domain>.
-        // authdomain: 'jitsi-meet.example.com',
+        authdomain: 'meet.jitsi',
+
+        // Jirecon recording component domain.
+        // jirecon: 'jirecon.meet.jitsi',
+
+        // Call control component (Jigasi).
+        // call_control: 'callcontrol.meet.jitsi',
 
         // Focus component domain. Defaults to focus.<domain>.
-        // focus: 'focus.jitsi-meet.example.com',
+        // focus: 'focus.meet.jitsi',
 
         // XMPP MUC domain. FIXME: use XEP-0030 to discover it.
-        muc: 'conference.jitsi-meet.example.com'
+        muc: 'muc.meet.jitsi',
     },
 
     // BOSH URL. FIXME: use XEP-0156 to discover it.
-    bosh: '//jitsi-meet.example.com/http-bind',
+    bosh: 'https://jitsi.hopp-foundation.de/http-bind',
 
     // Websocket URL
-    // websocket: 'wss://jitsi-meet.example.com/xmpp-websocket',
+    websocket: 'wss://jitsi.hopp-foundation.de/xmpp-websocket',
 
     // The name of client node advertised in XEP-0115 'c' stanza
     clientNode: 'http://jitsi.org/jitsimeet',
@@ -33,7 +39,7 @@ var config = {
     // The real JID of focus participant - can be overridden here
     // Do not change username - FIXME: Make focus username configurable
     // https://github.com/jitsi/jitsi-meet/issues/7376
-    // focusUserJid: 'focus@auth.jitsi-meet.example.com',
+    focusUserJid: 'focus@auth.meet.jitsi',
 
 
     // Testing / experimental features.
@@ -83,7 +89,7 @@ var config = {
     // Audio
 
     // Disable measuring of audio levels.
-    // disableAudioLevels: false,
+    disableAudioLevels: true,
     // audioLevelsInterval: 200,
 
     // Enabling this will run the lib-jitsi-meet no audio detection module which
@@ -104,14 +110,14 @@ var config = {
 
     // Start the conference in audio only mode (no video is being received nor
     // sent).
-    // startAudioOnly: false,
+    // startAudioOnly: true,
 
     // Every participant after the Nth will start audio muted.
-    // startAudioMuted: 10,
+    startAudioMuted: 0,
 
     // Start calls with audio muted. Unlike the option above, this one is only
     // applied locally. FIXME: having these 2 options is confusing.
-    // startWithAudioMuted: false,
+    startWithAudioMuted: true,
 
     // Enabling it (with #params) will disable local audio output of remote
     // participants and to enable it back a reload is needed.
@@ -155,14 +161,14 @@ var config = {
     // Enable / disable layer suspension.  If enabled, endpoints whose HD
     // layers are not in use will be suspended (no longer sent) until they
     // are requested again.
-    // enableLayerSuspension: false,
+    enableLayerSuspension: true,
 
     // Every participant after the Nth will start video muted.
-    // startVideoMuted: 10,
+    startVideoMuted: 0,
 
     // Start calls with video muted. Unlike the option above, this one is only
     // applied locally. FIXME: having these 2 options is confusing.
-    // startWithVideoMuted: false,
+    startWithVideoMuted: true,
 
     // If set to true, prefer to use the H.264 video codec (if supported).
     // Note that it's not recommended to do this because simulcast is not
@@ -189,7 +195,7 @@ var config = {
     // Recording
 
     // Whether to enable file recording or not.
-    // fileRecordingsEnabled: false,
+    fileRecordingsEnabled: false,
     // Enable the dropbox integration.
     // dropbox: {
     //     appKey: '<APP_KEY>' // Specify your app key here.
@@ -210,7 +216,7 @@ var config = {
     // fileRecordingsServiceSharingEnabled: false,
 
     // Whether to enable live streaming or not.
-    // liveStreamingEnabled: false,
+    liveStreamingEnabled: false,
 
     // Transcription (in interface_config,
     // subtitles and buttons can be configured)
@@ -222,9 +228,9 @@ var config = {
     // Misc
 
     // Default value for the channel "last N" attribute. -1 for unlimited.
-    channelLastN: -1,
+    channelLastN: 25,
 
-    // Provides a way to use different "last N" values based on the number of participants in the conference.
+        // Provides a way to use different "last N" values based on the number of participants in the conference.
     // The keys in an Object represent number of participants and the values are "last N" to be used when number of
     // participants gets to or above the number.
     //
@@ -323,14 +329,20 @@ var config = {
     // bridge itself is reachable via UDP)
     // useTurnUdp: false
 
+    // Enables / disables a data communication channel with the Videobridge.
+    // Values can be 'datachannel', 'websocket', true (treat it as
+    // 'datachannel'), undefined (treat it as 'datachannel') and false (don't
+    // open any channel).
+    openBridgeChannel: "websocket",
+
+
     // UI
     //
-
     // Hides lobby button
     // hideLobbyButton: false,
 
     // Require users to always specify a display name.
-    // requireDisplayName: true,
+    requireDisplayName: true,
 
     // Whether to use a welcome page or not. In case it's false a random room
     // will be joined when no room is specified.
@@ -338,19 +350,27 @@ var config = {
 
     // Enabling the close page will ignore the welcome page redirection when
     // a call is hangup.
-    // enableClosePage: false,
+    enableClosePage: true,
 
     // Disable hiding of remote thumbnails when in a 1-on-1 conference call.
     // disable1On1Mode: false,
 
     // Default language for the user interface.
-    // defaultLanguage: 'en',
+    defaultLanguage: 'de',
 
     // Disables profile and the edit of all fields from the profile settings (display name and email)
     // disableProfile: false,
 
+    // If true all users without a token will be considered guests and all users
+    // with token will be considered non-guests. Only guests will be allowed to
+    // edit their profile.
+    enableUserRolesBasedOnToken: false,
+
     // Whether or not some features are checked based on token.
     // enableFeaturesBasedOnToken: false,
+
+    // Enable lock room for all moderators, even when userRolesBasedOnToken is enabled and participants are guests.
+    lockRoomGuestEnabled: false,
 
     // When enabled the password used for locking a room is restricted to up to the number of digits specified
     // roomPasswordNumberOfDigits: 10,
@@ -358,14 +378,20 @@ var config = {
 
     // Message to show the users. Example: 'The service will be down for
     // maintenance at 01:00 AM GMT,
-    // noticeMessage: '',
+    // noticeMessage: 'Bei Problemen könnt ihr euch jederzeit an unseren Support unter jitsi@hopp-foundation.de wenden',
+    // noticeMessage: 'Lieber Nutzer(innen), vielen Dank für euer Interesse an diesem Dienst! Aktuell kann es auf Grund der erhöhten Nachfrage zu Qualitätseinbußen kommen. Wir arbeiten aber dran und haben bereits neue Server bestellt.',
+    // noticeMessage: 'Bei Problemen können Sie sich jederzeit an unseren Support unter jitsi@hopp-foundation.de oder 06221/739080601 wenden. \nBitte beachten Sie jedoch, dass es (insbesondere am heutigen ersten Schultag) auf Grund von erhöhter Nachfrage zu Performanceeinbußen kommen kann. Wir arbeiten aber bereits daran, um das Nutzungserlebnis so bald wie möglich zu verbessern.',
+    // noticeMessage: 'Auf Grund von Wartungsarbeiten steht der Dienst leider in der Nacht auf Montag zwischen 21 und 6 Uhr nicht zur Verfügung. Wir bitten die entstandenen Unannehmlichkeiten zu entschuldigen!',
+    // noticeMessage: 'Auf Grund von Servererweiterungen müssen wir den aktuellen Server leider zwischen 17 und 18 Uhr kurz neustarten, wodurch das aktuelle Meeting unterbrochen wird. Wir bitten die entstandenen Unannehmlichkeiten zu entschuldigen!',
+    // noticeMessage: 'Auf Grund von Wartungsarbeiten steht dieser Dienst leider heute (19.12.2020) von 20:00 - 23:59 Uhr nicht zur Verfügung. Wir bitten die entstandenen Unannehmlichkeiten zu entschuldigen!',
+    noticeMessage: 'Youtube-Teilen für Nicht-Moderatoren wurde deaktiviert. Das Bildschirmteilen für Nicht-Moderatoren wurde deaktiviert. Für Details schauen Sie auf https://unterrichtsmaterialien.hopp-foundation.de/konzepte/jitsi-leitfaden-fuer-lehrer-innen oder wenden Sie sich an Ihre Schulleitung.',
 
     // Enables calendar integration, depends on googleApiApplicationClientID
     // and microsoftApiApplicationClientID
     // enableCalendarIntegration: false,
 
     // When 'true', it shows an intermediate page before joining, where the user can configure their devices.
-    // prejoinPageEnabled: false,
+    prejoinPageEnabled: true,
 
     // If etherpad integration is enabled, setting this to true will
     // automatically open the etherpad when a participant joins.  This
@@ -377,7 +403,7 @@ var config = {
     // If true, shows the unsafe room name warning label when a room name is
     // deemed unsafe (due to the simplicity in the name) and a password is not
     // set or the lobby is not enabled.
-    // enableInsecureRoomNameWarning: false,
+    enableInsecureRoomNameWarning: true,
 
     // Whether to automatically copy invitation URL after creating a room.
     // Document should be focused for this option to work
@@ -393,7 +419,7 @@ var config = {
     // This can be useful for debugging purposes (post-processing/analysis of
     // the webrtc stats) as it is done in the jitsi-meet-torture bandwidth
     // estimation tests.
-    // gatherStats: false,
+    gatherStats: true,
 
     // The interval at which PeerConnection.getStats() is called. Defaults to 10000
     // pcStatsInterval: 10000,
@@ -415,7 +441,7 @@ var config = {
     // If third party requests are disabled, no other server will be contacted.
     // This means avatars will be locally generated and callstats integration
     // will not function.
-    // disableThirdPartyRequests: false,
+    disableThirdPartyRequests: true,
 
 
     // Peer-To-Peer mode: used (if enabled) when there are just 2 participants.
@@ -428,14 +454,18 @@ var config = {
         // through the JVB and use the peer to peer connection instead. When a
         // 3rd participant joins the conference will be moved back to the JVB
         // connection.
-        enabled: true,
+        enabled: false,
+
+        // Use XEP-0215 to fetch STUN and TURN servers.
+        useStunTurn: true,
 
         // The STUN servers that will be used in the peer to peer connections
         stunServers: [
 
-            // { urls: 'stun:jitsi-meet.example.com:3478' },
-            { urls: 'stun:meet-jit-si-turnrelay.jitsi.net:443' }
-        ]
+            // { urls: 'stun:meet.jitsi:443' },
+            { urls: 'stun:jitsi.mannheim.ccc.de:3478' }
+            // original: { urls: 'stun:meet-jit-si-turnrelay.jitsi.net:443' }
+        ],
 
         // Sets the ICE transport policy for the p2p connection. At the time
         // of this writing the list of possible values are 'all' and 'relay',
@@ -451,7 +481,7 @@ var config = {
 
         // Provides a way to set the video codec preference on the p2p connection. Acceptable
         // codec values are 'VP8', 'VP9' and 'H264'.
-        // preferredCodec: 'H264',
+        preferredCodec: 'H264',
 
         // If set to true, disable H.264 video codec by stripping it out of the
         // SDP. This setting is deprecated, use disabledCodec instead.
@@ -529,20 +559,20 @@ var config = {
     // Local Recording
     //
 
-    // localRecording: {
-    // Enables local recording.
-    // Additionally, 'localrecording' (all lowercase) needs to be added to
-    // TOOLBAR_BUTTONS in interface_config.js for the Local Recording
-    // button to show up on the toolbar.
-    //
-    //     enabled: true,
-    //
+    localRecording: {
+        // Enables local recording.
+        // Additionally, 'localrecording' (all lowercase) needs to be added to
+        // TOOLBAR_BUTTONS in interface_config.js for the Local Recording
+        // button to show up on the toolbar.
+        //
+        enabled: true,
+        //
 
-    // The recording format, can be one of 'ogg', 'flac' or 'wav'.
-    //     format: 'flac'
-    //
+        // The recording format, can be one of 'ogg', 'flac' or 'wav'.
+        format: 'flac'
+        //
 
-    // },
+    },
 
     // Options related to end-to-end (participant to participant) ping.
     // e2eping: {
@@ -611,9 +641,11 @@ var config = {
          // The url for the image used as background
          backgroundImageUrl: 'https://example.com/background-img.png',
          // The anchor url used when clicking the logo image
-         logoClickUrl: 'https://example-company.org',
+         logoClickUrl: 'https://jitsi.hopp-foundation.de',
          // The url used for the image used as logo
-         logoImageUrl: 'https://example.com/logo-img.png'
+         logoImageUrl: 'https://jitsi.hopp-foundation.de/images/rightwatermark.png'
+        logoClickUrl: 'https://jitsi.hopp-foundation.de',
+        logoImageUrl: 'https://jitsi.hopp-foundation.de/images/rightwatermark.png',
      }
     */
     // dynamicBrandingUrl: '',
@@ -623,6 +655,7 @@ var config = {
     // otherwise the app doesn't render it.
     // moderatedRoomServiceUrl: 'https://moderated.jitsi-meet.example.com',
 
+    etherpad_base: 'https://jitsi.hopp-foundation.de/etherpad/p/',
     // If true, tile view will not be enabled automatically when the participants count threshold is reached.
     // disableTileView: true,
 
