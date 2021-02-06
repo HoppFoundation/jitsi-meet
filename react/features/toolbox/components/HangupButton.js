@@ -79,7 +79,6 @@ class HangupButton extends AbstractHangupButton<Props, *> {
         const protocol = this.props.locationURL.protocol
         const host = this.props.locationURL.host
         const serverURL = `${protocol}//${host}`
-        console.log(serverURL)
         var shouldShowClosePage = JSON.parse(jitsiLocalStorage.getItem(['config.js/'+ serverURL+'/']))["enableClosePage"]
         if(shouldShowClosePage){
             this.props.dispatch(setActiveModalId(CLOSING_PAGE_MODAL_ID,serverURL));

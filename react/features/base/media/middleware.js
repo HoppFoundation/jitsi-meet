@@ -77,10 +77,10 @@ MiddlewareRegistry.register(store => next => action => {
  * @returns {Object} The value returned by {@code next(action)}.
  */
 function _appStateChanged({ dispatch, getState }, next, action) {
-    // const localVideo = getLocalVideoTrack(getState()['features/base/tracks']);
-    // if (localVideo && localVideo.videoType === 'desktop') {
-    //     return next(action);
-    // }
+     const localVideo = getLocalVideoTrack(getState()['features/base/tracks']);
+     if (localVideo && localVideo.videoType === 'desktop') {
+         return next(action);
+     }
     console.log('appstatechanged')
     if (navigator.product === 'ReactNative') {
         const { appState } = action;
@@ -91,7 +91,6 @@ function _appStateChanged({ dispatch, getState }, next, action) {
 
         dispatch(setVideoMuted(mute, MEDIA_TYPE.VIDEO, VIDEO_MUTISM_AUTHORITY.BACKGROUND));
     }
-    console.log("next(action)")
 
     return next(action);
 }
@@ -148,7 +147,9 @@ function _setRoom({ dispatch, getState }, next, action) {
     const roomIsValid = isRoomValid(room);
     const audioMuted = roomIsValid ? getStartWithAudioMuted(state) : _AUDIO_INITIAL_MEDIA_STATE.muted;
     const videoMuted = roomIsValid ? getStartWithVideoMuted(state) : _VIDEO_INITIAL_MEDIA_STATE.muted;
+    console.log(next)
 
+    
     sendAnalytics(
         createStartMutedConfigurationEvent('local', audioMuted, videoMuted));
     logger.log(

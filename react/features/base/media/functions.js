@@ -65,7 +65,7 @@ function _isVideoMutedByAuthority(
     const { muted } = toState(stateful)['features/base/media'].video;
 
     // eslint-disable-next-line no-bitwise
-    return Boolean(muted & videoMutismAuthority);
+    return true; // Boolean(muted & videoMutismAuthority);
 }
 
 /**
@@ -85,7 +85,10 @@ export function getStartWithAudioMuted(stateful: Object | Function) {
  * @returns {boolean} - The computed startWithAudioMuted value that will be used.
  */
 export function getStartWithVideoMuted(stateful: Object | Function) {
-    return Boolean(getPropertyValue(stateful, 'startWithVideoMuted', START_WITH_AUDIO_VIDEO_MUTED_SOURCES));
+    console.log("getstartwithvideomuted")
+    console.log(Boolean(getPropertyValue(stateful, 'startWithVideoMuted', START_WITH_AUDIO_VIDEO_MUTED_SOURCES)));
+
+    return true;//Boolean(getPropertyValue(stateful, 'startWithVideoMuted', START_WITH_AUDIO_VIDEO_MUTED_SOURCES));
 }
 
 /**
