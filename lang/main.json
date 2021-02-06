@@ -857,6 +857,7 @@
     "videothumbnail": {
         "connectionInfo": "Connection Info",
         "domute": "Mute",
+        "dokickOthers" :"Kick everyone else",
         "domuteOthers": "Mute everyone else",
         "flip": "Flip",
         "grantModerator": "Grant Moderator",

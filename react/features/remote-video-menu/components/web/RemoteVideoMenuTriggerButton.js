@@ -18,7 +18,6 @@ import {
     GrantModeratorButton,
     MuteButton,
     KickButton,
-    KickEveryoneElseButton,
     PrivateMessageMenuButton,
     RemoteControlButton,
     RemoteVideoMenu,
@@ -215,11 +214,7 @@ class RemoteVideoMenuTriggerButton extends Component<Props> {
                         key = 'kick'
                         participantID = { participantID } />
                 );
-                buttons.push(
-                    <KickEveryoneElseButton
-                        key = 'kick-others'
-                        participantID = { participantID } />
-                );
+                
             }
         }
 

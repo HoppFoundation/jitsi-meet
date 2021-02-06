@@ -20,7 +20,7 @@ if (navigator.product === 'ReactNative'){
     if (Platform.OS == 'ios') {
         console.log('PLATFORM')
         console.log(Platform.OS)
-      const {ScreenShareController} =  require('./native/IOSRecordButton');
+    //   const {ScreenShareController} =  require('./native/IOSRecordButton');
     }
 }
 

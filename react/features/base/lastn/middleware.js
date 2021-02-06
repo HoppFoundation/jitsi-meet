@@ -18,6 +18,7 @@ import {
 import { MiddlewareRegistry } from '../redux';
 import { isLocalVideoTrackDesktop } from '../tracks/functions';
 
+import { limitLastN } from './functions'
 import { getLocalVideoTrack } from '../tracks';
 
 import logger from './logger';
