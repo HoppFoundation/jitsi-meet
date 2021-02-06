@@ -80,7 +80,6 @@ import { isToolboxVisible } from '../../functions';
 import DownloadButton from '../DownloadButton';
 import HangupButton from '../HangupButton';
 import HelpButton from '../HelpButton';
-import MuteEveryoneButton from '../MuteEveryoneButton';
 
 import AudioSettingsButton from './AudioSettingsButton';
 import KickEveryoneButton from './KickEveryoneButton';
