@@ -228,8 +228,7 @@ var interfaceConfig = {
         'fodeviceselection', 'hangup', 'profile', 'chat',
         'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone', 'security',
-        'kick-everyone'
+        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone', 'security'
     ],
 
     TOOLBAR_TIMEOUT: 4000,
@@ -239,11 +238,15 @@ var interfaceConfig = {
     UNSUPPORTED_BROWSERS: [],
 
     /**
-    * Decides whether the chrome extension banner should be rendered on the landing page and during the meeting.
-    * If this is set to false, the banner will not be rendered at all. If set to true, the check for extension(s)
-    * being already installed is done before rendering.
-    */
-    SHOW_CHROME_EXTENSION_BANNER: false,
+     * Whether to show thumbnails in filmstrip as a column instead of as a row.
+     */
+    VERTICAL_FILMSTRIP: true,
+
+    // Determines how the video would fit the screen. 'both' would fit the whole
+    // screen, 'height' would fit the original video height to the height of the
+    // screen, 'width' would fit the original video width to the width of the
+    // screen respecting ratio.
+    VIDEO_LAYOUT_FIT: 'both',
 
     /**
      * If true, hides the video quality label indicating the resolution status
@@ -273,7 +276,7 @@ var interfaceConfig = {
     /**
      * Specify mobile app scheme for opening the app from the mobile browser.
      */
-    APP_SCHEME: 'de.hopp-foundation.klassenzimmer',
+    // APP_SCHEME: 'org.jitsi.meet',
 
     /**
      * Specify the Android app package name.
