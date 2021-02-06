@@ -14,30 +14,8 @@ var interfaceConfig = {
      *
      * Note: this mode is experimental and subject to breakage.
      */
-    DISABLE_VIDEO_BACKGROUND: false,
-
-    INITIAL_TOOLBAR_TIMEOUT: 20000,
-    TOOLBAR_TIMEOUT: 4000,
-    TOOLBAR_ALWAYS_VISIBLE: false,
-    DEFAULT_REMOTE_DISPLAY_NAME: 'Schüler*in',
-    DEFAULT_LOCAL_DISPLAY_NAME: 'Ich',
-    SHOW_JITSI_WATERMARK: true,
-    JITSI_WATERMARK_LINK: 'https://hopp-foundation.de',
-
-    // if watermark is disabled by default, it can be shown only for guests
-    SHOW_WATERMARK_FOR_GUESTS: true,
-    SHOW_BRAND_WATERMARK: false,
+    AUTO_PIN_LATEST_SCREEN_SHARE: 'remote-only',
     BRAND_WATERMARK_LINK: '',
-    SHOW_POWERED_BY: false,
-    SHOW_DEEP_LINKING_IMAGE: false,
-    GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
-    DISPLAY_WELCOME_PAGE_CONTENT: true,
-    DISPLAY_WELCOME_PAGE_TOOLBAR_ADDITIONAL_CONTENT: false,
-    APP_NAME: 'Digitales Klassenzimmer',
-    NATIVE_APP_NAME: 'Digitales Klassenzimmer',
-    PROVIDER_NAME: 'Hopp Foundation',
-    LANG_DETECTION: true, // Allow i18n to detect the system language
-    INVITATION_POWERED_BY: true,
 
     CLOSE_PAGE_GUEST_HINT: false, // A html text to be shown to guests on the close page, false disables it
     /**
@@ -228,8 +206,7 @@ var interfaceConfig = {
         'fodeviceselection', 'hangup', 'profile', 'chat', 'recording',
         'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone', 'security',
-        'kick-everyone'
+        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone', 'security'
     ],
 
     TOOLBAR_TIMEOUT: 4000,
@@ -239,11 +216,15 @@ var interfaceConfig = {
     UNSUPPORTED_BROWSERS: [],
 
     /**
-    * Decides whether the chrome extension banner should be rendered on the landing page and during the meeting.
-    * If this is set to false, the banner will not be rendered at all. If set to true, the check for extension(s)
-    * being already installed is done before rendering.
-    */
-    SHOW_CHROME_EXTENSION_BANNER: false,
+     * Whether to show thumbnails in filmstrip as a column instead of as a row.
+     */
+    VERTICAL_FILMSTRIP: true,
+
+    // Determines how the video would fit the screen. 'both' would fit the whole
+    // screen, 'height' would fit the original video height to the height of the
+    // screen, 'width' would fit the original video width to the width of the
+    // screen respecting ratio.
+    VIDEO_LAYOUT_FIT: 'both',
 
     /**
      * If true, hides the video quality label indicating the resolution status
@@ -273,12 +254,12 @@ var interfaceConfig = {
     /**
      * Specify mobile app scheme for opening the app from the mobile browser.
      */
-    APP_SCHEME: 'de.hopp-foundation.klassenzimmer',
+    // APP_SCHEME: 'org.jitsi.meet',
 
     /**
      * Specify the Android app package name.
      */
-    ANDROID_APP_PACKAGE: 'de.hopp-foundation.klassenzimmer'
+    // ANDROID_APP_PACKAGE: 'org.jitsi.meet',
 
     /**
      * Override the behavior of some notifications to remain displayed until

@@ -22,7 +22,7 @@
 #import "Digitales_Klassenzimmer-Swift.h"
 
 @import Firebase;
-@import JitsiMeet;
+@import JitsiMeetSDK;
 @import ReplayKit;
 
 @implementation AppDelegate
