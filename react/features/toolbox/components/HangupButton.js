@@ -9,13 +9,20 @@ import { translate } from '../../base/i18n';
 import { connect } from '../../base/redux';
 import { AbstractHangupButton } from '../../base/toolbox/components';
 import type { AbstractButtonProps } from '../../base/toolbox/components';
-const {ScreenShareController} =  require('./native/IOSRecordButton');
 import { jitsiLocalStorage } from '@jitsi/js-utils';
-import { Platform } from 'react-native';
+import Platform from '../../base/react/Platform';
 
 import { CLOSING_PAGE_MODAL_ID } from '../../closingpage/constants';
 import { setActiveModalId } from '../../base/modal';
 
+if (navigator.product === 'ReactNative'){
+ 
+    if (Platform.OS == 'ios') {
+        console.log('PLATFORM')
+        console.log(Platform.OS)
+      const {ScreenShareController} =  require('./native/IOSRecordButton');
+    }
+}
 
 
 /**
@@ -51,14 +58,14 @@ class HangupButton extends AbstractHangupButton<Props, *> {
         super(props);
 
         this._hangup = _.once(() => {
-            if (Platform.OS == 'ios') {
-                this.props.dispatch({ type: 'END_SCREEN_SHARING' });
-                ScreenShareController.stopRecording();
-            }
             sendAnalytics(createToolbarEvent('hangup'));
-            jitsiLocalStorage.removeItem('showScreenshare')
             // FIXME: these should be unified.
             if (navigator.product === 'ReactNative') {
+                if (Platform.OS == 'ios') {
+                    this.props.dispatch({ type: 'END_SCREEN_SHARING' });
+                    ScreenShareController.stopRecording();
+                    jitsiLocalStorage.removeItem('showScreenshare')
+                }
                 this.props.dispatch(appNavigate(undefined));
             } else {
                 this.props.dispatch(disconnect(true));
@@ -75,16 +82,17 @@ class HangupButton extends AbstractHangupButton<Props, *> {
      */
     _doHangup() {
         this._hangup();
-
-        const protocol = this.props.locationURL.protocol
-        const host = this.props.locationURL.host
-        const serverURL = `${protocol}//${host}`
-        console.log(serverURL)
-        var shouldShowClosePage = JSON.parse(jitsiLocalStorage.getItem(['config.js/'+ serverURL+'/']))["enableClosePage"]
-        if(shouldShowClosePage){
-            this.props.dispatch(setActiveModalId(CLOSING_PAGE_MODAL_ID,serverURL));
-            
-        }
+        if (navigator.product === 'ReactNative') {
+            const protocol = this.props.locationURL.protocol
+            const host = this.props.locationURL.host
+            const serverURL = `${protocol}//${host}`
+            console.log(serverURL)
+            var shouldShowClosePage = JSON.parse(jitsiLocalStorage.getItem(['config.js/'+ serverURL+'/']))["enableClosePage"]
+            if(shouldShowClosePage){
+                this.props.dispatch(setActiveModalId(CLOSING_PAGE_MODAL_ID,serverURL));
+                
+            }
+        }   
 
     }
 }
