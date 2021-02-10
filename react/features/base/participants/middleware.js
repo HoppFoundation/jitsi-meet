@@ -269,22 +269,14 @@ StateListenerRegistry.register(
                         propertyHandlers[propertyName](participant, newValue);
                     }
                 });
-                
-                conference.on(
-                    JitsiConferenceEvents.PERMISSION_UPDATE_RECEIVED,
-                    (id, resource, allowed) => {
-                        console.log("krombel: Set permission for", resource, "to", allowed, "- by ", id);
-                        state['features/base/permission'][resource] = allowed;
-                    }
-                );
-                /**
-                 * krombel
-        const value = state['features/base/conference/permission'][propertyName];
 
-        if (typeof value !== 'undefined') {
-            return value;
-        }
-                 */
+            conference.on(
+                JitsiConferenceEvents.PERMISSION_UPDATE_RECEIVED,
+                (id, resource, allowed) => {
+                    console.log("Set permission for", resource, "to", allowed);
+                    store.getState()['features/base/conference'][resource] = allowed;
+                });
+
         } else {
             const localParticipantId = getLocalParticipant(store.getState).id;
 

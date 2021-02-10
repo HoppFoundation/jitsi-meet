@@ -937,7 +937,7 @@ class Toolbox extends Component<Props, State> {
             _isScreenShareAllowed
         } = this.props;
 
-        return _isModerator && (_desktopSharingEnabled || _desktopSharingDisabledTooltipKey);
+        return (_isModerator || _isScreenShareAllowed) && (_desktopSharingEnabled || _desktopSharingDisabledTooltipKey);
     }
 
     /**
@@ -1420,8 +1420,7 @@ class Toolbox extends Component<Props, State> {
 function _mapStateToProps(state) {
     const { conference, locked } = state['features/base/conference'];
     let desktopSharingEnabled = JitsiMeetJS.isDesktopSharingEnabled();
-    let screenShareAllowed = state['features/base/permission'].screenshare;
-    console.log("krombel: ScreenshareEnabled: ", screenShareAllowed);
+    const screenShareAllowed = state['features/base/conference'].screenshare;
     const {
         callStatsID,
         enableFeaturesBasedOnToken

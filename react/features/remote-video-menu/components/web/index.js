@@ -2,6 +2,8 @@
 
 export { default as GrantModeratorButton } from './GrantModeratorButton';
 export { default as GrantModeratorDialog } from './GrantModeratorDialog';
+export { default as GrantScreenshareButton } from './GrantScreenshareButton';
+export { default as GrantScreenshareDialog } from './GrantScreenshareDialog';
 export { default as KickButton } from './KickButton';
 export { default as KickRemoteParticipantDialog } from './KickRemoteParticipantDialog';
 export { default as MuteButton } from './MuteButton';

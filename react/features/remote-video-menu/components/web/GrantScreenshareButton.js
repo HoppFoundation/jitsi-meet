@@ -46,9 +46,9 @@ class GrantScreenshareButton extends AbstractGrantScreenshareButton {
         return (
             <RemoteVideoMenuButton
                 buttonText = { t('videothumbnail.grantScreenshare') }
-                displayClass = 'grantmoderatorlink'
+                displayClass = 'grantscrennsharelink'
                 icon = { IconCrown }
-                id = { `grantmoderatorlink_${participantID}` }
+                id = { `grantscreensharelink_${participantID}` }
                 // eslint-disable-next-line react/jsx-handler-names
                 onClick = { this._handleClick } />
         );
