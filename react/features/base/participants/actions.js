@@ -6,6 +6,7 @@ import {
     HIDDEN_PARTICIPANT_JOINED,
     HIDDEN_PARTICIPANT_LEFT,
     GRANT_MODERATOR,
+    GRANT_PERMISSION,
     KICK_PARTICIPANT,
     MUTE_REMOTE_PARTICIPANT,
     PARTICIPANT_ID_CHANGED,
@@ -14,6 +15,7 @@ import {
     PARTICIPANT_LEFT,
     PARTICIPANT_UPDATED,
     PIN_PARTICIPANT,
+    REVOKE_PERMISSION,
     SET_LOADABLE_AVATAR_URL
 } from './actionTypes';
 import { DISCO_REMOTE_CONTROL_FEATURE } from './constants';
@@ -63,6 +65,42 @@ export function dominantSpeakerChanged(id, conference) {
 export function grantModerator(id) {
     return {
         type: GRANT_MODERATOR,
+        id
+    };
+}
+
+/**
+ * Create an action for granting screenshare permission to a participant.
+ *
+ * @param {string} id - Participant's ID.
+ * @returns {{
+ *     type: GRANT_PERMISSION,
+ *     resource: "screenshare",
+ *     id: string
+ * }}
+ */
+export function grantScreenshare(id) {
+    return {
+        type: GRANT_PERMISSION,
+        resource: "screenshare",
+        id
+    };
+}
+
+/**
+ * Create an action for revoking screenshare permission from a participant.
+ *
+ * @param {string} id - Participant's ID.
+ * @returns {{
+ *     type: REVOKE_PERMISSION,
+ *     resource: "screenshare"
+ *     id: string
+ * }}
+ */
+export function revokeScreenshare(id) {
+    return {
+        type: REVOKE_PERMISSION,
+        resource: "screenshare",
         id
     };
 }

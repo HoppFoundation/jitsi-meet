@@ -110,6 +110,11 @@ type Props = {
     _isModerator: boolean,
 
     /**
+     * Boolean which stores if screenshare is allowed
+     */
+    _isScreenShareAllowed: boolean,
+
+    /**
      * The tooltip key to use when screensharing is disabled. Or undefined
      * if non to be shown and the button to be hidden.
      */
@@ -928,7 +933,8 @@ class Toolbox extends Component<Props, State> {
         const {
             _desktopSharingEnabled,
             _desktopSharingDisabledTooltipKey,
-            _isModerator
+            _isModerator,
+            _isScreenShareAllowed
         } = this.props;
 
         return _isModerator && (_desktopSharingEnabled || _desktopSharingDisabledTooltipKey);
@@ -1414,6 +1420,8 @@ class Toolbox extends Component<Props, State> {
 function _mapStateToProps(state) {
     const { conference, locked } = state['features/base/conference'];
     let desktopSharingEnabled = JitsiMeetJS.isDesktopSharingEnabled();
+    let screenShareAllowed = state['features/base/permission'].screenshare;
+    console.log("krombel: ScreenshareEnabled: ", screenShareAllowed);
     const {
         callStatsID,
         enableFeaturesBasedOnToken
@@ -1452,6 +1460,7 @@ function _mapStateToProps(state) {
         _isModerator: localParticipant.role === PARTICIPANT_ROLE.MODERATOR,
         _isProfileDisabled: Boolean(state['features/base/config'].disableProfile),
         _isVpaasMeeting: isVpaasMeeting(state),
+        _isScreenShareAllowed: Boolean(screenShareAllowed),
         _fullScreen: fullScreen,
         _tileViewEnabled: shouldDisplayTileView(state),
         _localParticipantID: localParticipant.id,
