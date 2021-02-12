@@ -196,7 +196,7 @@ class DeepLinkingMobilePage extends Component<Props> {
         // interfaceConfig.MOBILE_DYNAMIC_LINK check:
         // https://firebase.google.com/docs/dynamic-links/create-manually
         const {
-            APN = 'org.jitsi.meet',
+            APN = 'de.hoppfoundation.klassenzimmer',
             APP_CODE = 'w2atb',
             CUSTOM_DOMAIN = undefined,
             IBI = 'com.atlassian.JitsiMeet.ios',

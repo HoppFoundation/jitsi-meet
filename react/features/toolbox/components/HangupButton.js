@@ -9,6 +9,21 @@ import { translate } from '../../base/i18n';
 import { connect } from '../../base/redux';
 import { AbstractHangupButton } from '../../base/toolbox/components';
 import type { AbstractButtonProps } from '../../base/toolbox/components';
+import { jitsiLocalStorage } from '@jitsi/js-utils';
+import Platform from '../../base/react/Platform';
+
+import { CLOSING_PAGE_MODAL_ID } from '../../closingpage/constants';
+import { setActiveModalId } from '../../base/modal';
+
+if (navigator.product === 'ReactNative'){
+ 
+    if (Platform.OS == 'ios') {
+        console.log('PLATFORM')
+        console.log(Platform.OS)
+    //   const {ScreenShareController} =  require('./native/IOSRecordButton');
+    }
+}
+
 
 /**
  * The type of the React {@code Component} props of {@link HangupButton}.
@@ -44,9 +59,13 @@ class HangupButton extends AbstractHangupButton<Props, *> {
 
         this._hangup = _.once(() => {
             sendAnalytics(createToolbarEvent('hangup'));
-
             // FIXME: these should be unified.
             if (navigator.product === 'ReactNative') {
+                if (Platform.OS == 'ios') {
+                    this.props.dispatch({ type: 'END_SCREEN_SHARING' });
+                    ScreenShareController.stopRecording();
+                    jitsiLocalStorage.removeItem('showScreenshare')
+                }
                 this.props.dispatch(appNavigate(undefined));
             } else {
                 this.props.dispatch(disconnect(true));
@@ -63,7 +82,27 @@ class HangupButton extends AbstractHangupButton<Props, *> {
      */
     _doHangup() {
         this._hangup();
+        if (navigator.product === 'ReactNative') {
+            const protocol = this.props.locationURL.protocol
+            const host = this.props.locationURL.host
+            const serverURL = `${protocol}//${host}`
+            console.log(serverURL)
+            var shouldShowClosePage = JSON.parse(jitsiLocalStorage.getItem(['config.js/'+ serverURL+'/']))["enableClosePage"]
+            if(shouldShowClosePage){
+                this.props.dispatch(setActiveModalId(CLOSING_PAGE_MODAL_ID,serverURL));
+                
+            }
+        }   
+
     }
 }
+function _mapStateToProps(state: Object): $Shape<Props> {
+    const { locationURL } = state['features/base/connection'];
 
-export default translate(connect()(HangupButton));
+    return {
+        locationURL
+    };
+}
+
+
+export default translate(connect(_mapStateToProps)(HangupButton));

@@ -19,23 +19,28 @@
 #import "FIRUtilities.h"
 #import "Types.h"
 #import "ViewController.h"
+#import "Digitales_Klassenzimmer-Swift.h"
 
 @import Firebase;
 @import JitsiMeetSDK;
+@import ReplayKit;
 
 @implementation AppDelegate
 
 -             (BOOL)application:(UIApplication *)application
   didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    JitsiMeet *jitsiMeet = [JitsiMeet sharedInstance];
 
+ 
+
+    JitsiMeet *jitsiMeet = [JitsiMeet sharedInstance];
     jitsiMeet.conferenceActivityType = JitsiMeetConferenceActivityType;
-    jitsiMeet.customUrlScheme = @"org.jitsi.meet";
-    jitsiMeet.universalLinkDomains = @[@"meet.jit.si", @"alpha.jitsi.net", @"beta.meet.jit.si"];
+    jitsiMeet.customUrlScheme = @"de.hopp-foundation.klassenzimmer";
+    jitsiMeet.universalLinkDomains = @[@"meet.jit.si", @"alpha.jitsi.net", @"beta.meet.jit.si", @"jitsi.hopp-foundation.de",@"jitsi.mannheim.ccc.de"];
 
     jitsiMeet.defaultConferenceOptions = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
         [builder setFeatureFlag:@"resolution" withValue:@(360)];
-        builder.serverURL = [NSURL URLWithString:@"https://meet.jit.si"];
+      [builder setFeatureFlag:@"video-share.enabled" withBoolean:YES];
+        builder.serverURL = [NSURL URLWithString:@"https://jitsi.hopp-foundation.de"];
         builder.welcomePageEnabled = YES;
 
         // Apple rejected our app because they claim requiring a
@@ -44,19 +49,7 @@
         [builder setFeatureFlag:@"ios.recording.enabled" withBoolean:YES];
 #endif
     }];
-
-  [jitsiMeet application:application didFinishLaunchingWithOptions:launchOptions];
-
-    // Initialize Crashlytics and Firebase if a valid GoogleService-Info.plist file was provided.
-  if ([FIRUtilities appContainsRealServiceInfoPlist]) {
-        NSLog(@"Enabling Firebase");
-        [FIRApp configure];
-        // Crashlytics defaults to disabled wirth the FirebaseCrashlyticsCollectionEnabled Info.plist key.
-        [[FIRCrashlytics crashlytics] setCrashlyticsCollectionEnabled:![jitsiMeet isCrashReportingDisabled]];
-    }
-
-    ViewController *rootController = (ViewController *)self.window.rootViewController;
-    [jitsiMeet showSplashScreen:rootController.view];
+    [jitsiMeet application:application didFinishLaunchingWithOptions:launchOptions];
 
     return YES;
 }

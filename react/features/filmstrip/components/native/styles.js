@@ -96,6 +96,13 @@ export default {
         width: 80
     },
 
+    moreInfoButton:{
+        width:20,
+        height:20,
+        borderColor: '#424242',
+        borderRadius: 4,
+    },
+
     /**
      * The thumbnails indicator container.
      */
@@ -116,6 +123,10 @@ export default {
 
     thumbnailTopLeftIndicatorContainer: {
         left: 0
+    },
+    thumbnailUnderTopLeftIndicatorContainer: {
+        left: 0,
+        top:10
     },
 
     thumbnailTopRightIndicatorContainer: {

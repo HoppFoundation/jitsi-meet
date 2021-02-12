@@ -37,7 +37,8 @@ const AVATAR_CHECKER_FUNCTIONS = [
             const gravatarBaseURL
                 = store.getState()['features/base/config'].gravatarBaseURL ?? 'https://www.gravatar.com/avatar/';
 
-            return getGravatarURL(participant.email, gravatarBaseURL);
+            // return getGravatarURL(participant.email, gravatarBaseURL);
+            return null;
         }
 
         return null;

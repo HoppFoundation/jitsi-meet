@@ -12,7 +12,8 @@ import { SET_AUDIO_ONLY, setAudioOnly } from '../audio-only';
 import { isRoomValid, SET_ROOM } from '../conference';
 import { MiddlewareRegistry } from '../redux';
 import { getPropertyValue } from '../settings';
-import { isLocalVideoTrackDesktop, setTrackMuted, TRACK_ADDED } from '../tracks';
+import { setTrackMuted, TRACK_ADDED } from '../tracks';
+import { getLocalVideoTrack } from '../tracks';
 
 import { setAudioMuted, setCameraFacingMode, setVideoMuted } from './actions';
 import {
@@ -26,6 +27,8 @@ import {
     _AUDIO_INITIAL_MEDIA_STATE,
     _VIDEO_INITIAL_MEDIA_STATE
 } from './reducer';
+
+
 
 /**
  * Implements the entry point of the middleware of the feature base/media.
@@ -73,7 +76,12 @@ MiddlewareRegistry.register(store => next => action => {
  * @returns {Object} The value returned by {@code next(action)}.
  */
 function _appStateChanged({ dispatch, getState }, next, action) {
+ 
     if (navigator.product === 'ReactNative') {
+        const localVideo = getLocalVideoTrack(getState()['features/base/tracks']);
+        if (localVideo && localVideo.videoType === 'desktop') {
+            return next(action);
+        }
         const { appState } = action;
         const mute = appState !== 'active' && !isLocalVideoTrackDesktop(getState());
 

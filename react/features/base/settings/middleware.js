@@ -192,13 +192,8 @@ function _updateLocalParticipantFromUrl({ dispatch, getState }) {
 
         dispatch(participantUpdated({
             ...localParticipant,
-            email,
-            name: displayName
-        }));
-
-        dispatch(updateSettings({
-            displayName,
-            email
+            email: _.escape(urlEmail),
+            name: _.escape(urlDisplayName)
         }));
     }
 }

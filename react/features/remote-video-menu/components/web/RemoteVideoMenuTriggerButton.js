@@ -221,6 +221,7 @@ class RemoteVideoMenuTriggerButton extends Component<Props> {
                         key = 'kick'
                         participantID = { participantID } />
                 );
+                
             }
         }
 
