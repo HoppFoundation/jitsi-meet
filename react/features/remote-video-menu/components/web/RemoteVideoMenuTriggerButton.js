@@ -16,6 +16,7 @@ import { REMOTE_CONTROL_MENU_STATES } from './RemoteControlButton';
 
 import {
     GrantModeratorButton,
+    GrantScreenshareButton,
     MuteButton,
     KickButton,
     PrivateMessageMenuButton,
@@ -205,6 +206,12 @@ class RemoteVideoMenuTriggerButton extends Component<Props> {
             buttons.push(
                 <GrantModeratorButton
                     key = 'grant-moderator'
+                    participantID = { participantID } />
+            );
+
+            buttons.push(
+                <GrantScreenshareButton
+                    key = 'grant-screenshare'
                     participantID = { participantID } />
             );
 

@@ -23,6 +23,26 @@ export const DOMINANT_SPEAKER_CHANGED = 'DOMINANT_SPEAKER_CHANGED';
 export const GRANT_MODERATOR = 'GRANT_MODERATOR';
 
 /**
+ * Create an action for granting a permission to a participant.
+ *
+ * {
+ *     type: GRANT_PERMISSION,
+ *     id: string
+ * }
+ */
+export const GRANT_PERMISSION = 'GRANT_PERMISSION';
+
+/**
+ * Create an action for revoking a permission from a participant.
+ *
+ * {
+ *     type: REVOKE_PERMISSION,
+ *     id: string
+ * }
+ */
+export const REVOKE_PERMISSION = 'REVOKE_PERMISSION';
+
+/**
  * Create an action for removing a participant from the conference.
  *
  * {
