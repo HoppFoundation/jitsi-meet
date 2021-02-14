@@ -16,12 +16,14 @@ import { playSound, registerSound, unregisterSound } from '../sounds';
 import {
     DOMINANT_SPEAKER_CHANGED,
     GRANT_MODERATOR,
+    GRANT_PERMISSION,
     KICK_PARTICIPANT,
     MUTE_REMOTE_PARTICIPANT,
     PARTICIPANT_DISPLAY_NAME_CHANGED,
     PARTICIPANT_JOINED,
     PARTICIPANT_LEFT,
-    PARTICIPANT_UPDATED
+    PARTICIPANT_UPDATED,
+    REVOKE_PERMISSION
 } from './actionTypes';
 import {
     localParticipantIdChanged,
@@ -102,6 +104,13 @@ MiddlewareRegistry.register(store => next => action => {
         break;
     }
 
+    case GRANT_PERMISSION: {
+        const { conference } = store.getState()['features/base/conference'];
+
+        conference.grantPermission(action.id, action.resource);
+        break;
+    }
+
     case KICK_PARTICIPANT: {
         const { conference } = store.getState()['features/base/conference'];
 
@@ -143,6 +152,12 @@ MiddlewareRegistry.register(store => next => action => {
     case PARTICIPANT_UPDATED:
         return _participantJoinedOrUpdated(store, next, action);
 
+    case REVOKE_PERMISSION: {
+        const { conference } = store.getState()['features/base/conference'];
+
+        conference.revokePermission(action.id, action.resource);
+        break;
+    }
     }
 
     return next(action);
@@ -254,6 +269,14 @@ StateListenerRegistry.register(
                         propertyHandlers[propertyName](participant, newValue);
                     }
                 });
+
+            conference.on(
+                JitsiConferenceEvents.PERMISSION_UPDATE_RECEIVED,
+                (id, resource, allowed) => {
+                    console.log("Set permission for", resource, "to", allowed);
+                    store.getState()['features/base/conference'][resource] = allowed;
+                });
+
         } else {
             const localParticipantId = getLocalParticipant(store.getState).id;
 

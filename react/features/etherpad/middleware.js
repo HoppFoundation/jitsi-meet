@@ -26,13 +26,12 @@ MiddlewareRegistry.register(({ dispatch, getState }) => next => action => {
     case TOGGLE_DOCUMENT_EDITING: {
         if (typeof APP === 'undefined') {
             const editing = !getState()['features/etherpad'].editing;
-
             dispatch(setDocumentEditingState(editing));
-            if (editing) {
+            if (editing){
                 dispatch(setActiveModalId(SHARE_DOCUMENT_VIEW_ID));
-            } else if (getState()['features/base/modal'].activeModalId === SHARE_DOCUMENT_VIEW_ID) {
-                dispatch(setActiveModalId(undefined));
-            }        
+            }else if (getState()['features/base/modal'].activeModalId===SHARE_DOCUMENT_VIEW_ID){
+                dispatch(setActiveModalId(undefined))
+            }
         } else {
             APP.UI.emitEvent(UIEvents.ETHERPAD_CLICKED);
         }

@@ -30,7 +30,8 @@ import {
     getLocalParticipant,
     getParticipants,
     participantUpdated,
-    getParticipantDisplayName
+    getParticipantDisplayName,
+    PARTICIPANT_ROLE
 } from '../../../base/participants';
 import { connect, equals } from '../../../base/redux';
 import { OverflowMenuItem } from '../../../base/toolbox/components';
@@ -80,11 +81,10 @@ import { isToolboxVisible } from '../../functions';
 import DownloadButton from '../DownloadButton';
 import HangupButton from '../HangupButton';
 import HelpButton from '../HelpButton';
-import MuteEveryoneButton from '../MuteEveryoneButton';
 
 import AudioSettingsButton from './AudioSettingsButton';
 import KickEveryoneButton from './KickEveryoneButton';
-import MuteEveryoneButton from './MuteEveryoneButton';
+import MuteEveryoneButton from '../MuteEveryoneButton';
 import OverflowMenuButton from './OverflowMenuButton';
 import OverflowMenuProfileItem from './OverflowMenuProfileItem';
 import ToolbarButton from './ToolbarButton';
@@ -104,6 +104,16 @@ type Props = {
      * The {@code JitsiConference} for the current conference.
      */
     _conference: Object,
+
+    /**
+     * Store if local participant is a moderator or not
+     */
+    _isModerator: boolean,
+
+    /**
+     * Boolean which stores if screenshare is allowed
+     */
+    _isScreenShareAllowed: boolean,
 
     /**
      * The tooltip key to use when screensharing is disabled. Or undefined
@@ -927,10 +937,12 @@ class Toolbox extends Component<Props, State> {
     _isDesktopSharingButtonVisible() {
         const {
             _desktopSharingEnabled,
-            _desktopSharingDisabledTooltipKey
+            _desktopSharingDisabledTooltipKey,
+            _isModerator,
+            _isScreenShareAllowed
         } = this.props;
 
-        return _desktopSharingEnabled || _desktopSharingDisabledTooltipKey;
+        return (_isModerator || _isScreenShareAllowed) && (_desktopSharingEnabled || _desktopSharingDisabledTooltipKey);
     }
 
     /**
@@ -1419,6 +1431,7 @@ class Toolbox extends Component<Props, State> {
 function _mapStateToProps(state) {
     const { conference, locked } = state['features/base/conference'];
     let desktopSharingEnabled = JitsiMeetJS.isDesktopSharingEnabled();
+    const screenShareAllowed = state['features/base/conference'].screenshare;
     const {
         callStatsID,
         enableFeaturesBasedOnToken
@@ -1454,8 +1467,10 @@ function _mapStateToProps(state) {
         _desktopSharingDisabledTooltipKey: desktopSharingDisabledTooltipKey,
         _dialog: Boolean(state['features/base/dialog'].component),
         _feedbackConfigured: Boolean(callStatsID),
+        _isModerator: localParticipant.role === PARTICIPANT_ROLE.MODERATOR,
         _isProfileDisabled: Boolean(state['features/base/config'].disableProfile),
         _isVpaasMeeting: isVpaasMeeting(state),
+        _isScreenShareAllowed: Boolean(screenShareAllowed),
         _fullScreen: fullScreen,
         _tileViewEnabled: shouldDisplayTileView(state),
         _localParticipantID: localParticipant.id,

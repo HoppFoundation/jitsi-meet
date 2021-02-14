@@ -16,9 +16,9 @@ import { REMOTE_CONTROL_MENU_STATES } from './RemoteControlButton';
 
 import {
     GrantModeratorButton,
+    GrantScreenshareButton,
     MuteButton,
     KickButton,
-    KickEveryoneElseButton,
     PrivateMessageMenuButton,
     RemoteControlButton,
     RemoteVideoMenu,
@@ -209,17 +209,19 @@ class RemoteVideoMenuTriggerButton extends Component<Props> {
                     participantID = { participantID } />
             );
 
+            buttons.push(
+                <GrantScreenshareButton
+                    key = 'grant-screenshare'
+                    participantID = { participantID } />
+            );
+
             if (!_disableKick) {
                 buttons.push(
                     <KickButton
                         key = 'kick'
                         participantID = { participantID } />
                 );
-                buttons.push(
-                    <KickEveryoneElseButton
-                        key = 'kick-others'
-                        participantID = { participantID } />
-                );
+                
             }
         }
 

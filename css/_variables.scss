@@ -149,7 +149,7 @@ $formPadding: 16px;
 /**
  * Unsupported browser
  */
-$primaryUnsupportedBrowserButtonBgColor: #0052CC;
+$primaryUnsupportedBrowserButtonBgColor: #915f7c;
 $unsupportedBrowserButtonBgColor: rgba(9, 30, 66, 0.04);
 $unsupportedBrowserTextColor: #4a4a4a;
 $unsupportedBrowserTextSmallFontSize: 17px;
@@ -161,18 +161,18 @@ $unsupportedDesktopBrowserTextFontSize: 21px;
 /**
  * The size of the default watermark.
  */
-$watermarkWidth: 71px;
-$watermarkHeight: 32px;
+$watermarkWidth: 375px;
+$watermarkHeight: 51.5625px;
 
-$welcomePageWatermarkWidth: 71px;
-$welcomePageWatermarkHeight: 32px;
+$welcomePageWatermarkWidth: 375px;
+$welcomePageWatermarkHeight: 51.5625px;
 
 /**
  * Welcome page variables.
  */
 $welcomePageDescriptionColor: #fff;
 $welcomePageFontFamily: inherit;
-$welcomePageBackground: none;
+$welcomePageBackground: linear-gradient(-90deg,#56713a,#7ca055,#56713a);
 $welcomePageTitleColor: #fff;
 
 $welcomePageHeaderBackground: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../images/welcome-background.png');
@@ -236,7 +236,7 @@ $deepLinkingMobileHrefFontSize: inherit;
 
 $deepLinkingMobileButtonHeight: 2.2857142857142856em;
 $deepLinkingMobileButtonLineHeight: 2.2857142857142856em;
-$deepLinkingMobileButtonMargin: 18px auto 10px;
+$deepLinkingMobileButtonMargin: 75px auto 10px;
 $deepLinkingMobileButtonWidth: auto;
 $deepLinkingMobileButtonFontWeight: bold;
 $deepLinkingMobileButtonFontSize: inherit;

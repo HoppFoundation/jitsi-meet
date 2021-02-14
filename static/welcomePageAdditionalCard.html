@@ -1,1 +1,29 @@
-<template id = "welcome-page-additional-card-template"></template>
+<template id = "welcome-page-additional-card-template">
+  <style>
+  .welcome .welcome-watermark {
+    height: 0px;
+  }
+  .welcome .welcome-card-row {
+    justify-content:space-between;
+    line-height: 1.7;
+  }
+  @media only screen and (max-width:500px) {
+    .welcome.with-content .welcome-card {
+      margin-top: 24px;
+      width: 100%;
+    }
+  }
+  </style>
+  <div class = "welcome-card-text">
+    <div class="welcome-card-jaas-logo">
+      <img width="32" height="51" src="./images/watermark.png" />
+    </div>
+    <h3 class="welcome-card-large-title">Willkommen im <b>Digitalen Klassenzimmer</b> der Hopp Foundation</h3>
+    &nbsp;
+    <p class="welcome-card-paragraph">Wenn du Lehrer*in bist und bereits einen Account hast, dann gib den Wunschnamen für dein digitales Klassenzimmer ein und leg sofort los!</p>
+    <p class="welcome-card-paragraph">Wir empfehlen dir "Schule-Klasse-Fach".</p>
+    <p class="welcome-card-paragraph">Dein digitales Klassenzimmer ist verschlüsselt und du kannst es mit einem Passwort deiner Wahl schützen! </p>
+    <p class="welcome-card-paragraph">Wenn du noch keinen Account hast, sprich mit deiner Schulleitung bzw. mit der Hopp Foundation und wir erstellen dir schnell und kostenlos einen solchen.</p>
+    <p class="welcome-card-paragraph">Voraussetzung ist, dass du in der Metropolregion Rhein-Neckar unterrichtest! Viel Spaß mit deiner Klasse!</p>
+  </div>
+</template>

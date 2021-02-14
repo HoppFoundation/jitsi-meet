@@ -27,9 +27,7 @@ import {
     _AUDIO_INITIAL_MEDIA_STATE,
     _VIDEO_INITIAL_MEDIA_STATE
 } from './reducer';
-import {
-    getLocalVideoTrack,
-} from '../tracks';
+
 
 
 /**

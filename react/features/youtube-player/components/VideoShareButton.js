@@ -110,7 +110,6 @@ function _mapStateToProps(state, ownProps): Object {
     if (MODERATOR_KEYS){
         visible = visible && ((isModerator && MODERATOR_KEYS.includes('sharedvideo')) || !MODERATOR_KEYS.includes('sharedvideo'))
     }
-  
 
     if (ownerId !== localParticipantId) {
         return {
