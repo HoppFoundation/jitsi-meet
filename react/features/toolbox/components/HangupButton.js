@@ -56,9 +56,10 @@ class HangupButton extends AbstractHangupButton<Props, *> {
                 ScreenShareController.stopRecording();
             }
             sendAnalytics(createToolbarEvent('hangup'));
-            jitsiLocalStorage.removeItem('showScreenshare')
             // FIXME: these should be unified.
             if (navigator.product === 'ReactNative') {
+                jitsiLocalStorage.removeItem('showScreenshare')
+
                 this.props.dispatch(appNavigate(undefined));
             } else {
                 this.props.dispatch(disconnect(true));
@@ -75,17 +76,19 @@ class HangupButton extends AbstractHangupButton<Props, *> {
      */
     _doHangup() {
         this._hangup();
-
-        const protocol = this.props.locationURL.protocol
-        const host = this.props.locationURL.host
-        const serverURL = `${protocol}//${host}`
-        console.log(serverURL)
-        var shouldShowClosePage = JSON.parse(jitsiLocalStorage.getItem(['config.js/'+ serverURL+'/']))["enableClosePage"]
-        if(shouldShowClosePage){
-            this.props.dispatch(setActiveModalId(CLOSING_PAGE_MODAL_ID,serverURL));
-            
-        }
-
+        if (navigator.product === 'ReactNative') {
+            const protocol = this.props.locationURL.protocol
+            const host = this.props.locationURL.host
+            const serverURL = `${protocol}//${host}`
+            console.log(serverURL)
+            var shouldShowClosePage = JSON.parse(jitsiLocalStorage.getItem(['config.js/'+ serverURL+'/']))["enableClosePage"]
+            if(shouldShowClosePage){
+                this.props.dispatch(setActiveModalId(CLOSING_PAGE_MODAL_ID,serverURL));
+                
+            }
+    
+        } 
+       
     }
 }
 function _mapStateToProps(state: Object): $Shape<Props> {
