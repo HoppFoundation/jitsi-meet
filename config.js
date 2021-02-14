@@ -12,16 +12,16 @@ var config = {
         anonymousdomain: 'guest.meet.jitsi',
 
         // Domain for authenticated users. Defaults to <domain>.
-        authdomain: 'meet.jitsi',
+        // authdomain: 'jitsi-meet.example.com',
 
         // Jirecon recording component domain.
-        // jirecon: 'jirecon.meet.jitsi',
+        // jirecon: 'jirecon.jitsi-meet.example.com',
 
         // Call control component (Jigasi).
-        // call_control: 'callcontrol.meet.jitsi',
+        // call_control: 'callcontrol.jitsi-meet.example.com',
 
         // Focus component domain. Defaults to focus.<domain>.
-        // focus: 'focus.meet.jitsi',
+        // focus: 'focus.jitsi-meet.example.com',
 
         // XMPP MUC domain. FIXME: use XEP-0030 to discover it.
         muc: 'muc.meet.jitsi',
@@ -110,7 +110,7 @@ var config = {
 
     // Start the conference in audio only mode (no video is being received nor
     // sent).
-    // startAudioOnly: true,
+    startAudioOnly: true,
 
     // Every participant after the Nth will start audio muted.
     startAudioMuted: 0,
@@ -230,7 +230,7 @@ var config = {
     // Default value for the channel "last N" attribute. -1 for unlimited.
     channelLastN: 25,
 
-        // Provides a way to use different "last N" values based on the number of participants in the conference.
+    // Provides a way to use different "last N" values based on the number of participants in the conference.
     // The keys in an Object represent number of participants and the values are "last N" to be used when number of
     // participants gets to or above the number.
     //
@@ -660,11 +660,9 @@ var config = {
          // The url for the image used as background
          backgroundImageUrl: 'https://example.com/background-img.png',
          // The anchor url used when clicking the logo image
-         logoClickUrl: 'https://jitsi.hopp-foundation.de',
+         logoClickUrl: 'https://example-company.org',
          // The url used for the image used as logo
-         logoImageUrl: 'https://jitsi.hopp-foundation.de/images/rightwatermark.png'
-        logoClickUrl: 'https://jitsi.hopp-foundation.de',
-        logoImageUrl: 'https://jitsi.hopp-foundation.de/images/rightwatermark.png',
+         logoImageUrl: 'https://example.com/logo-img.png'
      }
     */
     // dynamicBrandingUrl: '',
