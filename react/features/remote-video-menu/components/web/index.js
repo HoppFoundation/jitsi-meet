@@ -18,4 +18,6 @@ export { default as PrivateMessageMenuButton } from './PrivateMessageMenuButton'
 export { REMOTE_CONTROL_MENU_STATES, default as RemoteControlButton } from './RemoteControlButton';
 export { default as RemoteVideoMenu } from './RemoteVideoMenu';
 export { default as RemoteVideoMenuTriggerButton } from './RemoteVideoMenuTriggerButton';
+export { default as RevokeScreenshareButton } from './RevokeScreenshareButton';
+export { default as RevokeScreenshareDialog } from './RevokeScreenshareDialog';
 export { default as VolumeSlider } from './VolumeSlider';

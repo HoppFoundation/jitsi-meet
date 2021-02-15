@@ -13,6 +13,29 @@ var interfaceConfig = {
      *
      * Note: this mode is experimental and subject to breakage.
      */
+    DISABLE_VIDEO_BACKGROUND: false,
+
+    INITIAL_TOOLBAR_TIMEOUT: 20000,
+    TOOLBAR_TIMEOUT: 4000,
+    TOOLBAR_ALWAYS_VISIBLE: false,
+    DEFAULT_REMOTE_DISPLAY_NAME: 'Schüler*in',
+    DEFAULT_LOCAL_DISPLAY_NAME: 'Ich',
+    SHOW_JITSI_WATERMARK: true,
+    JITSI_WATERMARK_LINK: 'https://hopp-foundation.de',
+
+    // if watermark is disabled by default, it can be shown only for guests
+    SHOW_WATERMARK_FOR_GUESTS: true,
+    SHOW_BRAND_WATERMARK: false,
+    SHOW_POWERED_BY: false,
+    SHOW_DEEP_LINKING_IMAGE: false,
+    GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
+    DISPLAY_WELCOME_PAGE_CONTENT: true,
+    DISPLAY_WELCOME_PAGE_TOOLBAR_ADDITIONAL_CONTENT: false,
+    APP_NAME: 'Digitales Klassenzimmer',
+    NATIVE_APP_NAME: 'Digitales Klassenzimmer',
+    PROVIDER_NAME: 'Hopp Foundation',
+    LANG_DETECTION: true, // Allow i18n to detect the system language
+    INVITATION_POWERED_BY: true,
     AUTO_PIN_LATEST_SCREEN_SHARE: 'remote-only',
     BRAND_WATERMARK_LINK: 'https://www.ccc.de/schule',
 
@@ -205,7 +228,7 @@ var interfaceConfig = {
         'fodeviceselection', 'hangup', 'profile', 'chat',
         'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
-        'tileview', 'download', 'help', 'mute-everyone', 'security'
+        'tileview', 'videobackgroundblur', 'download', 'help', 'mute-everyone', 'security'
     ],
 
     TOOLBAR_TIMEOUT: 4000,
@@ -253,7 +276,7 @@ var interfaceConfig = {
     /**
      * Specify mobile app scheme for opening the app from the mobile browser.
      */
-    APP_SCHEME: 'de.hopp-foundation.klassenzimmer',
+    // APP_SCHEME: 'org.jitsi.meet',
 
     /**
      * Specify the Android app package name.

@@ -10,7 +10,7 @@ import {
 } from '../../base/participants';
 import { AbstractButton, type AbstractButtonProps } from '../../base/toolbox/components';
 
-import { GrantScreenshareDialog } from '.';
+import { RevokeScreenshareDialog } from '.';
 
 export type Props = AbstractButtonProps & {
 
@@ -20,7 +20,7 @@ export type Props = AbstractButtonProps & {
     dispatch: Function,
 
     /**
-     * The ID of the participant for whom to grant screenshare permission.
+     * The ID of the participant for whom to revoke screenshare permission.
      */
     participantID: string,
 
@@ -33,10 +33,10 @@ export type Props = AbstractButtonProps & {
 /**
  * An abstract remote video menu button which kicks the remote participant.
  */
-export default class AbstractGrantScreenshareButton extends AbstractButton<Props, *> {
-  accessibilityLabel = 'toolbar.accessibilityLabel.grantScreenshare';
+export default class AbstractRevokeScreenshareButton extends AbstractButton<Props, *> {
+  accessibilityLabel = 'toolbar.accessibilityLabel.revokeScreenshare';
   icon = IconCrown;
-  label = 'videothumbnail.grantScreenshare';
+  label = 'videothumbnail.revokeScreenshare';
 
   /**
    * Handles clicking / pressing the button, and kicks the participant.
@@ -47,7 +47,7 @@ export default class AbstractGrantScreenshareButton extends AbstractButton<Props
   _handleClick() {
       const { dispatch, participantID } = this.props;
 
-      dispatch(openDialog(GrantScreenshareDialog, { participantID }));
+      dispatch(openDialog(RevokeScreenshareDialog, { participantID }));
   }
 }
 
@@ -70,6 +70,6 @@ export function _mapStateToProps(state: Object, ownProps: Props) {
     return {
         visible: Boolean(localParticipant?.role === PARTICIPANT_ROLE.MODERATOR)
           && !isParticipantModerator(targetParticipant)
-          && !Boolean(targetParticipant?.screenshare)
+          && Boolean(targetParticipant?.screenshare)
     };
 }

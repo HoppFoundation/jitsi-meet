@@ -20,6 +20,12 @@ var config = {
         // Call control component (Jigasi).
         // call_control: 'callcontrol.meet.jitsi',
 
+        // Jirecon recording component domain.
+        // jirecon: 'jirecon.jitsi-meet.example.com',
+
+        // Call control component (Jigasi).
+        // call_control: 'callcontrol.jitsi-meet.example.com',
+
         // Focus component domain. Defaults to focus.<domain>.
         // focus: 'focus.meet.jitsi',
 
@@ -110,7 +116,7 @@ var config = {
 
     // Start the conference in audio only mode (no video is being received nor
     // sent).
-    // startAudioOnly: true,
+    startAudioOnly: true,
 
     // Every participant after the Nth will start audio muted.
     startAudioMuted: 0,
@@ -350,7 +356,6 @@ var config = {
 
     // UI
     //
-
     // Hides lobby button
     // hideLobbyButton: false,
 
@@ -370,7 +375,7 @@ var config = {
 
     // Enabling the close page will ignore the welcome page redirection when
     // a call is hangup.
-    enableClosePage: true,
+    // enableClosePage: false,
 
     // Disable hiding of remote thumbnails when in a 1-on-1 conference call.
     // disable1On1Mode: false,
@@ -461,7 +466,7 @@ var config = {
     // If third party requests are disabled, no other server will be contacted.
     // This means avatars will be locally generated and callstats integration
     // will not function.
-    disableThirdPartyRequests: true,
+    // disableThirdPartyRequests: false,
 
 
     // Peer-To-Peer mode: used (if enabled) when there are just 2 participants.

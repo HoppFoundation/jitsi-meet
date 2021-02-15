@@ -87,3 +87,8 @@ ios/app/GoogleService-Info.plist
 
 .vscode
 .history
+
+# TWA
+twa/*.apk
+twa/*.aab
+twa/assetlinks.json

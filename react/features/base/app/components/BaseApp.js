@@ -210,7 +210,7 @@ export default class BaseApp extends Component<*, State> {
         if (typeof APP !== 'undefined') {
             APP.store = store;
         }
-        
+
         global.window.storeDispatch = store.dispatch
 
         return store;

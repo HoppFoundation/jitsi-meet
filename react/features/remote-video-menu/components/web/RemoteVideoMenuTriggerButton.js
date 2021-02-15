@@ -22,6 +22,7 @@ import {
     PrivateMessageMenuButton,
     RemoteControlButton,
     RemoteVideoMenu,
+    RevokeScreenshareButton,
     VolumeSlider
 } from './';
 
@@ -212,6 +213,12 @@ class RemoteVideoMenuTriggerButton extends Component<Props> {
             buttons.push(
                 <GrantScreenshareButton
                     key = 'grant-screenshare'
+                    participantID = { participantID } />
+            );
+
+            buttons.push(
+                <RevokeScreenshareButton
+                    key = 'revoke-screenshare'
                     participantID = { participantID } />
             );
 

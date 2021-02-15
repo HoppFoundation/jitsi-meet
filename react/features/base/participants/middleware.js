@@ -108,6 +108,10 @@ MiddlewareRegistry.register(store => next => action => {
         const { conference } = store.getState()['features/base/conference'];
 
         conference.grantPermission(action.id, action.resource);
+        // TODO: Find a proper way to store that flag.
+        conference.eventEmitter.emit(
+            JitsiConferenceEvents.PARTICIPANT_PERMISSION_CHANGED,
+            conference.myUserId(), action.id, action.resource, true);
         break;
     }
 
@@ -156,6 +160,10 @@ MiddlewareRegistry.register(store => next => action => {
         const { conference } = store.getState()['features/base/conference'];
 
         conference.revokePermission(action.id, action.resource);
+        // TODO: Find a proper way to store that flag.
+        conference.eventEmitter.emit(
+            JitsiConferenceEvents.PARTICIPANT_PERMISSION_CHANGED,
+            conference.myUserId(), action.id, action.resource, false);
         break;
     }
     }
@@ -271,10 +279,17 @@ StateListenerRegistry.register(
                 });
 
             conference.on(
-                JitsiConferenceEvents.PERMISSION_UPDATE_RECEIVED,
-                (id, resource, allowed) => {
-                    console.log("Set permission for", resource, "to", allowed);
-                    store.getState()['features/base/conference'][resource] = allowed;
+                JitsiConferenceEvents.PARTICIPANT_PERMISSION_CHANGED,
+                (fromId, toId, resource, allowed) => {
+                    console.log("Set permission for", resource, "by", fromId, "to", allowed);
+                    const targetParticipant = getParticipantById(store.getState, toId);
+                    if (targetParticipant) {
+                        targetParticipant[resource] = allowed;
+                    }
+                    const localParticipantId = getLocalParticipant(store.getState).id;
+                    if (localParticipantId === toId) {
+                        store.getState()['features/base/conference'][resource] = allowed;
+                    }
                 });
 
         } else {

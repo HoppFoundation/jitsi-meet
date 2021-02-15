@@ -84,10 +84,6 @@ export default class AbstractRecordButton<P: Props> extends AbstractButton<P, *>
                 type: JitsiRecordingConstants.mode.FILE
             }));
 
-        console.log(`_isRecordingRunning ${_isRecordingRunning}`);
-        if (!_isRecordingRunning) {
-            
-        }
         dispatch(openDialog(
             _isRecordingRunning ? StopRecordingDialog : StartRecordingDialog
         ));
