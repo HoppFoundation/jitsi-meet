@@ -73,7 +73,7 @@ function _mapStateToProps(state): Object {
     const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS
     var visible_generally = true
     if (MODERATOR_KEYS){
-        visible_generally = visible_generally && ((isModerator && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'))
+        visible_generally = visible_generally && (((isModerator|| screenShareAllowed)   && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'))
     }
     return {
         _screensharing: isLocalVideoTrackDesktop(state),

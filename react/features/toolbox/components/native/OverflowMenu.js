@@ -145,7 +145,7 @@ class OverflowMenu extends PureComponent<Props, State> {
             styles: _bottomSheetStyles.buttons
             
         };
-        var showScreenshare = jitsiLocalStorage.getItem('showScreenshare')=='true'; // I don't know why this is a string now 
+        var showScreenshare = jitsiLocalStorage.getItem('showScreenshare')=='true'; 
         console.log('showScreenshare')
         
         console.log(typeof(showScreenshare))
@@ -180,7 +180,8 @@ class OverflowMenu extends PureComponent<Props, State> {
                     <SharedDocumentButton { ...buttonProps } />
                     <MuteEveryoneButton { ...buttonProps } />
                     <HelpButton { ...buttonProps } />
-                    {Platform.OS == 'ios' ? <><Collapsible collapsed = { showScreenshare }>
+                    {Platform.OS == 'ios' ? <>
+                    <Collapsible collapsed = { showScreenshare }>
                         <ScreenshareButton {...buttonProps} />
                      </Collapsible>
                     <Collapsible collapsed = { !showScreenshare }>
@@ -196,6 +197,10 @@ class OverflowMenu extends PureComponent<Props, State> {
 
     _renderModeratorButtons: () => React$Element<any>;
 
+    /**
+     * TODO: Refactor this to be like the lobby mode/Mute everyone Button
+     * @param {} buttonProps 
+     */
     _renderModeratorButtons(buttonProps){
         const { isModerator } = this.state;
 
