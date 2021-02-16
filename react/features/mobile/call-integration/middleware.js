@@ -72,7 +72,6 @@ CallIntegration && MiddlewareRegistry.register(store => next => action => {
     // Android not always supports two simultaneous calls at the same time
     // (even though it should according to the spec).
     case CONFERENCE_LEFT:
-        return _conferenceLeft(store, next, action);
     case CONFERENCE_WILL_LEAVE:
         return _conferenceLeft(store, next, action);
 
@@ -264,7 +263,7 @@ function _conferenceWillJoin({ dispatch, getState }, next, action) {
     const url = getInviteURL(state);
     const handle = callHandle || url.toString();
     const hasVideo = !isVideoMutedByAudioOnly(state);
-    
+
     // On iOS, if we already have a callUUID set, dont start a new call
     if (conference.callUUID && Platform.OS === 'ios') {
         return result;

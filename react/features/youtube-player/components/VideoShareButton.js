@@ -119,7 +119,7 @@ function _mapStateToProps(state, ownProps): Object {
             visible };
     }
 
-    return {        
+    return {
         isModerator,
         _sharingVideo: isSharingStatus(sharedVideoStatus),
         visible

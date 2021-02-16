@@ -87,11 +87,6 @@ class WelcomePage extends AbstractWelcomePage {
         dispatch(updateSettings({
             startWithVideoMuted: true
         }));
-        // this.props._settings.startWithAudioMuted = true;
-        // this.props._settings.startWithVideoMuted = true;
-
-
-
 
         if (this.props._settings.startAudioOnly) {
             dispatch(destroyLocalTracks());

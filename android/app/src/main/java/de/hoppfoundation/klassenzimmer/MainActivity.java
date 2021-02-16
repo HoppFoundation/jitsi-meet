@@ -141,11 +141,13 @@ public class MainActivity extends JitsiMeetActivity {
         // Set default options
         JitsiMeetConferenceOptions defaultOptions
             = new JitsiMeetConferenceOptions.Builder()
-                .setWelcomePageEnabled(true)
-                .setServerURL(buildURL("https://jitsi.hopp-foundation.de"))
-                .setFeatureFlag("call-integration.enabled", false)
-                .setFeatureFlag("video-share.enabled",true)
-                .build();
+            .setWelcomePageEnabled(true)
+            .setServerURL(buildURL(defaultURL))
+            .setFeatureFlag("call-integration.enabled", false)
+            .setFeatureFlag("resolution", 360)
+            .setFeatureFlag("server-url-change.enabled", !configurationByRestrictions)
+            .setFeatureFlag("video-share.enabled", true)
+            .build();
         JitsiMeet.setDefaultConferenceOptions(defaultOptions);
     }
 

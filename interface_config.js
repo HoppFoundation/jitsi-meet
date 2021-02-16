@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars, no-var, max-len */
+/* eslint sort-keys: ["error", "asc", {"caseSensitive": false}] */
 
 var interfaceConfig = {
-    APP_NAME: 'Virtuelles Klassenzimmer',
+    APP_NAME: 'Digitales Klassenzimmer',
     AUDIO_LEVEL_PRIMARY_COLOR: 'rgba(255,255,255,0.4)',
     AUDIO_LEVEL_SECONDARY_COLOR: 'rgba(255,255,255,0.2)',
 
@@ -13,29 +14,7 @@ var interfaceConfig = {
      *
      * Note: this mode is experimental and subject to breakage.
      */
-    DISABLE_VIDEO_BACKGROUND: false,
 
-    INITIAL_TOOLBAR_TIMEOUT: 20000,
-    TOOLBAR_TIMEOUT: 4000,
-    TOOLBAR_ALWAYS_VISIBLE: false,
-    DEFAULT_REMOTE_DISPLAY_NAME: 'Schüler*in',
-    DEFAULT_LOCAL_DISPLAY_NAME: 'Ich',
-    SHOW_JITSI_WATERMARK: true,
-    JITSI_WATERMARK_LINK: 'https://hopp-foundation.de',
-
-    // if watermark is disabled by default, it can be shown only for guests
-    SHOW_WATERMARK_FOR_GUESTS: true,
-    SHOW_BRAND_WATERMARK: false,
-    SHOW_POWERED_BY: false,
-    SHOW_DEEP_LINKING_IMAGE: false,
-    GENERATE_ROOMNAMES_ON_WELCOME_PAGE: true,
-    DISPLAY_WELCOME_PAGE_CONTENT: true,
-    DISPLAY_WELCOME_PAGE_TOOLBAR_ADDITIONAL_CONTENT: false,
-    APP_NAME: 'Digitales Klassenzimmer',
-    NATIVE_APP_NAME: 'Digitales Klassenzimmer',
-    PROVIDER_NAME: 'Hopp Foundation',
-    LANG_DETECTION: true, // Allow i18n to detect the system language
-    INVITATION_POWERED_BY: true,
     AUTO_PIN_LATEST_SCREEN_SHARE: 'remote-only',
     BRAND_WATERMARK_LINK: 'https://www.ccc.de/schule',
 
@@ -67,9 +46,9 @@ var interfaceConfig = {
     CONNECTION_INDICATOR_DISABLED: false,
 
     DEFAULT_BACKGROUND: '#474747',
-    DEFAULT_LOCAL_DISPLAY_NAME: 'me',
+    DEFAULT_LOCAL_DISPLAY_NAME: 'Ich',
     DEFAULT_LOGO_URL: 'images/watermark.png',
-    DEFAULT_REMOTE_DISPLAY_NAME: 'Anonym',
+    DEFAULT_REMOTE_DISPLAY_NAME: 'Schüler*in',
     DEFAULT_WELCOME_PAGE_LOGO_URL: 'images/watermark.png',
 
     DISABLE_DOMINANT_SPEAKER_INDICATOR: false,
@@ -132,7 +111,7 @@ var interfaceConfig = {
     HIDE_INVITE_MORE_HEADER: false,
 
     INITIAL_TOOLBAR_TIMEOUT: 20000,
-    JITSI_WATERMARK_LINK: 'https://jitsi.hopp-foundation.de',
+    JITSI_WATERMARK_LINK: 'https://hopp-foundation.de',
 
     LANG_DETECTION: false, // Allow i18n to detect the system language
     LIVE_STREAMING_HELP_LINK: 'https://jitsi.org/live', // Documentation reference for the live streaming feature.
@@ -170,7 +149,7 @@ var interfaceConfig = {
      */
     MOBILE_DOWNLOAD_LINK_IOS: 'https://apps.apple.com/de/app/digitales-klassenzimmer/id1508736201',
 
-    NATIVE_APP_NAME: 'Jitsi Meet',
+    NATIVE_APP_NAME: 'Digitales Klassenzimmer',
 
     // Names of browsers which should show a warning stating the current browser
     // has a suboptimal experience. Browsers which are not listed as optimal or
@@ -179,7 +158,7 @@ var interfaceConfig = {
     OPTIMAL_BROWSERS: [ 'chrome', 'chromium', 'firefox', 'nwjs', 'electron', 'safari' ],
 
     POLICY_LOGO: null,
-    PROVIDER_NAME: 'Jitsi',
+    PROVIDER_NAME: 'Hopp Foundation',
 
     /**
      * If true, will display recent list
