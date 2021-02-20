@@ -106,7 +106,7 @@ MiddlewareRegistry.register(store => next => action => {
         console.log('clearing');
         jitsiLocalStorage.removeItem("sessionId");
         return {}
-    
+
     case MARK_CLEAR_SESSION_ID:
         console.log('marking clear session');
         return toggleClearSessionId(store, next, action);
@@ -114,7 +114,6 @@ MiddlewareRegistry.register(store => next => action => {
     case UNMARK_CLEAR_SESSION_ID:
         console.log('unmarking clear session');
         return toggleClearSessionId(store, next, action, false);
-    
     }
 
     return next(action);

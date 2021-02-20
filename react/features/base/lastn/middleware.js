@@ -19,7 +19,6 @@ import { MiddlewareRegistry } from '../redux';
 import { isLocalVideoTrackDesktop } from '../tracks/functions';
 
 import { limitLastN } from './functions';
-
 import logger from './logger';
 
 declare var APP: Object;
