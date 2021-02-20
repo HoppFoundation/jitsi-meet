@@ -640,10 +640,11 @@ var config = {
     // },
 
     // Options related to the remote participant menu.
-    // remoteVideoMenu: {
+    remoteVideoMenu: {
     //     // If set to true the 'Kick out' button will be disabled.
     //     disableKick: true
-    // },
+        disablePrivateChat: true
+    },
 
     // If set to true all muting operations of remote participants will be disabled.
     // disableRemoteMute: true,
