@@ -138,19 +138,14 @@ class OverflowMenu extends PureComponent<Props, State> {
     render() {
         const { _bottomSheetStyles, __localVideo } = this.props;
         const { showMore } = this.state;
+
         let {dispatch} = this.props;
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
             styles: _bottomSheetStyles.buttons
-            
         };
-        var showScreenshare = jitsiLocalStorage.getItem('showScreenshare')=='true'; 
-        console.log('showScreenshare')
-        
-        console.log(typeof(showScreenshare))
-        console.log(showScreenshare)
-        console.log(this.props)            
+        var showScreenshare = jitsiLocalStorage.getItem('showScreenshare') == 'true'; // I don't know why this is a string now
         const moreOptionsButtonProps = {
             ...buttonProps,
             afterClick: this._onToggleMenu,
@@ -170,7 +165,7 @@ class OverflowMenu extends PureComponent<Props, State> {
                 <ScreenSharingButton { ...buttonProps } />
                 <MoreOptionsButton { ...moreOptionsButtonProps } />
                 <Collapsible collapsed = { !showMore }>
-                    {this._renderModeratorButtons(buttonProps)}          
+                    {this._renderModeratorButtons(buttonProps)}
                     <ToggleCameraButton { ...buttonProps } />
                     <TileViewButton { ...buttonProps } />
                     <LiveStreamButton { ...buttonProps } />
@@ -314,9 +309,6 @@ function _mapStateToProps(state) {
             .find(({ features = {} }) =>
                 String(features['screen-sharing']) === 'true') !== undefined;
     }
-    console.log(state)
-    console.log('state')
-    console.log(Platform.OS)
     return {
         __localVideo: state['features/base/tracks'],
         _bottomSheetStyles: ColorSchemeRegistry.get(state, 'BottomSheet'),

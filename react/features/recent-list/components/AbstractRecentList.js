@@ -14,6 +14,7 @@ import {
     Container,
     Text
 } from '../../base/react';
+
 import styles from './styles';
 
 /**
@@ -97,6 +98,7 @@ export default class AbstractRecentList<P: Props> extends AbstractPage<P> {
         const { dispatch } = this.props;
 
         sendAnalytics(createRecentClickedEvent('recent.meeting.tile'));
+
         dispatch(appNavigate(url));
     }
 }

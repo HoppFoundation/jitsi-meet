@@ -16,7 +16,6 @@ type Props = {
      */
     exclude: Object,
 
-
     /**
      * Redux store dispatch function.
      */
@@ -48,8 +47,6 @@ class ScreenshareWarningPrompt extends Component<Props> {
      * @returns {ReactElement}
      */
     render() {
-
-
         return (
             <ConfirmDialog
                 contentKey='dialog.screenShareWarning'
@@ -88,7 +85,6 @@ class ScreenshareWarningPrompt extends Component<Props> {
     _onSubmit() {
         jitsiLocalStorage.setItem('showScreenshare', true)
         this.props.dispatch(hideDialog(ScreenshareWarningPrompt))
-
 
         return true;
     }

@@ -24,7 +24,6 @@ type Props = AbstractButtonProps & {
      */
     _localParticipant: Object,
 
-  
     /**
      * The redux {@code dispatch} function.
      */
@@ -50,8 +49,6 @@ class ScreenshareButton extends AbstractButton<Props, *> {
         this._openPrompt();
     }
 
-  
-
     /**
      * Toggles the rased hand status of the local participant.
      *
@@ -59,9 +56,6 @@ class ScreenshareButton extends AbstractButton<Props, *> {
      */
     _openPrompt() {
         this.props.dispatch(openDialog(ScreenshareWarningPrompt));
-            
-
-        
     }
 
 }

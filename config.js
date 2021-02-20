@@ -356,6 +356,7 @@ var config = {
 
     // UI
     //
+
     // Hides lobby button
     // hideLobbyButton: false,
 
@@ -409,7 +410,7 @@ var config = {
     // noticeMessage: 'Auf Grund von Wartungsarbeiten steht der Dienst leider in der Nacht auf Montag zwischen 21 und 6 Uhr nicht zur Verfügung. Wir bitten die entstandenen Unannehmlichkeiten zu entschuldigen!',
     // noticeMessage: 'Auf Grund von Servererweiterungen müssen wir den aktuellen Server leider zwischen 17 und 18 Uhr kurz neustarten, wodurch das aktuelle Meeting unterbrochen wird. Wir bitten die entstandenen Unannehmlichkeiten zu entschuldigen!',
     // noticeMessage: 'Auf Grund von Wartungsarbeiten steht dieser Dienst leider heute (19.12.2020) von 20:00 - 23:59 Uhr nicht zur Verfügung. Wir bitten die entstandenen Unannehmlichkeiten zu entschuldigen!',
-    noticeMessage: 'Youtube-Teilen für Nicht-Moderatoren wurde deaktiviert. Das Bildschirmteilen für Nicht-Moderatoren wurde deaktiviert. Für Details schauen Sie auf https://unterrichtsmaterialien.hopp-foundation.de/konzepte/jitsi-leitfaden-fuer-lehrer-innen oder wenden Sie sich an Ihre Schulleitung.',
+    //noticeMessage: 'Youtube-Teilen für Nicht-Moderatoren wurde deaktiviert. Das Bildschirmteilen für Nicht-Moderatoren wurde deaktiviert. Für Details schauen Sie auf https://unterrichtsmaterialien.hopp-foundation.de/konzepte/jitsi-leitfaden-fuer-lehrer-innen oder wenden Sie sich an Ihre Schulleitung.',
 
     // Enables calendar integration, depends on googleApiApplicationClientID
     // and microsoftApiApplicationClientID

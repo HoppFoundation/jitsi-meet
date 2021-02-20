@@ -8,6 +8,7 @@ import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 import { toggleScreensharing, isLocalVideoTrackDesktop } from '../../../base/tracks';
 import { getLocalParticipant, PARTICIPANT_ROLE } from '../../../base/participants';
+
 /**
  * The type of the React {@code Component} props of {@link ScreenSharingButton}.
  */

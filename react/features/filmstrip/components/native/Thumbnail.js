@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { View, TouchableOpacity} from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import type { Dispatch } from 'redux';
 
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
@@ -151,7 +151,6 @@ function Thumbnail(props: Props) {
             ] }
             touchFeedback = { false }>
 
-
             <ParticipantView
                 avatarSize = { tileView ? AVATAR_SIZE * 1.5 : AVATAR_SIZE }
                 disableVideo = { isScreenShare || participant.isFakeParticipant }
@@ -170,31 +169,25 @@ function Thumbnail(props: Props) {
                     <ModeratorIndicator />
                 </View>}
                 
-            { !participant.isFakeParticipant && 
-           <TouchableOpacity 
-           onPress={ participant.local ? undefined : _onThumbnailLongPress}  
-     style = { [
+            { !participant.isFakeParticipant && <TouchableOpacity
+                onPress = { participant.local ? undefined : _onThumbnailLongPress }
+                style = { [
                     styles.thumbnailTopIndicatorContainer,
                     styles.thumbnailTopLeftIndicatorContainer,
-                  styles.moreInfoButton 
+                    styles.moreInfoButton
                 ] } >
-                    <View>
-                 <MoreOptionsIndicator/>
-
+                <View>
+                    <MoreOptionsIndicator />
                 </View>
+            </TouchableOpacity> }
 
-            </TouchableOpacity>
-}
-
-            <View
-           style = { [
-            styles.thumbnailTopIndicatorContainer,
-            styles.thumbnailUnderTopLeftIndicatorContainer]}
-            >
-            
+            <View style = { [
+                styles.thumbnailTopIndicatorContainer,
+                styles.thumbnailUnderTopLeftIndicatorContainer
+            ]}>
 
                 { renderDominantSpeakerIndicator && <DominantSpeakerIndicator /> }
-                </View>
+            </View>
             { !participant.isFakeParticipant && <View
                 style = { [
                     styles.thumbnailTopIndicatorContainer,
