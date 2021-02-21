@@ -97,8 +97,8 @@ export default {
     },
 
     moreInfoButton:{
-        width:20,
-        height:20,
+        width: 20,
+        height: 20,
         borderColor: '#424242',
         borderRadius: 4,
     },
@@ -124,6 +124,7 @@ export default {
     thumbnailTopLeftIndicatorContainer: {
         left: 0
     },
+
     thumbnailUnderTopLeftIndicatorContainer: {
         left: 0,
         top:10

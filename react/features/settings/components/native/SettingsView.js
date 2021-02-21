@@ -129,9 +129,7 @@ class SettingsView extends AbstractSettingsView<Props, State> {
         this._onShowAdvanced = this._onShowAdvanced.bind(this);
         this._setURLFieldReference = this._setURLFieldReference.bind(this);
         this._showURLAlert = this._showURLAlert.bind(this);
-       
     }
-
 
     /**
      * Implements React's {@link Component#render()}, renders the settings page.
@@ -163,7 +161,6 @@ class SettingsView extends AbstractSettingsView<Props, State> {
                             textContentType = { 'name' } // iOS only
                             value = { displayName } />
                     </FormRow>
-                   
                     <FormSectionHeader
                         label = 'settingsView.conferenceSection' />
                     <FormRow

@@ -12,7 +12,7 @@ import { SET_AUDIO_ONLY, setAudioOnly } from '../audio-only';
 import { isRoomValid, SET_ROOM } from '../conference';
 import { MiddlewareRegistry } from '../redux';
 import { getPropertyValue } from '../settings';
-import { setTrackMuted, TRACK_ADDED, getLocalVideoTrack } from '../tracks';
+import { isLocalVideoTrackDesktop, setTrackMuted, TRACK_ADDED, getLocalVideoTrack } from '../tracks';
 
 import { setAudioMuted, setCameraFacingMode, setVideoMuted } from './actions';
 import {

@@ -8,7 +8,7 @@
  *         avatarURL: string,
  *         cameraDeviceId: string,
  *         displayName: string,
- *         disableCallIntegration:boolean,
+ *         disableCallIntegration: boolean,
  *         email: string,
  *         localFlipX: boolean,
  *         micDeviceId: string,

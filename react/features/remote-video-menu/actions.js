@@ -112,7 +112,6 @@ export function kickAllParticipants(exclude: Array<string>) {
         participantIds
             .filter(id => !exclude.includes(id))
             .map(id => id === localId ? kickParticipant(true) : kickParticipant(id))
-
             .map(dispatch);
         /* eslint-enable no-confusing-arrow */
     };

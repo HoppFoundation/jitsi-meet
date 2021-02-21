@@ -38,7 +38,7 @@ class IOSRecordButtonWrapper extends PureComponent<Props,*> {
 
     recordingEnded = () => {
         console.log("switch back to camera track");
-        // do we need to worry about messed up states? 
+        // do we need to worry about messed up states?
         // would diff start stop dispatches be better?
         this.props.dispatch({ type: 'END_SCREEN_SHARING' });
     }
@@ -49,7 +49,7 @@ class IOSRecordButtonWrapper extends PureComponent<Props,*> {
             onStart={() => {this.recordingStarted();}}
             onEnd={() => {this.recordingEnded();}}
             style={{width: 200, height: 36}}
-            ref={comp => { this.recordComponent = comp; }} 
+            ref={comp => { this.recordComponent = comp; }}
         />
     }
 }
@@ -100,7 +100,7 @@ MiddlewareRegistry.register(store => next => action => {
     case 'END_SCREEN_SHARING':
         _untoggleScreenSharing(store);
         break;
-    
+
     case 'START_SCREEN_SHARING':
         _toggleScreenSharing(store);
         break;
@@ -135,10 +135,14 @@ function _switchToScreenSharing(store, tracks, localVideo) {
 
     didHaveVideo = Boolean(localVideo);
     wasVideoMuted = !localVideo || localVideo.muted;
-    createLocalTrackF(store, tracks, 'desktop').then(desktopStream => {
+    createLocalTrackF(store, tracks, 'desktop')
+    .then(desktopStream => {
         desktopStream.on(JitsiTrackEvents.LOCAL_TRACK_STOPPED, () => _untoggleScreenSharing(store));
         return desktopStream;
-    }).then(stream => useVideoStream(store.dispatch, localVideo, stream)).then(() => { videoSwitchInProgress = false; }).catch(() => {
+    })
+    .then(stream => useVideoStream(store.dispatch, localVideo, stream))
+    .then(() => { videoSwitchInProgress = false; })
+    .catch(() => {
         videoSwitchInProgress = false, _untoggleScreenSharing(store);
     })
 }
@@ -162,7 +166,10 @@ function createLocalTrackF({ dispatch, getState }, tracks, device) {
     // device separately.
     const track = getLocalTrack(tracks, device === 'audio' ? 'audio' : 'video', /* includePending */ true);
     if (track) {
-        if (track.mediaType == 'audio' || (device === 'video' && track.videoType !== 'desktop') || (device !== 'video' && track.videoType === 'desktop')) {
+        if (track.mediaType == 'audio' ||
+            (device === 'video' && track.videoType !== 'desktop') ||
+            (device !== 'video' && track.videoType === 'desktop'))
+        {
             let err = new Error(`Local track for ${device} already exists.`);
             err.name = 'LOCAL_TRACK_EXISTS';
             return Promise.reject(err);
@@ -250,7 +257,6 @@ function useVideoStream(dispatch, localVideo = { }, newStream) {
         });
     });
 }
-
 
 /**
  * Turns off the screen sharing and restores

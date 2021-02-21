@@ -23,7 +23,6 @@ type Props = AbstractButtonProps & {
      */
     _localParticipant: Object,
 
-  
     /**
      * The redux {@code dispatch} function.
      */
@@ -49,8 +48,6 @@ class MuteEveryoneElseButton extends AbstractButton<Props, *> {
         this._muteEveryoneElse();
     }
 
-  
-
     /**
      * Toggles the rased hand status of the local participant.
      *
@@ -59,8 +56,6 @@ class MuteEveryoneElseButton extends AbstractButton<Props, *> {
     _muteEveryoneElse() {
         console.log("mute all")
         this.props.dispatch(muteAllParticipants([this.props._localParticipant.id]));
-
-        
     }
 }
 

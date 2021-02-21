@@ -5,10 +5,11 @@ import type { Dispatch } from 'redux';
 import { getFeatureFlag, VIDEO_SHARE_BUTTON_ENABLED } from '../../base/flags';
 import { translate } from '../../base/i18n';
 import { IconShareVideo } from '../../base/icons';
+import { getLocalParticipant, PARTICIPANT_ROLE } from '../../base/participants';
 import { connect } from '../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../base/toolbox/components';
 import { toggleSharedVideo } from '../actions';
-import { getLocalParticipant, PARTICIPANT_ROLE } from '../../base/participants';
+
 /**
  * The type of the React {@code Component} props of {@link TileViewButton}.
  */
@@ -18,11 +19,6 @@ type Props = AbstractButtonProps & {
      * Whether or not the button is disabled.
      */
     _isDisabled: boolean,
-
-    /** 
-     * Whether the local participant is a moderator or not.
-    */
-   isModerator: Boolean,
 
     /**
      * Whether or not the local participant is sharing a YouTube video.
@@ -102,27 +98,28 @@ function _mapStateToProps(state, ownProps): Object {
     const { ownerId, status: sharedVideoStatus } = state['features/youtube-player'];
     const localParticipantId = getLocalParticipant(state).id;
     const enabled = getFeatureFlag(state, VIDEO_SHARE_BUTTON_ENABLED, true);
-    var { visible = enabled } = ownProps;
+    const { visible = enabled } = ownProps;
     const localParticipant = getLocalParticipant(state);
     const isModerator = localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
-    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS
 
-    if (MODERATOR_KEYS){
-        visible = visible && ((isModerator && MODERATOR_KEYS.includes('sharedvideo')) || !MODERATOR_KEYS.includes('sharedvideo'))
+    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
+    var visible_generally = true;
+
+    if (MODERATOR_KEYS) {
+        visible_generally = (isModerator && MODERATOR_KEYS.includes('sharedvideo')) || !MODERATOR_KEYS.includes('sharedvideo');
     }
 
     if (ownerId !== localParticipantId) {
         return {
-            isModerator,
             _isDisabled: isSharingStatus(sharedVideoStatus),
             _sharingVideo: false,
-            visible };
+            visible: visible_generally && visible
+        };
     }
 
     return {
-        isModerator,
         _sharingVideo: isSharingStatus(sharedVideoStatus),
-        visible
+        visible: visible_generally && visible
     };
 }
 

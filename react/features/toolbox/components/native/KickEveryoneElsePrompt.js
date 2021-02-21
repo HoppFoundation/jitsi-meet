@@ -16,7 +16,6 @@ type Props = {
      */
     exclude: Object,
 
-
     /**
      * Redux store dispatch function.
      */
@@ -48,8 +47,6 @@ class KickEveryoneElsePrompt extends Component<Props> {
      * @returns {ReactElement}
      */
     render() {
-
-
         return (
             <ConfirmDialog
                 contentKey='dialog.kickEveryoneDialog'
@@ -89,12 +86,8 @@ class KickEveryoneElsePrompt extends Component<Props> {
     _onSubmit() {
         this.props.dispatch(kickAllParticipants(exclude));
         this.props.dispatch(hideDialog(KickEveryoneElsePrompt))
-
-
         return true;
     }
-
 }
 
 export default connect()(KickEveryoneElsePrompt);
-

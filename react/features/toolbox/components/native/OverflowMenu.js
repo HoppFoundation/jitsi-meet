@@ -107,26 +107,23 @@ class OverflowMenu extends PureComponent<Props, State> {
         this._onSwipe = this._onSwipe.bind(this);
         this._onToggleMenu = this._onToggleMenu.bind(this);
         this._renderMenuExpandToggle = this._renderMenuExpandToggle.bind(this);
-        this._renderModeratorButtons = this._renderModeratorButtons.bind(this)
+        this._renderModeratorButtons = this._renderModeratorButtons.bind(this);
 
         var sessionId = jitsiLocalStorage.getItem('sessionId');
 
-        if(sessionId){
+        if (sessionId) {
             this.state = {
                 scrolledToTop: true,
                 showMore: false,
-                isModerator:true
-
+                isModerator: true
             };
-        }else{ 
+        } else {
             this.state = {
                 scrolledToTop: true,
                 showMore: false,
-                isModerator:false
-
-
+                isModerator: false
             };
-         }
+        }
     }
 
     /**
@@ -189,16 +186,15 @@ class OverflowMenu extends PureComponent<Props, State> {
         );
     }
 
-
     _renderModeratorButtons: () => React$Element<any>;
 
     _renderModeratorButtons(buttonProps){
         const { isModerator } = this.state;
 
-        if(isModerator){
+        if (isModerator) {
             return(
                 <View>
-                <KickEveryoneElseButton { ...buttonProps } />
+                    <KickEveryoneElseButton { ...buttonProps } />
                 </View>
             );
         }
@@ -282,7 +278,6 @@ class OverflowMenu extends PureComponent<Props, State> {
      * @returns {void}
      */
     _onToggleMenu() {
-        console.log(this)
         this.setState({
             showMore: !this.state.showMore
         });

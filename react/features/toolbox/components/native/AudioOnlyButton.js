@@ -7,7 +7,7 @@ import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 import AudioOnlyWarningPrompt from './AudioOnlyWarningPrompt';
 import { openDialog } from '../../../base/dialog';
-/**
+
 /**
  * The type of the React {@code Component} props of {@link AudioOnlyButton}.
  */

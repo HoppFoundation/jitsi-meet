@@ -446,6 +446,7 @@ function _mapStateToProps(state) {
     //   are leaving one.
     const connecting_
         = connecting || (connection && (!membersOnly && (joining || (!conference && !leaving))));
+
     return {
         ...abstractMapStateToProps(state),
         _aspectRatio: aspectRatio,

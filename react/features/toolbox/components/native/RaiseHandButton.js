@@ -12,7 +12,7 @@ import { IconRaisedHand } from '../../../base/icons';
 import {
     getLocalParticipant,
     participantUpdated,
-    getParticipantDisplayName,
+    getParticipantDisplayName
 } from '../../../base/participants';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
