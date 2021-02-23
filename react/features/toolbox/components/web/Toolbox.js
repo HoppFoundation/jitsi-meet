@@ -38,8 +38,8 @@ import { OverflowMenuItem } from '../../../base/toolbox/components';
 import { getLocalVideoTrack, toggleScreensharing } from '../../../base/tracks';
 import { isVpaasMeeting } from '../../../billing-counter/functions';
 import { VideoBlurButton } from '../../../blur';
-import { EmbedMeetingDialog } from '../../../embed-meeting';
 import { CHAT_SIZE, ChatCounter, toggleChat, sendMessage } from '../../../chat';
+import { EmbedMeetingDialog } from '../../../embed-meeting';
 import { SharedDocumentButton } from '../../../etherpad';
 import { openFeedbackDialog } from '../../../feedback';
 import { beginAddPeople } from '../../../invite';
@@ -81,10 +81,10 @@ import { isToolboxVisible } from '../../functions';
 import DownloadButton from '../DownloadButton';
 import HangupButton from '../HangupButton';
 import HelpButton from '../HelpButton';
-
-import AudioSettingsButton from './AudioSettingsButton';
 import KickEveryoneButton from './KickEveryoneButton';
 import MuteEveryoneButton from '../MuteEveryoneButton';
+
+import AudioSettingsButton from './AudioSettingsButton';
 import OverflowMenuButton from './OverflowMenuButton';
 import OverflowMenuProfileItem from './OverflowMenuProfileItem';
 import ToolbarButton from './ToolbarButton';
@@ -483,6 +483,7 @@ class Toolbox extends Component<Props, State> {
      */
     _doToggleRaiseHand() {
         const { _localParticipantID, _raisedHand, _localParticipantName } = this.props;
+        const newRaisedStatus = !_raisedHand;
 
         // uncomment this to enable chat message on raise hand for web
         // if(!_raisedHand) {

@@ -286,7 +286,6 @@ class WelcomePage extends AbstractWelcomePage {
                                 style = { _headerStyles.headerButtonIcon } />
                         </TouchableOpacity>
                         <VideoSwitch />
-                        {/* <AudioSwitch /> */}
                     </Header>
                     <SafeAreaView style = { styles.roomContainer } >
                         <View style = { styles.joinControls } >

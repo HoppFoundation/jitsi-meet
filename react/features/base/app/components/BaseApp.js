@@ -211,7 +211,11 @@ export default class BaseApp extends Component<*, State> {
             APP.store = store;
         }
 
-        global.window.storeDispatch = store.dispatch
+        if (navigator.product === 'ReactNative') {
+            // Only used for dispatching "{START,END}_SCREEN_SHARING" on mobile
+            // TODO Replace with using event handler
+            global.window.storeDispatch = store.dispatch;
+        }
 
         return store;
     }

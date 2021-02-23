@@ -20,7 +20,7 @@ const DEFAULT_STATE = {
     audioOutputDeviceId: undefined,
     avatarURL: undefined,
     cameraDeviceId: undefined,
-    disableCallIntegration: false,
+    disableCallIntegration: undefined,
     disableCrashReporting: undefined,
     disableP2P: undefined,
     displayName: undefined,

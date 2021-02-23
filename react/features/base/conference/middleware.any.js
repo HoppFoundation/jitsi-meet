@@ -51,7 +51,6 @@ import {
 import { jitsiLocalStorage } from '@jitsi/js-utils';
 import logger from './logger';
 
-
 declare var APP: Object;
 
 /**
