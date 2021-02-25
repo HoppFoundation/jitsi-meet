@@ -41,6 +41,11 @@ type Props = {
     _disableKick: boolean,
 
     /**
+     * Whether or not to display the kick button.
+     */
+    _disablePrivateChat: boolean,
+
+    /**
      * Whether or not to display the remote mute buttons.
      */
     _disableRemoteMute: Boolean,
@@ -177,6 +182,7 @@ class RemoteVideoMenuTriggerButton extends Component<Props> {
     _renderRemoteVideoMenu() {
         const {
             _disableKick,
+            _disablePrivateChat,
             _disableRemoteMute,
             _isAudioMuted,
             _isModerator,
@@ -249,11 +255,14 @@ class RemoteVideoMenuTriggerButton extends Component<Props> {
             );
         }
 
-        buttons.push(
-            <PrivateMessageMenuButton
-                key = 'privateMessage'
-                participantID = { participantID } />
-        );
+        // TODO krombel: Enable for moderator
+        if (!_disablePrivateChat){
+            buttons.push(
+                <PrivateMessageMenuButton
+                    key = 'privateMessage'
+                    participantID = { participantID } />
+            );
+        }
 
         if (onVolumeChange) {
             buttons.push(
@@ -296,7 +305,7 @@ function _mapStateToProps(state, ownProps) {
     const tracks = state['features/base/tracks'];
     const localParticipant = getLocalParticipant(state);
     const { remoteVideoMenu = {}, disableRemoteMute } = state['features/base/config'];
-    const { disableKick } = remoteVideoMenu;
+    const { disableKick, disablePrivateChat } = remoteVideoMenu;
     let _remoteControlState = null;
     const participant = getParticipantById(state, participantID);
     const _isRemoteControlSessionActive = participant?.remoteControlSessionStatus ?? false;
@@ -334,6 +343,7 @@ function _mapStateToProps(state, ownProps) {
         _isAudioMuted: isRemoteTrackMuted(tracks, MEDIA_TYPE.AUDIO, participantID) || false,
         _isModerator: Boolean(localParticipant?.role === PARTICIPANT_ROLE.MODERATOR),
         _disableKick: Boolean(disableKick),
+        _disablePrivateChat: Boolean(disablePrivateChat),
         _disableRemoteMute: Boolean(disableRemoteMute),
         _remoteControlState,
         _menuPosition

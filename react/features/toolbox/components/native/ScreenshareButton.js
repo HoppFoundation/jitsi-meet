@@ -57,7 +57,6 @@ class ScreenshareButton extends AbstractButton<Props, *> {
     _openPrompt() {
         this.props.dispatch(openDialog(ScreenshareWarningPrompt));
     }
-
 }
 /**
  * Maps part of the Redux state to the props of this component.
@@ -70,9 +69,10 @@ class ScreenshareButton extends AbstractButton<Props, *> {
 function _mapStateToProps(state, ownProps): Object {
     const _localParticipant = getLocalParticipant(state);
     const isModerator = _localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
-    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS
-    var visible_generally = true
     const screenShareAllowed = state['features/base/conference'].screenshare;
+
+    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
+    var visible_generally = true;
 
     if (MODERATOR_KEYS){
         visible_generally = visible_generally && (((isModerator|| screenShareAllowed)     && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'));

@@ -1,5 +1,5 @@
-jitsi-meet-web (1.0.5390-1) unstable; urgency=low
+jitsi-meet-web (1.0.5390-4) unstable; urgency=low
 
-  * Initial release with customizations for Hopp Foundation.
+  * Release with customizations for Hopp Foundation.
 
- -- Matthias Kesler <matthias@kesler-it.de>  Sun, 24 Jan 2021 22:51:00 +0200
+ -- Matthias Kesler <matthias@kesler-it.de>  Sat, 20 Feb 2021 15:51:00 +0200

@@ -88,7 +88,6 @@ class ScreenshareWarningPrompt extends Component<Props> {
 
         return true;
     }
-
 }
 
 export default connect()(ScreenshareWarningPrompt);

@@ -71,8 +71,9 @@ class ScreenSharingButton extends AbstractButton<Props, *> {
 function _mapStateToProps(state): Object {
     const _localParticipant = getLocalParticipant(state);
     const isModerator = _localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
-    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS
-    var visible_generally = true
+    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
+    const screenShareAllowed = state['features/base/conference'].screenshare;
+    var visible_generally = true;
     if (MODERATOR_KEYS){
         visible_generally = visible_generally && (((isModerator|| screenShareAllowed)   && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'))
     }

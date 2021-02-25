@@ -21,7 +21,12 @@ type Props = AbstractProps & {
     /**
      * The color-schemed stylesheet of the feature.
      */
-    _styles: StyleType
+    _styles: StyleType,
+
+    /**
+     * Whether or not to display the kick button.
+     */
+    _disablePrivateChat: boolean
 };
 
 /**
@@ -34,9 +39,14 @@ class ChatMessage extends AbstractChatMessage<Props> {
      * @inheritdoc
      */
     render() {
-        const { _styles, message } = this.props;
+        const { _styles, _disablePrivateChat, message } = this.props;
         const localMessage = message.messageType === MESSAGE_TYPE_LOCAL;
         const { privateMessage } = message;
+
+        // TODO: krombel -- allow from moderators
+        if (privateMessage && _disablePrivateChat) {
+            return null;
+        }
 
         // Style arrays that need to be updated in various scenarios, such as
         // error messages or others.
@@ -203,8 +213,11 @@ class ChatMessage extends AbstractChatMessage<Props> {
  * @returns {Props}
  */
 function _mapStateToProps(state) {
+    const { remoteVideoMenu } = state['features/base/config'];
+    let { disablePrivateChat } = remoteVideoMenu;
     return {
-        _styles: ColorSchemeRegistry.get(state, 'Chat')
+        _styles: ColorSchemeRegistry.get(state, 'Chat'),
+        _disablePrivateChat: Boolean(disablePrivateChat)
     };
 }
 

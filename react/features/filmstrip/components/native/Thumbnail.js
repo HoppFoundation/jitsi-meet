@@ -168,7 +168,7 @@ function Thumbnail(props: Props) {
                 && <View style = { styles.moderatorIndicatorContainer }>
                     <ModeratorIndicator />
                 </View>}
-                
+
             { !participant.isFakeParticipant && <TouchableOpacity
                 onPress = { participant.local ? undefined : _onThumbnailLongPress }
                 style = { [
@@ -194,7 +194,6 @@ function Thumbnail(props: Props) {
                     styles.thumbnailTopRightIndicatorContainer
                 ] }>
                 <RaisedHandIndicator participantId = { participant.id } />
-
                 <ConnectionIndicator participantId = { participant.id } />
             </View> }
 

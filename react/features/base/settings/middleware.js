@@ -195,5 +195,10 @@ function _updateLocalParticipantFromUrl({ dispatch, getState }) {
             email,
             name: displayName
         }));
+
+        dispatch(updateSettings({
+            displayName,
+            email
+        }));
     }
 }

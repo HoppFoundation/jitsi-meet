@@ -871,7 +871,6 @@ class Toolbox extends Component<Props, State> {
             { enable: !this.props._raisedHand }));
 
         this._doToggleRaiseHand();
-
     }
 
     _onToolbarToggleScreenshare: () => void;
@@ -1081,7 +1080,7 @@ class Toolbox extends Component<Props, State> {
             <KickEveryoneButton
                 key = 'kick-everyone'
                 showLabel = { true }
-                visible = { this._shouldShowButton('mute-everyone') } />,
+                visible = { this._shouldShowButton('kick-everyone') } />,
             this._shouldShowButton('stats')
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.speakerStats') }

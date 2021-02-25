@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Feedback</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <style>
+    * {
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    html {
+      color: #ffffff;
+      display: table;
+      font-family: sans-serif;
+      height: 100%;
+      text-align: center;
+      width: 100%;
+    }
+
+    body {
+      display: table-cell;
+      vertical-align: middle;
+      margin: 2em auto;
+      background-color: #364258;
+    }
+
+    h1 {
+      color: #ffffff;
+      font-size: 2em;
+      font-weight: 400;
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: 480px;
+      font-size: 1.25em;
+    }
+
+    textarea {
+      width: 50%;
+      height: 7em;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    #error-message {
+      border: 1px solid azure;
+      margin: 0 auto;
+      width: 50%;
+    }
+
+    a {
+      color: #34c0eb;
+    }
+
+    .subtext {
+      margin-top: 20px;
+    }
+
+    @media only screen and (max-width: 280px) {
+
+      body,
+      p {
+        width: 95%;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        margin: 0 0 0.3em;
+      }
+
+    }
+
+    .rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center
+    }
+
+    .rating > input {
+      display: none
+    }
+
+    .rating > label {
+      position: relative;
+      width: 1em;
+      font-size: 5vw;
+      color: #FFD600;
+      cursor: pointer
+    }
+
+    .rating > label::before {
+      content: "\2605";
+      position: absolute;
+      opacity: 0
+    }
+
+    .rating > label:hover:before,
+    .rating > label:hover ~ label:before {
+      opacity: 1 !important
+    }
+
+    .rating > input:checked ~ label:before {
+      opacity: 1
+    }
+
+    .rating:hover > input:checked ~ label:before {
+      opacity: 0.4
+    }
+  </style>
+</head>
+
+<body>
+
+
+<div class="center" id="step1">
+  <h1>Danke fürs Reinschauen! 🙂</h1>
+  <br/>
+  <p>Wir würden uns über Dein Feedback freuen, wie gut die Technik heute funktioniert hat.</p>
+
+  <br/>
+  <form action="/api/v1.0/feedbacks" method="post">
+    <!-- Source: https://bbbootstrap.com/snippets/star-rating-pure-css-19646372 -->
+    <div class="rating">
+      <input id="5" name="rating" type="radio" value="5"><label for="5">☆</label>
+      <input id="4" name="rating" type="radio" value="4"><label for="4">☆</label>
+      <input id="3" name="rating" type="radio" value="3"><label for="3">☆</label>
+      <input id="2" name="rating" type="radio" value="2"><label for="2">☆</label>
+      <input id="1" name="rating" type="radio" value="1"><label for="1">☆</label>
+    </div>
+
+    <br/>
+    <div>
+      <textarea id="usertext" name="text" placeholder="Falls etwas nicht so gut lief, wäre es super, wenn Du uns hier kurz beschreiben könntest, was (und wann) genau nicht funktioniert hat"></textarea>
+    </div>
+    <br/>
+    <input id="btn-submit" type="submit"/>
+  </form>
+</div>
+
+<div class="center" id="step2" style="display: none">
+  <h1>Vielen Dank fürs Feedback! 😊</h1>
+  <div class="subtext">
+    <p>Es gab Probleme bei der Bedienung? Schaut euch unsere Leitfäden an (
+      <a href="https://unterrichtsmaterialien.hopp-foundation.de/konzepte/jitsi-leitfaden-fuer-lehrer-innen">Lehrende</a>,
+      sowie <a href="https://unterrichtsmaterialien.hopp-foundation.de/konzepte/jitsi-leitfaden-fuer-schueler-innen">Schüler*innen</a>)
+    </p>
+    <p>
+      Es gab technische Probleme? Bei vielen Problemen helfen unsere <a href="https://www.hopp-foundation.de/schule/unterstuetzung/videokonferenztool-jitsi/">FAQ</a> weiter.
+    </p>
+  </div>
+</div>
+
+<div class="center" id="skip-feedback">
+  <br/>
+  <input type="button" onclick="skipFeedback()" value="Ich möchte für die nächsten 10 Tage kein Feedback abgeben">
+</div>
+
+<div class="center" id="ongoing-redirect" style="display: none">
+  <h1>Danke fürs Teilnehmen!</h1>
+</div>
+
+<div class="center" id="error-page" style="display: none">
+  <h1>Upps, sorry, da ist wohl leider beim Senden was schiefgegangen 😓</h1>
+  <br/>
+  <p>Wenn du uns trotzdem helfen möchtest, kannst du uns aber auch eine Mail an <a href="mailto:jitsi@hopp-foundation.de">jitsi@hopp-foundation.de</a> schicken.</p>
+  <br/>
+  <p>Hier ist was du im Textfeld eingegeben hattest zusammen mit einem Fehlercode:</p>
+  <br/>
+  <pre id="error-message"></pre>
+</div>
+
+<script>
+  let form = document.querySelector("form");
+  const SKIP_FEEDBACK_COOKIE_NAME = "skipFeedback";
+  const SKIP_FEEDBACK_COOKIE_VALUE = "true";
+  const SKIP_FEEDBACK_DAYS = 10;
+  const STATS_ID_PARAM_NAME = "callStatsUserName";
+  const REDIRECT_DELAY_SECONDS = 10;
+
+  // original source: https://www.w3schools.com/js/js_cookies.asp
+  function setCookie(cname, cvalue, exdays) {
+    let d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  // original source: https://www.w3schools.com/js/js_cookies.asp
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function shouldSkipFeedback() {
+    // check cookie
+    if (getCookie(SKIP_FEEDBACK_COOKIE_NAME) == SKIP_FEEDBACK_COOKIE_VALUE) {
+      console.log("Skipping feedback due to user preference...");
+
+      // Hide divs, since redirect could take a bit
+      document.querySelector("#step1").style = "display: none";
+      document.querySelector("#skip-feedback").style = "display: none";
+      document.querySelector("#ongoing-redirect").style = "display: block";
+
+      feedbackDone();
+    }
+  }
+
+  function skipFeedback() {
+    // set cookie
+    setCookie(SKIP_FEEDBACK_COOKIE_NAME, SKIP_FEEDBACK_COOKIE_VALUE, SKIP_FEEDBACK_DAYS);
+
+    // replace div content to give user feedback about action
+    document.querySelector("#skip-feedback").innerHTML = "<br/><p>Alles klar, sorry, wir werden dich für die nächsten 10 Tagen nicht mehr nerven 😉</p>";
+  }
+
+  function handleFeedbackError(error) {
+    document.querySelector("#step1").style = "display: none";
+    document.querySelector("#step2").style = "display: none";
+    document.querySelector("#error-page").style = "display: block";
+    document.querySelector("#error-message").innerText = document.querySelector("#usertext").value + "\n\nFehlercode: " + error;
+  }
+
+  function feedbackDone() {
+    // redirect to main page
+    window.location.href = "/";
+  }
+
+  // User clicked button to send feedback
+  form.addEventListener("submit", function (event) {
+    // disable button after clicking to prevent multiple submits of the very same feedback
+    document.getElementById("btn-submit").disabled = true;
+
+    // send user feedback to API
+    sendFeedback();
+
+    // prevent fallback submit of form
+    event.preventDefault();
+  }, false);
+
+  function sendFeedback() {
+    // fetch statsID
+    let statsID = localStorage.getItem(STATS_ID_PARAM_NAME);
+
+    // if callStatsUserName is null, check if we got it via GET parameter (usually the case with the smartphone app)
+    if (statsID == null) {
+      const urlParams = new URLSearchParams(window.location.search);
+
+      if (urlParams.has(STATS_ID_PARAM_NAME)) {
+        // read out statsID from GET parameter
+        statsID = urlParams.get(STATS_ID_PARAM_NAME);
+      }
+    }
+
+    // build request body
+    let request_body = new FormData(form);
+    request_body.append(STATS_ID_PARAM_NAME, statsID);
+
+    fetch("/api/v1.0/feedbacks", {
+      method: "POST",
+      body: request_body
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          handleFeedbackError(response.statusText);
+        } else {
+          console.info("success:" + response);
+
+          // Show thanks screen
+          document.querySelector("#step1").style = "display: none";
+          document.querySelector("#step2").style = "display: block";
+
+          // Set timeout to move to start page after a few secs
+          setTimeout(function () {
+            feedbackDone();
+          }, REDIRECT_DELAY_SECONDS*1000);
+        }
+      })
+      .catch(function (error) {
+        handleFeedbackError(error);
+      });
+  }
+
+  // check if we should skip feedback at all
+  shouldSkipFeedback();
+</script>
+</body>
+</html>

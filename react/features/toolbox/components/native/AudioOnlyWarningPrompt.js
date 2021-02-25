@@ -48,8 +48,6 @@ class AudioOnlyWarningPrompt extends Component<Props> {
      * @returns {ReactElement}
      */
     render() {
-
-
         return (
             <ConfirmDialog
                 contentKey='videoStatus.audioOnlyExpanded'
@@ -88,9 +86,7 @@ class AudioOnlyWarningPrompt extends Component<Props> {
      */
     _onSubmit() {
         this.props.dispatch(toggleAudioOnly());
-        this.props.dispatch(hideDialog(AudioOnlyWarningPrompt))
-
-
+        this.props.dispatch(hideDialog(AudioOnlyWarningPrompt));
         return true;
     }
 
