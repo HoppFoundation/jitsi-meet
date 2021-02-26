@@ -2,7 +2,7 @@
 
 import React, { PureComponent } from 'react';
 import WebView from 'react-native-webview';
-
+import { jitsiLocalStorage } from '@jitsi/js-utils';
 import { JitsiModal } from '../../base/modal';
 import { connect } from '../../base/redux';
 import { CLOSING_PAGE_MODAL_ID } from '../constants';
@@ -33,7 +33,7 @@ class ClosingView extends PureComponent<Props> {
                     headerLabelKey: 'welcomepage.sendFeedback'
                 }}
                 modalId = { CLOSING_PAGE_MODAL_ID }>
-                <WebView source = {{ uri: this.props._url }} />
+                <WebView source = {{ uri: this.props._url+"?callStatsUserName="+this.props._callStatsUserName }} />
             </JitsiModal>
         );
     }
@@ -48,9 +48,11 @@ class ClosingView extends PureComponent<Props> {
 function _mapStateToProps(state) {
 
     const serverURL = state['features/base/modal'].modalProps 
-    console.log(serverURL)
+    const callStatsUserName
+    = jitsiLocalStorage.getItem('callStatsUserName');
     return {
-        _url: serverURL+'/static/close3.html'
+        _url: serverURL+'/static/close3.html',
+        _callStatsUserName : callStatsUserName
     };
 }
 

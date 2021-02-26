@@ -1,0 +1,847 @@
+
+> jitsi-meet@0.0.0 lint /Users/ali/Documents/Projects/Work/tmp/jitsi-meet
+> eslint . && flow
+
+Warning: React version not specified in eslint-plugin-react settings. See https://github.com/yannickcr/eslint-plugin-react#configuration.
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/config.js
+   33:30  error  Unexpected trailing comma                        comma-dangle
+   99:5   error  Expected line before comment                     lines-around-comment
+  205:5   error  Expected line before comment                     lines-around-comment
+  239:1   error  Expected indentation of 4 spaces but found 8     indent
+  354:24  error  Strings must use singlequote                     quotes
+  408:1   error  Line 408 exceeds the maximum line length of 120  max-len
+  409:1   error  Line 409 exceeds the maximum line length of 120  max-len
+  410:1   error  Line 410 exceeds the maximum line length of 120  max-len
+  411:1   error  Line 411 exceeds the maximum line length of 120  max-len
+  412:1   error  Line 412 exceeds the maximum line length of 120  max-len
+  413:1   error  Line 413 exceeds the maximum line length of 120  max-len
+  413:5   error  Expected space or tab after '//' in comment      spaced-comment
+  493:13  error  Expected line before comment                     lines-around-comment
+  510:31  error  Unexpected trailing comma                        comma-dangle
+  595:9   error  Expected line before comment                     lines-around-comment
+  599:9   error  Expected line before comment                     lines-around-comment
+  684:5   error  Identifier 'etherpad_base' is not in camel case  camelcase
+  685:5   error  Expected line before comment                     lines-around-comment
+  701:26  error  A space is required after '['                    array-bracket-spacing
+  701:40  error  A space is required after ','                    comma-spacing
+  701:50  error  A space is required before ']'                   array-bracket-spacing
+  826:43  error  Newline required at end of file but not found    eol-last
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/interface_config.js
+  145:5  error  Expected space or tab after '//' in comment                                                                                       spaced-comment
+  263:5  error  Expected object keys to be in insensitive ascending order. 'ANDROID_APP_PACKAGE' should be before 'VIDEO_QUALITY_LABEL_DISABLED'  sort-keys
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/authentication/components/LoginDialog.native.js
+   21:1   error  There should be at least one empty line between import groups   import/order
+   22:1   error  `@jitsi/js-utils` import should occur before import of `react`  import/order
+  310:9   error  Expected blank line before this statement                       padding-line-between-statements
+  310:71  error  Missing semicolon                                               semi
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/app/components/BaseApp.js
+  214:53  error  Missing semicolon  semi
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/conference/actions.js
+  723:1   warning  Sentence must end with a period  jsdoc/require-description-complete-sentence
+  731:12  error    A space is required after '{'    object-curly-spacing
+  731:35  error    A space is required before '}'   object-curly-spacing
+  735:1   warning  Sentence must end with a period  jsdoc/require-description-complete-sentence
+  743:12  error    A space is required after '{'    object-curly-spacing
+  743:40  error    A space is required before '}'   object-curly-spacing
+  747:1   warning  Sentence must end with a period  jsdoc/require-description-complete-sentence
+  755:12  error    A space is required after '{'    object-curly-spacing
+  755:42  error    A space is required before '}'   object-curly-spacing
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/conference/actionTypes.js
+  220:33  error  Strings must use singlequote  quotes
+  230:38  error  Strings must use singlequote  quotes
+  240:40  error  Strings must use singlequote  quotes
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/conference/middleware.any.js
+   51:1   error    `@jitsi/js-utils` import should occur before import of `../../analytics`  import/order
+   51:1   error    There should be at least one empty line between import groups             import/order
+  107:38  error    Strings must use singlequote                                              quotes
+  108:9   error    Expected blank line before this statement                                 padding-line-between-statements
+  108:18  error    Missing semicolon                                                         semi
+  109:1   error    Trailing spaces not allowed                                               no-trailing-spaces
+  112:9   error    Expected blank line before this statement                                 padding-line-between-statements
+  116:9   error    Expected blank line before this statement                                 padding-line-between-statements
+  117:1   error    Trailing spaces not allowed                                               no-trailing-spaces
+  562:1   warning  Sentence must end with a period                                           jsdoc/require-description-complete-sentence
+  571:12  error    Use 'boolean' instead of 'Boolean'                                        valid-jsdoc
+  575:31  error    Unexpected empty object pattern                                           no-empty-pattern
+  577:5   error    Expected blank line before this statement                                 padding-line-between-statements
+  577:24  error    Missing semicolon                                                         semi
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/config/functions.native.js
+  14:1  error  Expected indentation of 4 spaces but found 8  indent
+  15:1  error  Expected indentation of 4 spaces but found 8  indent
+  16:1  error  Expected indentation of 4 spaces but found 8  indent
+  17:1  error  Expected indentation of 4 spaces but found 8  indent
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/connection/actions.native.js
+  22:1   error  There should be at least one empty line between import groups                 import/order
+  23:1   error  `../conference` import should occur before import of `../conference/actions`  import/order
+  23:10  error  'setDesktopSharingEnabled' is defined but never used                          no-unused-vars
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/lastn/middleware.js
+  21:1  error  There should be no empty line within import group  import/order
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/lib-jitsi-meet/_.native.js
+  25:1  error  Expected line before comment  lines-around-comment
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/lib-jitsi-meet/actions.js
+  52:1  error  Line 52 exceeds the maximum line length of 120  max-len
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/media/middleware.js
+  15:44  error  '/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/tracks/index.js' imported multiple times  import/no-duplicates
+  16:36  error  '/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/tracks/index.js' imported multiple times  import/no-duplicates
+  17:63  error  Missing semicolon                                                                                                semi
+  80:9   error  Expected blank line before this statement                                                                        padding-line-between-statements
+  82:10  error  Trailing spaces not allowed                                                                                      no-trailing-spaces
+  83:1   error  Trailing spaces not allowed                                                                                      no-trailing-spaces
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/participants/actions.js
+   85:19  error  Strings must use singlequote  quotes
+   90:1   error  JSDoc syntax error            valid-jsdoc
+  103:19  error  Strings must use singlequote  quotes
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/participants/functions.js
+  3:10  error  'getGravatarURL' is defined but never used  no-unused-vars
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/participants/middleware.js
+  111:9   error  Expected line before comment               lines-around-comment
+  163:9   error  Expected line before comment               lines-around-comment
+  284:33  error  Strings must use singlequote               quotes
+  284:65  error  Strings must use singlequote               quotes
+  284:79  error  Strings must use singlequote               quotes
+  286:21  error  Expected blank line before this statement  padding-line-between-statements
+  290:21  error  Expected blank line before this statement  padding-line-between-statements
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/base/toolbox/components/native/DesktopSharingButton.js
+   10:1    error    There should be no empty line within import group                                                              import/order
+   13:1    error    `../../../../../modules/util/helpers` import should occur before import of `../../../base/i18n`                import/order
+   18:1    error    `../../../base/lib-jitsi-meet` import should occur before import of `../../../base/redux`                      import/order
+   33:1    error    Missing JSDoc comment                                                                                          require-jsdoc
+   48:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  111:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  114:1    error    Missing JSDoc for parameter 'store'                                                                            valid-jsdoc
+  114:1    error    Missing JSDoc @returns for function                                                                            valid-jsdoc
+  121:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  124:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  126:13   error    Expected blank line before this statement                                                                      padding-line-between-statements
+  132:1    error    Missing JSDoc @returns for function                                                                            valid-jsdoc
+  132:1    error    Missing JSDoc for parameter 'localVideo'                                                                       valid-jsdoc
+  132:1    error    Missing JSDoc for parameter 'tracks'                                                                           valid-jsdoc
+  132:1    error    Missing JSDoc for parameter 'store'                                                                            valid-jsdoc
+  143:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  144:1    error    Line 144 exceeds the maximum line length of 120                                                                max-len
+  144:8    error    Expected line break before `.then`                                                                             newline-per-chained-call
+  144:75   error    Expected line break before `.then`                                                                             newline-per-chained-call
+  144:86   error    Statement inside of curly braces should be on next line                                                        brace-style
+  144:119  error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+  144:122  error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  145:9    error    Expected an assignment or function call and instead saw an expression                                          no-unused-expressions
+  145:38   error    Unexpected use of comma operator                                                                               no-sequences
+  146:7    error    Missing semicolon                                                                                              semi
+  149:1    error    Missing JSDoc for parameter 'device'                                                                           valid-jsdoc
+  149:1    error    Missing JSDoc for parameter 'tracks'                                                                           valid-jsdoc
+  152:3    error    Trailing spaces not allowed                                                                                    no-trailing-spaces
+  167:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  168:1    error    Line 168 exceeds the maximum line length of 120                                                                max-len
+  168:29   error    Expected '===' and instead saw '=='                                                                            eqeqeq
+  169:17   error    'err' is never reassigned. Use 'const' instead                                                                 prefer-const
+  170:13   error    Expected blank line before this statement                                                                      padding-line-between-statements
+  171:13   error    Expected blank line before this statement                                                                      padding-line-between-statements
+  174:87   error    Object properties must go on a new line                                                                        object-property-newline
+  197:27   error    'TRACK_CREATE_CANCELED' is not defined                                                                         no-undef
+  203:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  204:8    error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  206:19   error    'TRACK_CREATE_CANCELED' is not defined                                                                         no-undef
+  208:13   error    'dispatch' is already declared in the upper scope                                                              no-shadow
+  216:11   error    Missing semicolon                                                                                              semi
+  243:1    error    There must be a newline after the description of the JSDoc block                                               jsdoc/newline-after-description
+  243:1    warning  Sentence should start with an uppercase character                                                              jsdoc/require-description-complete-sentence
+  243:1    warning  Sentence must end with a period                                                                                jsdoc/require-description-complete-sentence
+  243:1    error    Missing JSDoc for parameter 'localVideo'                                                                       valid-jsdoc
+  243:1    error    Missing JSDoc for parameter 'newStream'                                                                        valid-jsdoc
+  243:1    error    There must be a hyphen before @param description                                                               jsdoc/require-hyphen-before-param-description
+  246:4    error    Expected JSDoc for 'dispatch' but found 'stream'                                                               valid-jsdoc
+  252:1    error    Line 252 exceeds the maximum line length of 120                                                                max-len
+  252:89   error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  252:103  error    Expected line break before `.then`                                                                             newline-per-chained-call
+  258:1    error    Missing JSDoc @returns for function                                                                            valid-jsdoc
+  267:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  268:49   error    Object properties must go on a new line                                                                        object-property-newline
+  271:27   error    'localVideo' is already declared in the upper scope                                                            no-shadow
+  272:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  273:1    error    Expected indentation of 28 spaces but found 16                                                                 indent
+  274:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  275:1    error    Expected indentation of 20 spaces but found 8                                                                  indent
+  275:12   error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  275:27   error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`          arrow-body-style
+  276:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  277:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  277:1    error    Line 277 exceeds the maximum line length of 120                                                                max-len
+  278:1    error    Expected indentation of 28 spaces but found 16                                                                 indent
+  279:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  280:1    error    Expected indentation of 20 spaces but found 8                                                                  indent
+  284:24   error    Statement inside of curly braces should be on next line                                                        brace-style
+  284:26   error    This line has 3 statements. Maximum allowed is 1                                                               max-statements-per-line
+  284:57   error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+  284:66   error    'error' is defined but never used                                                                              no-unused-vars
+  284:75   error    Statement inside of curly braces should be on next line                                                        brace-style
+  284:108  error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+  285:2    error    Newline required at end of file but not found                                                                  eol-last
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/closingpage/components/ClosingView.js
+   5:1   error  `@jitsi/js-utils` import should occur before import of `react`  import/order
+   5:1   error  There should be at least one empty line between import groups   import/order
+  36:43  error  Unexpected string concatenation                                 prefer-template
+  36:58  error  Infix operators must be spaced                                  space-infix-ops
+  36:59  error  Strings must use singlequote                                    quotes
+  36:80  error  Infix operators must be spaced                                  space-infix-ops
+  36:92  error  '_callStatsUserName' is missing in props validation             react/prop-types
+  50:62  error  Missing semicolon                                               semi
+  50:62  error  Trailing spaces not allowed                                     no-trailing-spaces
+  53:5   error  Expected blank line before this statement                       padding-line-between-statements
+  54:15  error  Unexpected string concatenation                                 prefer-template
+  54:24  error  Infix operators must be spaced                                  space-infix-ops
+  55:9   error  Extra space after key '_callStatsUserName'                      key-spacing
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/conference/components/ConferenceSessionTimer.js
+   6:1   error  `../../base/conference/actions` import should occur before import of `../../base/redux`  import/order
+  90:25  error  Strings must use singlequote                                                             quotes
+  91:54  error  Missing semicolon                                                                        semi
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/conference/components/native/Conference.js
+   42:1   error  `@jitsi/js-utils` import should occur before import of `react`  import/order
+  127:9   error  Expected blank line before this statement                       padding-line-between-statements
+  129:13  error  Expected blank line before this statement                       padding-line-between-statements
+  130:51  error  Missing semicolon                                               semi
+  132:67  error  Missing semicolon                                               semi
+  449:5   error  Expected blank line before this statement                       padding-line-between-statements
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/conference/components/native/LonelyMeetingExperience.js
+  7:10  error  'getFeatureFlag' is defined but never used  no-unused-vars
+  7:26  error  'INVITE_ENABLED' is defined but never used  no-unused-vars
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/etherpad/components/SharedDocumentButton.js
+  33:44  error  Trailing spaces not allowed  no-trailing-spaces
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/etherpad/middleware.js
+  29:13  error  Expected blank line before this statement  padding-line-between-statements
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/filmstrip/components/native/styles.js
+   99:20  error  Missing space before value for key 'moreInfoButton'  key-spacing
+  100:15  error  Missing space before value for key 'width'           key-spacing
+  101:16  error  Missing space before value for key 'height'          key-spacing
+  103:24  error  Unexpected trailing comma                            comma-dangle
+  129:13  error  Missing space before value for key 'top'             key-spacing
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/filmstrip/components/native/Thumbnail.js
+   34:1   error  `./MoreOptionsIndicator` import should occur before import of `./RaisedHandIndicator`  import/order
+  171:1   error  Trailing spaces not allowed                                                            no-trailing-spaces
+  184:19  error  Property should be placed on a new line                                                react/jsx-first-prop-new-line
+  187:14  error  A space is required before '}'                                                         react/jsx-curly-spacing
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/invite/components/add-people-dialog/native/InviteButton.js
+  5:10  error  'getFeatureFlag' is defined but never used  no-unused-vars
+  5:26  error  'INVITE_ENABLED' is defined but never used  no-unused-vars
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/mobile/call-integration/functions.js
+  20:5  error  Expected line before comment  lines-around-comment
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/remote-video-menu/components/AbstractGrantScreenshareButton.js
+  73:15  error  Redundant Boolean call  no-extra-boolean-cast
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/settings/components/native/SettingsView.js
+  107:13  error  'email' is assigned a value but never used  no-unused-vars
+  118:19  error  Missing space before value for key 'email'  key-spacing
+  134:1   error  Trailing spaces not allowed                 no-trailing-spaces
+  145:30  error  'email' is assigned a value but never used  no-unused-vars
+  168:1   error  Trailing spaces not allowed                 no-trailing-spaces
+  332:23  error  A space is required after '{'               object-curly-spacing
+  332:30  error  Missing space before value for key 'email'  key-spacing
+  332:32  error  A space is required before '}'              object-curly-spacing
+  332:34  error  Missing semicolon                           semi
+  333:32  error  Missing semicolon                           semi
+  334:9   error  Expected blank line before this statement   padding-line-between-statements
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/HangupButton.js
+   11:1    error  There should be at least one empty line between import groups                        import/order
+   12:1    error  There should be at least one empty line between import groups                        import/order
+   12:1    error  `@jitsi/js-utils` import should occur before import of `lodash`                      import/order
+   13:1    error  There should be no empty line within import group                                    import/order
+   13:1    error  `../../base/react/Platform` import should occur before import of `../../base/redux`  import/order
+   16:1    error  `../../base/modal` import should occur before import of `../../base/redux`           import/order
+   18:41   error  Missing space before opening brace                                                   space-before-blocks
+   19:1    error  Trailing spaces not allowed                                                          no-trailing-spaces
+   20:21   error  Expected '===' and instead saw '=='                                                  eqeqeq
+   21:32   error  Missing semicolon                                                                    semi
+   22:33   error  Missing semicolon                                                                    semi
+   23:5    error  Expected line before comment                                                         lines-around-comment
+   27:1    error  Expected indentation of 0 spaces but found 7                                         indent
+   27:14   error  A space is required after '{'                                                        object-curly-spacing
+   27:36   error  A space is required before '}'                                                       object-curly-spacing
+   27:41   error  Multiple spaces found before 'require'                                               no-multi-spaces
+   63:13   error  Expected line before comment                                                         lines-around-comment
+   65:33   error  Expected '===' and instead saw '=='                                                  eqeqeq
+   68:68   error  Missing semicolon                                                                    semi
+   87:61   error  Missing semicolon                                                                    semi
+   88:53   error  Missing semicolon                                                                    semi
+   89:53   error  Missing semicolon                                                                    semi
+   90:13   error  Expected blank line before this statement                                            padding-line-between-statements
+   90:35   error  Missing semicolon                                                                    semi
+   91:1    error  Line 91 exceeds the maximum line length of 120                                       max-len
+   91:13   error  Unexpected var, use let or const instead                                             no-var
+   91:13   error  All 'var' declarations must be at the top of the function scope                      vars-on-top
+   91:76   error  A space is required after '['                                                        array-bracket-spacing
+   91:77   error  Unexpected string concatenation                                                      prefer-template
+   91:89   error  Infix operators must be spaced                                                       space-infix-ops
+   91:100  error  Infix operators must be spaced                                                       space-infix-ops
+   91:104  error  A space is required before ']'                                                       array-bracket-spacing
+   91:108  error  ["enableClosePage"] is better written in dot notation                                dot-notation
+   91:108  error  Strings must use singlequote                                                         quotes
+   91:126  error  Missing semicolon                                                                    semi
+   92:13   error  Expected blank line before this statement                                            padding-line-between-statements
+   92:13   error  Expected space(s) after "if"                                                         keyword-spacing
+   92:36   error  Missing space before opening brace                                                   space-before-blocks
+   93:75   error  A space is required after ','                                                        comma-spacing
+   94:1    error  Trailing spaces not allowed                                                          no-trailing-spaces
+   96:10   error  Trailing spaces not allowed                                                          no-trailing-spaces
+  100:1    error  Missing JSDoc comment                                                                require-jsdoc
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/MuteEveryoneButton.js
+  69:5   error  Unexpected var, use let or const instead    no-var
+  69:9   error  Identifier 'vis_calc' is not in camel case  camelcase
+  69:69  error  Missing semicolon                           semi
+  74:18  error  Identifier 'vis_calc' is not in camel case  camelcase
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/AudioOnlyButton.js
+   3:10  error  'toggleAudioOnly' is defined but never used                                       no-unused-vars
+   7:1   error  There should be at least one empty line between import groups                     import/order
+   8:1   error  There should be at least one empty line between import groups                     import/order
+   9:1   error  `../../../base/dialog` import should occur before import of `../../../base/i18n`  import/order
+  10:1   error  Expected line before comment                                                      lines-around-comment
+  46:9   error  Expected line before comment                                                      lines-around-comment
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/AudioOnlyWarningPrompt.js
+   9:1   error    Expected line before comment                                      lines-around-comment
+  55:27  error    A space is required after '='                                     react/jsx-equals-spacing
+  55:27  error    A space is required before '='                                    react/jsx-equals-spacing
+  56:25  error    A space is required before '='                                    react/jsx-equals-spacing
+  56:25  error    A space is required after '='                                     react/jsx-equals-spacing
+  56:26  error    A space is required after '{'                                     react/jsx-curly-spacing
+  56:41  error    A space is required before '}'                                    react/jsx-curly-spacing
+  57:25  error    A space is required after '='                                     react/jsx-equals-spacing
+  57:25  error    A space is required before '='                                    react/jsx-equals-spacing
+  57:26  error    A space is required after '{'                                     react/jsx-curly-spacing
+  57:41  error    A space is required before '}'                                    react/jsx-curly-spacing
+  58:13  error    The closing bracket must be placed after the last prop            react/jsx-closing-bracket-location
+  73:64  error    Missing semicolon                                                 semi
+  74:9   error    Expected blank line before this statement                         padding-line-between-statements
+  79:5   error    There must be a newline after the description of the JSDoc block  jsdoc/newline-after-description
+  79:5   warning  Sentence must end with a period                                   jsdoc/require-description-complete-sentence
+  91:64  error    Missing semicolon                                                 semi
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/DesktopSharingButton.js
+   10:1    error    There should be no empty line within import group                                                              import/order
+   13:1    error    `../../../../../modules/util/helpers` import should occur before import of `../../../base/i18n`                import/order
+   15:23   error    Trailing spaces not allowed                                                                                    no-trailing-spaces
+   19:1    error    `../../../base/lib-jitsi-meet` import should occur before import of `../../../base/redux`                      import/order
+   34:1    error    Missing JSDoc comment                                                                                          require-jsdoc
+   49:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  112:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  115:1    error    Missing JSDoc @returns for function                                                                            valid-jsdoc
+  115:1    error    Missing JSDoc for parameter 'store'                                                                            valid-jsdoc
+  122:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  125:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  127:13   error    Expected blank line before this statement                                                                      padding-line-between-statements
+  133:1    error    Missing JSDoc for parameter 'localVideo'                                                                       valid-jsdoc
+  133:1    error    Missing JSDoc for parameter 'tracks'                                                                           valid-jsdoc
+  133:1    error    Missing JSDoc for parameter 'store'                                                                            valid-jsdoc
+  133:1    error    Missing JSDoc @returns for function                                                                            valid-jsdoc
+  144:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  145:1    error    Line 145 exceeds the maximum line length of 120                                                                max-len
+  145:8    error    Expected line break before `.then`                                                                             newline-per-chained-call
+  145:75   error    Expected line break before `.then`                                                                             newline-per-chained-call
+  145:86   error    Statement inside of curly braces should be on next line                                                        brace-style
+  145:119  error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+  145:122  error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  146:9    error    Expected an assignment or function call and instead saw an expression                                          no-unused-expressions
+  146:38   error    Unexpected use of comma operator                                                                               no-sequences
+  147:7    error    Missing semicolon                                                                                              semi
+  150:1    error    Missing JSDoc for parameter 'tracks'                                                                           valid-jsdoc
+  150:1    error    Missing JSDoc for parameter 'device'                                                                           valid-jsdoc
+  153:3    error    Trailing spaces not allowed                                                                                    no-trailing-spaces
+  168:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  169:1    error    Line 169 exceeds the maximum line length of 120                                                                max-len
+  169:29   error    Expected '===' and instead saw '=='                                                                            eqeqeq
+  170:17   error    'err' is never reassigned. Use 'const' instead                                                                 prefer-const
+  171:13   error    Expected blank line before this statement                                                                      padding-line-between-statements
+  172:13   error    Expected blank line before this statement                                                                      padding-line-between-statements
+  175:87   error    Object properties must go on a new line                                                                        object-property-newline
+  198:27   error    'TRACK_CREATE_CANCELED' is not defined                                                                         no-undef
+  204:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  205:8    error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  207:19   error    'TRACK_CREATE_CANCELED' is not defined                                                                         no-undef
+  209:13   error    'dispatch' is already declared in the upper scope                                                              no-shadow
+  217:11   error    Missing semicolon                                                                                              semi
+  244:1    error    There must be a newline after the description of the JSDoc block                                               jsdoc/newline-after-description
+  244:1    warning  Sentence must end with a period                                                                                jsdoc/require-description-complete-sentence
+  244:1    error    Missing JSDoc for parameter 'newStream'                                                                        valid-jsdoc
+  244:1    error    There must be a hyphen before @param description                                                               jsdoc/require-hyphen-before-param-description
+  244:1    warning  Sentence should start with an uppercase character                                                              jsdoc/require-description-complete-sentence
+  244:1    error    Missing JSDoc for parameter 'localVideo'                                                                       valid-jsdoc
+  247:4    error    Expected JSDoc for 'dispatch' but found 'stream'                                                               valid-jsdoc
+  253:1    error    Line 253 exceeds the maximum line length of 120                                                                max-len
+  253:89   error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  253:103  error    Expected line break before `.then`                                                                             newline-per-chained-call
+  259:1    error    Missing JSDoc @returns for function                                                                            valid-jsdoc
+  268:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  269:49   error    Object properties must go on a new line                                                                        object-property-newline
+  272:27   error    'localVideo' is already declared in the upper scope                                                            no-shadow
+  273:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  274:1    error    Expected indentation of 28 spaces but found 16                                                                 indent
+  275:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  276:1    error    Expected indentation of 20 spaces but found 8                                                                  indent
+  276:12   error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  276:27   error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`          arrow-body-style
+  277:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  278:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  278:1    error    Line 278 exceeds the maximum line length of 120                                                                max-len
+  279:1    error    Expected indentation of 28 spaces but found 16                                                                 indent
+  280:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  281:1    error    Expected indentation of 20 spaces but found 8                                                                  indent
+  285:24   error    Statement inside of curly braces should be on next line                                                        brace-style
+  285:26   error    This line has 3 statements. Maximum allowed is 1                                                               max-statements-per-line
+  285:57   error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+  285:66   error    'error' is defined but never used                                                                              no-unused-vars
+  285:75   error    Statement inside of curly braces should be on next line                                                        brace-style
+  285:108  error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+  286:2    error    Newline required at end of file but not found                                                                  eol-last
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/IOSRecordButton.js
+   1:11  error  'APP' is defined but never used                         no-unused-vars
+   7:1   error  Unexpected var, use let or const instead                no-var
+   8:1   error  Expected blank line before this statement               padding-line-between-statements
+   8:13  error  Strings must use singlequote                            quotes
+   8:36  error  Missing semicolon                                       semi
+  11:7   error  'subscription' is assigned a value but never used       no-unused-vars
+  13:3   error  Unexpected parentheses around single function argument  arrow-parens
+  15:25  error  Expected '===' and instead saw '=='                     eqeqeq
+  16:1   error  Expected indentation of 10 spaces but found 8           indent
+  17:32  error  Expected '===' and instead saw '=='                     eqeqeq
+  18:1   error  Expected indentation of 10 spaces but found 8           indent
+  22:1   error  Expected indentation of 2 spaces but found 4            indent
+  27:2   error  Missing semicolon                                       semi
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/IOSRecordButtonWrapper.js
+    2:1    error    There should be at least one empty line between import groups                                                  import/order
+    2:15   error    A space is required after '{'                                                                                  object-curly-spacing
+    2:29   error    A space is required before '}'                                                                                 object-curly-spacing
+    3:1    error    `./IOSRecordButton` import should occur after import of `../../../base/lib-jitsi-meet`                         import/order
+    5:1    error    `../../../base/i18n` import should occur after import of `../../../../../modules/util/helpers`                 import/order
+    6:1    error    `../../../base/icons` import should occur after import of `../../../../../modules/util/helpers`                import/order
+    6:10   error    'IconShareDesktop' is defined but never used                                                                   no-unused-vars
+    7:1    error    `../../../base/redux` import should occur after import of `../../../base/lib-jitsi-meet`                       import/order
+    7:1    error    There should be no empty line within import group                                                              import/order
+   12:1    error    `../../../base/tracks` import should occur after import of `../../../base/lib-jitsi-meet`                      import/order
+   14:1    error    `../../../base/tracks/actionTypes` import should occur after import of `../../../base/lib-jitsi-meet`          import/order
+   22:6    error    Expected line before comment                                                                                   lines-around-comment
+   32:6    error    'State' is defined but never used                                                                              no-unused-vars
+   34:1    error    Missing JSDoc comment                                                                                          require-jsdoc
+   34:57   error    A space is required after ','                                                                                  comma-spacing
+   37:21   error    Strings must use singlequote                                                                                   quotes
+   38:9    error    Unexpected 'this'                                                                                              no-invalid-this
+   42:21   error    Strings must use singlequote                                                                                   quotes
+   43:9    error    Expected line before comment                                                                                   lines-around-comment
+   43:55   error    Trailing spaces not allowed                                                                                    no-trailing-spaces
+   45:9    error    Unexpected 'this'                                                                                              no-invalid-this
+   48:11   error    Missing JSDoc comment                                                                                          require-jsdoc
+   49:16   error    Missing parentheses around multilines JSX                                                                      react/jsx-wrap-multilines
+   50:13   error    Expected line before comment                                                                                   lines-around-comment
+   51:13   error    JSX props should not use arrow functions                                                                       react/jsx-no-bind
+   51:20   error    A space is required after '='                                                                                  react/jsx-equals-spacing
+   51:20   error    A space is required before '='                                                                                 react/jsx-equals-spacing
+   51:21   error    A space is required after '{'                                                                                  react/jsx-curly-spacing
+   51:28   error    Statement inside of curly braces should be on next line                                                        brace-style
+   51:28   error    Requires a space after '{'                                                                                     block-spacing
+   51:53   error    Requires a space before '}'                                                                                    block-spacing
+   51:53   error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+   51:54   error    A space is required before '}'                                                                                 react/jsx-curly-spacing
+   52:13   error    Props should be sorted alphabetically                                                                          react/jsx-sort-props
+   52:13   error    JSX props should not use arrow functions                                                                       react/jsx-no-bind
+   52:18   error    A space is required before '='                                                                                 react/jsx-equals-spacing
+   52:18   error    A space is required after '='                                                                                  react/jsx-equals-spacing
+   52:19   error    A space is required after '{'                                                                                  react/jsx-curly-spacing
+   52:26   error    Statement inside of curly braces should be on next line                                                        brace-style
+   52:26   error    Requires a space after '{'                                                                                     block-spacing
+   52:49   error    Requires a space before '}'                                                                                    block-spacing
+   52:49   error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+   52:50   error    A space is required before '}'                                                                                 react/jsx-curly-spacing
+   53:18   error    A space is required before '='                                                                                 react/jsx-equals-spacing
+   53:18   error    A space is required after '='                                                                                  react/jsx-equals-spacing
+   53:20   error    A space is required after '{'                                                                                  object-curly-spacing
+   53:20   error    Inline style: { width: 200, height: 36 }                                                                       react-native/no-inline-styles
+   53:33   error    Object properties must go on a new line                                                                        object-property-newline
+   53:43   error    A space is required before '}'                                                                                 object-curly-spacing
+   54:13   error    Props should be sorted alphabetically                                                                          react/jsx-sort-props
+   54:13   error    JSX props should not use arrow functions                                                                       react/jsx-no-bind
+   54:16   error    A space is required after '='                                                                                  react/jsx-equals-spacing
+   54:16   error    A space is required before '='                                                                                 react/jsx-equals-spacing
+   54:17   error    A space is required after '{'                                                                                  react/jsx-curly-spacing
+   54:26   error    Statement inside of curly braces should be on next line                                                        brace-style
+   54:57   error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+   54:58   error    A space is required before '}'                                                                                 react/jsx-curly-spacing
+   54:59   error    Trailing spaces not allowed                                                                                    no-trailing-spaces
+   55:9    error    The closing bracket must be placed after the last prop                                                         react/jsx-closing-bracket-location
+   55:11   error    Missing semicolon                                                                                              semi
+   94:5    error    'didHaveVideo' is assigned a value but never used                                                              no-unused-vars
+   94:19   error    'wasVideoMuted' is assigned a value but never used                                                             no-unused-vars
+  105:1    error    Trailing spaces not allowed                                                                                    no-trailing-spaces
+  110:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  113:1    error    Missing JSDoc for parameter 'store'                                                                            valid-jsdoc
+  113:1    error    Missing JSDoc @returns for function                                                                            valid-jsdoc
+  120:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  123:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  125:13   error    Expected blank line before this statement                                                                      padding-line-between-statements
+  131:1    error    Missing JSDoc @returns for function                                                                            valid-jsdoc
+  131:1    error    Missing JSDoc for parameter 'store'                                                                            valid-jsdoc
+  131:1    error    Missing JSDoc for parameter 'tracks'                                                                           valid-jsdoc
+  131:1    error    Missing JSDoc for parameter 'localVideo'                                                                       valid-jsdoc
+  142:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  143:1    error    Line 143 exceeds the maximum line length of 120                                                                max-len
+  143:8    error    Expected line break before `.then`                                                                             newline-per-chained-call
+  143:75   error    Expected line break before `.then`                                                                             newline-per-chained-call
+  143:86   error    Statement inside of curly braces should be on next line                                                        brace-style
+  143:119  error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+  143:122  error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  144:9    error    Expected an assignment or function call and instead saw an expression                                          no-unused-expressions
+  144:38   error    Unexpected use of comma operator                                                                               no-sequences
+  145:7    error    Missing semicolon                                                                                              semi
+  148:1    error    Missing JSDoc for parameter 'tracks'                                                                           valid-jsdoc
+  148:1    error    Missing JSDoc for parameter 'device'                                                                           valid-jsdoc
+  151:3    error    Trailing spaces not allowed                                                                                    no-trailing-spaces
+  166:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  167:1    error    Line 167 exceeds the maximum line length of 120                                                                max-len
+  167:29   error    Expected '===' and instead saw '=='                                                                            eqeqeq
+  168:17   error    'err' is never reassigned. Use 'const' instead                                                                 prefer-const
+  169:13   error    Expected blank line before this statement                                                                      padding-line-between-statements
+  170:13   error    Expected blank line before this statement                                                                      padding-line-between-statements
+  173:87   error    Object properties must go on a new line                                                                        object-property-newline
+  196:27   error    'TRACK_CREATE_CANCELED' is not defined                                                                         no-undef
+  202:9    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  203:8    error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  205:19   error    'TRACK_CREATE_CANCELED' is not defined                                                                         no-undef
+  207:13   error    'dispatch' is already declared in the upper scope                                                              no-shadow
+  215:11   error    Missing semicolon                                                                                              semi
+  242:1    error    There must be a hyphen before @param description                                                               jsdoc/require-hyphen-before-param-description
+  242:1    error    Missing JSDoc for parameter 'newStream'                                                                        valid-jsdoc
+  242:1    warning  Sentence must end with a period                                                                                jsdoc/require-description-complete-sentence
+  242:1    error    Missing JSDoc for parameter 'localVideo'                                                                       valid-jsdoc
+  242:1    error    There must be a newline after the description of the JSDoc block                                               jsdoc/newline-after-description
+  242:1    warning  Sentence should start with an uppercase character                                                              jsdoc/require-description-complete-sentence
+  245:4    error    Expected JSDoc for 'dispatch' but found 'stream'                                                               valid-jsdoc
+  251:1    error    Line 251 exceeds the maximum line length of 120                                                                max-len
+  251:89   error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  251:103  error    Expected line break before `.then`                                                                             newline-per-chained-call
+  257:1    error    Missing JSDoc @returns for function                                                                            valid-jsdoc
+  266:1    error    Line 266 exceeds the maximum line length of 120                                                                max-len
+  266:5    error    Expected blank line before this statement                                                                      padding-line-between-statements
+  266:9    error    Unexpected constant condition                                                                                  no-constant-condition
+  266:15   error    Missing space before opening brace                                                                             space-before-blocks
+  267:49   error    Object properties must go on a new line                                                                        object-property-newline
+  269:37   error    Trailing spaces not allowed                                                                                    no-trailing-spaces
+  270:27   error    'localVideo' is already declared in the upper scope                                                            no-shadow
+  271:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  271:17   error    Unexpected constant condition                                                                                  no-constant-condition
+  271:25   error    Expected space or tab after '//' in comment                                                                    spaced-comment
+  272:1    error    Expected indentation of 28 spaces but found 16                                                                 indent
+  273:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  274:1    error    Expected indentation of 20 spaces but found 8                                                                  indent
+  274:12   error    Expected line break before `.catch`                                                                            newline-per-chained-call
+  274:27   error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`          arrow-body-style
+  275:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  276:1    error    Line 276 exceeds the maximum line length of 120                                                                max-len
+  276:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  277:1    error    Expected indentation of 28 spaces but found 16                                                                 indent
+  278:1    error    Expected indentation of 24 spaces but found 12                                                                 indent
+  279:1    error    Expected indentation of 20 spaces but found 8                                                                  indent
+  283:24   error    Statement inside of curly braces should be on next line                                                        brace-style
+  283:26   error    This line has 3 statements. Maximum allowed is 1                                                               max-statements-per-line
+  283:57   error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+  283:66   error    'error' is defined but never used                                                                              no-unused-vars
+  283:75   error    Statement inside of curly braces should be on next line                                                        brace-style
+  283:108  error    Closing curly brace should be on the same line as opening curly brace or on the line after the previous block  brace-style
+  284:2    error    Newline required at end of file but not found                                                                  eol-last
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/KickEveryoneElseButton.js
+   9:5   error  'participantUpdated' is defined but never used                                    no-unused-vars
+  13:1   error  There should be at least one empty line between import groups                     import/order
+  14:1   error  There should be at least one empty line between import groups                     import/order
+  15:1   error  `../../../base/dialog` import should occur before import of `../../../base/i18n`  import/order
+  16:1   error  Expected line before comment                                                      lines-around-comment
+  26:1   error  Trailing spaces not allowed                                                       no-trailing-spaces
+  51:1   error  More than 2 blank lines not allowed                                               no-multiple-empty-lines
+  52:1   error  Trailing spaces not allowed                                                       no-trailing-spaces
+  60:21  error  Strings must use singlequote                                                      quotes
+  60:32  error  Missing semicolon                                                                 semi
+  61:9   error  'exclude' is not defined                                                          no-undef
+  61:16  error  Infix operators must be spaced                                                    space-infix-ops
+  61:18  error  A space is required after '['                                                     array-bracket-spacing
+  61:50  error  A space is required before ']'                                                    array-bracket-spacing
+  63:13  error  'exclude' is not defined                                                          no-undef
+  63:20  error  Unexpected trailing comma                                                         comma-dangle
+  65:1   error  More than 2 blank lines not allowed                                               no-multiple-empty-lines
+  65:1   error  Trailing spaces not allowed                                                       no-trailing-spaces
+  67:1   error  Trailing spaces not allowed                                                       no-trailing-spaces
+  71:1   error  Expected line before comment                                                      lines-around-comment
+  79:34  error  'ownProps' is defined but never used                                              no-unused-vars
+  87:77  error  Newline required at end of file but not found                                     eol-last
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/KickEveryoneElsePrompt.js
+   9:1   error    Expected line before comment                                      lines-around-comment
+  55:27  error    A space is required after '='                                     react/jsx-equals-spacing
+  55:27  error    A space is required before '='                                    react/jsx-equals-spacing
+  56:25  error    A space is required before '='                                    react/jsx-equals-spacing
+  56:25  error    A space is required after '='                                     react/jsx-equals-spacing
+  56:26  error    A space is required after '{'                                     react/jsx-curly-spacing
+  56:41  error    A space is required before '}'                                    react/jsx-curly-spacing
+  57:25  error    A space is required before '='                                    react/jsx-equals-spacing
+  57:25  error    A space is required after '='                                     react/jsx-equals-spacing
+  57:26  error    A space is required after '{'                                     react/jsx-curly-spacing
+  57:41  error    A space is required before '}'                                    react/jsx-curly-spacing
+  58:13  error    The closing bracket must be placed after the last prop            react/jsx-closing-bracket-location
+  73:64  error    Missing semicolon                                                 semi
+  74:9   error    Expected blank line before this statement                         padding-line-between-statements
+  79:5   error    There must be a newline after the description of the JSDoc block  jsdoc/newline-after-description
+  79:5   warning  Sentence must end with a period                                   jsdoc/require-description-complete-sentence
+  90:49  error    'exclude' is not defined                                          no-undef
+  91:64  error    Missing semicolon                                                 semi
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/MuteEveryoneElseButton.js
+   9:5   error  'participantUpdated' is defined but never used     no-unused-vars
+  12:1   error  There should be no empty line within import group  import/order
+  26:1   error  Trailing spaces not allowed                        no-trailing-spaces
+  51:1   error  More than 2 blank lines not allowed                no-multiple-empty-lines
+  52:1   error  Trailing spaces not allowed                        no-trailing-spaces
+  60:21  error  Strings must use singlequote                       quotes
+  60:32  error  Missing semicolon                                  semi
+  61:49  error  A space is required after '['                      array-bracket-spacing
+  61:81  error  A space is required before ']'                     array-bracket-spacing
+  63:1   error  Trailing spaces not allowed                        no-trailing-spaces
+  75:34  error  'ownProps' is defined but never used               no-unused-vars
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/OverflowMenu.js
+    4:40  error    '/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/node_modules/react-native/Libraries/react-native/react-native-implementation.js' imported multiple times  import/no-duplicates
+   16:28  error    'RecordButton' is defined but never used                                                                                                                     no-unused-vars
+   23:1   error    There should be at least one empty line between import groups                                                                                                import/order
+   23:1   error    `../../../base/participants` import should occur before import of `../../../base/redux`                                                                      import/order
+   33:1   error    `./KickEveryoneElseButton` import should occur before import of `./MoreOptionsButton`                                                                        import/order
+   34:1   error    There should be at least one empty line between import groups                                                                                                import/order
+   34:1   error    `./ScreenshareButton` import should occur before import of `./ToggleCameraButton`                                                                            import/order
+   35:1   error    There should be at least one empty line between import groups                                                                                                import/order
+   35:1   error    `@jitsi/js-utils` import should occur before import of `react`                                                                                               import/order
+   36:1   error    There should be at least one empty line between import groups                                                                                                import/order
+   36:1   error    `./IOSRecordButtonWrapper` import should occur before import of `./MoreOptionsButton`                                                                        import/order
+   37:1   error    `react-native` import should occur before import of `react-native-collapsible`                                                                               import/order
+   37:26  error    '/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/node_modules/react-native/Libraries/react-native/react-native-implementation.js' imported multiple times  import/no-duplicates
+  112:79  error    Missing semicolon                                                                                                                                            semi
+  114:9   error    All 'var' declarations must be at the top of the function scope                                                                                              vars-on-top
+  114:9   error    Unexpected var, use let or const instead                                                                                                                     no-var
+  116:9   error    Expected space(s) after "if"                                                                                                                                 keyword-spacing
+  116:22  error    Missing space before opening brace                                                                                                                           space-before-blocks
+  120:29  error    Missing space before value for key 'isModerator'                                                                                                             key-spacing
+  123:10  error    Expected space(s) before "else"                                                                                                                              keyword-spacing
+  123:10  error    Expected space(s) after "else"                                                                                                                               keyword-spacing
+  123:15  error    Trailing spaces not allowed                                                                                                                                  no-trailing-spaces
+  127:29  error    Missing space before value for key 'isModerator'                                                                                                             key-spacing
+  131:1   error    Expected indentation of 8 spaces but found 9                                                                                                                 indent
+  141:37  error    '__localVideo' is assigned a value but never used                                                                                                            no-unused-vars
+  141:49  error    A space is required after ','                                                                                                                                comma-spacing
+  144:13  error    A space is required after '{'                                                                                                                                object-curly-spacing
+  144:14  error    'dispatch' is never reassigned. Use 'const' instead                                                                                                          prefer-const
+  144:14  error    'dispatch' is assigned a value but never used                                                                                                                no-unused-vars
+  144:22  error    A space is required before '}'                                                                                                                               object-curly-spacing
+  151:9   error    Unexpected var, use let or const instead                                                                                                                     no-var
+  151:76  error    Expected '===' and instead saw '=='                                                                                                                          eqeqeq
+  151:86  error    Trailing spaces not allowed                                                                                                                                  no-trailing-spaces
+  182:34  error    Expected '===' and instead saw '=='                                                                                                                          eqeqeq
+  183:21  error    Expected indentation of 24 space characters but found 20                                                                                                     react/jsx-indent
+  183:89  error    Multiple spaces found before '}'                                                                                                                             no-multi-spaces
+  184:44  error    A space is required after '{'                                                                                                                                react/jsx-curly-spacing
+  184:59  error    A space is required before '}'                                                                                                                               react/jsx-curly-spacing
+  185:1   error    Expected indentation of 20 spaces but found 21                                                                                                               indent
+  185:22  error    Expected indentation of 20 space characters but found 21                                                                                                     react/jsx-indent
+  186:21  error    Expected indentation of 24 space characters but found 20                                                                                                     react/jsx-indent
+  199:5   error    There must be a newline after the description of the JSDoc block                                                                                             jsdoc/newline-after-description
+  199:5   error    JSDoc syntax error                                                                                                                                           valid-jsdoc
+  199:5   warning  Sentence must end with a period                                                                                                                              jsdoc/require-description-complete-sentence
+  201:29  error    Trailing spaces not allowed                                                                                                                                  no-trailing-spaces
+  203:41  error    Missing space before opening brace                                                                                                                           space-before-blocks
+  206:9   error    Expected space(s) after "if"                                                                                                                                 keyword-spacing
+  206:24  error    Missing space before opening brace                                                                                                                           space-before-blocks
+  207:13  error    Expected space(s) after "return"                                                                                                                             keyword-spacing
+  209:1   error    Expected indentation of 20 spaces but found 16                                                                                                               indent
+  209:17  error    Expected indentation of 20 space characters but found 16                                                                                                     react/jsx-indent
+  213:9   error    Expected blank line before this statement                                                                                                                    padding-line-between-statements
+  213:15  error    Missing semicolon                                                                                                                                            semi
+  308:5   error    Expected blank line before this statement                                                                                                                    padding-line-between-statements
+  311:33  error    'getParticipants' is not defined                                                                                                                             no-undef
+  317:1   error    Line 317 exceeds the maximum line length of 120                                                                                                              max-len
+  320:77  error    Missing semicolon                                                                                                                                            semi
+  321:5   error    Unexpected var, use let or const instead                                                                                                                     no-var
+  321:5   error    All 'var' declarations must be at the top of the function scope                                                                                              vars-on-top
+  321:9   error    Identifier 'visible_generally' is not in camel case                                                                                                          camelcase
+  321:33  error    Missing semicolon                                                                                                                                            semi
+  324:24  error    Missing space before opening brace                                                                                                                           space-before-blocks
+  325:1   error    Line 325 exceeds the maximum line length of 120                                                                                                              max-len
+  325:9   error    Identifier 'visible_generally' is not in camel case                                                                                                          camelcase
+  325:29  error    Identifier 'visible_generally' is not in camel case                                                                                                          camelcase
+  325:64  error    Infix operators must be spaced                                                                                                                               space-infix-ops
+  325:88  error    Multiple spaces found before '&&'                                                                                                                            no-multi-spaces
+  327:17  error    Strings must use singlequote                                                                                                                                 quotes
+  327:37  error    Missing semicolon                                                                                                                                            semi
+  328:35  error    Missing semicolon                                                                                                                                            semi
+  329:5   error    Expected blank line before this statement                                                                                                                    padding-line-between-statements
+  334:30  error    Identifier 'visible_generally' is not in camel case                                                                                                          camelcase
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/RaiseHandButton.js
+  15:30   error  Unexpected trailing comma                       comma-dangle
+  95:1    error  Line 95 exceeds the maximum line length of 120  max-len
+  95:76   error  A space is required after '{'                   object-curly-spacing
+  95:118  error  A space is required before '}'                  object-curly-spacing
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/ScreenshareButton.js
+   9:5   error  'participantUpdated' is defined but never used                                    no-unused-vars
+  14:1   error  There should be at least one empty line between import groups                     import/order
+  15:1   error  There should be at least one empty line between import groups                     import/order
+  16:1   error  `../../../base/dialog` import should occur before import of `../../../base/i18n`  import/order
+  17:1   error  Expected line before comment                                                      lines-around-comment
+  62:1   error  Expected line before comment                                                      lines-around-comment
+  70:34  error  'ownProps' is defined but never used                                              no-unused-vars
+  73:77  error  Missing semicolon                                                                 semi
+  74:5   error  Unexpected var, use let or const instead                                          no-var
+  74:9   error  Identifier 'visible_generally' is not in camel case                               camelcase
+  74:33  error  Missing semicolon                                                                 semi
+  77:24  error  Missing space before opening brace                                                space-before-blocks
+  78:1   error  Line 78 exceeds the maximum line length of 120                                    max-len
+  78:9   error  Identifier 'visible_generally' is not in camel case                               camelcase
+  78:29  error  Identifier 'visible_generally' is not in camel case                               camelcase
+  78:64  error  Infix operators must be spaced                                                    space-infix-ops
+  78:91  error  Multiple spaces found before '&&'                                                 no-multi-spaces
+  80:5   error  Expected blank line before this statement                                         padding-line-between-statements
+  82:18  error  Identifier 'visible_generally' is not in camel case                               camelcase
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/ScreenshareWarningPrompt.js
+   7:1   error    There should be at least one empty line between import groups     import/order
+   8:1   error    `@jitsi/js-utils` import should occur before import of `react`    import/order
+   9:1   error    Expected line before comment                                      lines-around-comment
+  52:27  error    A space is required before '='                                    react/jsx-equals-spacing
+  52:27  error    A space is required after '='                                     react/jsx-equals-spacing
+  53:25  error    A space is required before '='                                    react/jsx-equals-spacing
+  53:25  error    A space is required after '='                                     react/jsx-equals-spacing
+  53:26  error    A space is required after '{'                                     react/jsx-curly-spacing
+  53:41  error    A space is required before '}'                                    react/jsx-curly-spacing
+  54:25  error    A space is required before '='                                    react/jsx-equals-spacing
+  54:25  error    A space is required after '='                                     react/jsx-equals-spacing
+  54:26  error    A space is required after '{'                                     react/jsx-curly-spacing
+  54:41  error    A space is required before '}'                                    react/jsx-curly-spacing
+  55:13  error    The closing bracket must be placed after the last prop            react/jsx-closing-bracket-location
+  68:66  error    Missing semicolon                                                 semi
+  75:5   error    There must be a newline after the description of the JSDoc block  jsdoc/newline-after-description
+  75:5   warning  Sentence must end with a period                                   jsdoc/require-description-complete-sentence
+  86:59  error    Missing semicolon                                                 semi
+  87:66  error    Missing semicolon                                                 semi
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/ScreenSharingButton.js
+   9:1    error  There should be no empty line within import group                                        import/order
+  11:1    error  `../../../base/participants` import should occur before import of `../../../base/redux`  import/order
+  75:77   error  Missing semicolon                                                                        semi
+  76:5    error  Unexpected var, use let or const instead                                                 no-var
+  76:9    error  Identifier 'visible_generally' is not in camel case                                      camelcase
+  76:33   error  Missing semicolon                                                                        semi
+  78:5    error  Expected blank line before this statement                                                padding-line-between-statements
+  78:36   error  Missing semicolon                                                                        semi
+  79:24   error  Missing space before opening brace                                                       space-before-blocks
+  80:1    error  Line 80 exceeds the maximum line length of 120                                           max-len
+  80:9    error  Identifier 'visible_generally' is not in camel case                                      camelcase
+  80:29   error  Identifier 'visible_generally' is not in camel case                                      camelcase
+  80:64   error  Infix operators must be spaced                                                           space-infix-ops
+  80:89   error  Multiple spaces found before '&&'                                                        no-multi-spaces
+  80:167  error  Missing semicolon                                                                        semi
+  82:5    error  Expected blank line before this statement                                                padding-line-between-statements
+  84:47   error  Identifier 'visible_generally' is not in camel case                                      camelcase
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/native/ToggleCameraButton.js
+  80:5  error  Expected blank line before this statement  padding-line-between-statements
+  83:5  error  Expected blank line before this statement  padding-line-between-statements
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/toolbox/components/web/Toolbox.js
+   13:21  error  'i18next' is defined but never used                                                   no-unused-vars
+   42:1   error  `../../../chat` import should occur before import of `../../../embed-meeting`         import/order
+   42:46  error  'sendMessage' is defined but never used                                               no-unused-vars
+   86:1   error  There should be at least one empty line between import groups                         import/order
+   87:1   error  `../MuteEveryoneButton` import should occur before import of `./AudioSettingsButton`  import/order
+   87:1   error  There should be at least one empty line between import groups                         import/order
+  485:38  error  '_raisedHand' is assigned a value but never used                                      no-unused-vars
+  485:51  error  '_localParticipantName' is assigned a value but never used                            no-unused-vars
+  485:51  error  '_localParticipantName' is missing in props validation                                react/prop-types
+  500:25  error  'newRaisedStatus' is not defined                                                      no-undef
+  503:61  error  'newRaisedStatus' is not defined                                                      no-undef
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/welcome/components/WelcomePage.native.js
+   26:1   error  `../../closingpage/components` import should occur before import of `../../help`  import/order
+   26:60  error  Expected space or tab after '//' in comment                                       spaced-comment
+   39:1   error  There should be at least one empty line between import groups                     import/order
+   40:1   error  `../../base/settings` import should occur before import of `../../base/styles`    import/order
+   41:1   error  Expected line before comment                                                      lines-around-comment
+   62:49  error  Missing semicolon                                                                 semi
+   84:9   error  Expected blank line before this statement                                         padding-line-between-statements
+  279:13  error  Missing JSDoc comment                                                             require-jsdoc
+  279:15  error  Missing space before opening brace                                                space-before-blocks
+  281:9   error  Expected blank line before this statement                                         padding-line-between-statements
+  286:13  error  Trailing spaces not allowed                                                       no-trailing-spaces
+  287:21  error  Strings must use singlequote                                                      quotes
+  287:34  error  Missing semicolon                                                                 semi
+  290:5   error  Expected line before comment                                                      lines-around-comment
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/react/features/youtube-player/components/VideoShareButton.js
+   11:1    error  `../../base/participants` import should occur before import of `../../base/redux`  import/order
+   12:1    error  Expected line before comment                                                       lines-around-comment
+   22:8    error  Trailing spaces not allowed                                                        no-trailing-spaces
+  105:5    error  Unexpected var, use let or const instead                                           no-var
+  108:77   error  Missing semicolon                                                                  semi
+  110:24   error  Missing space before opening brace                                                 space-before-blocks
+  111:1    error  Line 111 exceeds the maximum line length of 120                                    max-len
+  111:130  error  Missing semicolon                                                                  semi
+
+/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/static/yt_mod_fix.js
+   1:1    error  Expected space or tab after '//' in comment                                    spaced-comment
+   6:1    error  Expected space or tab after '//' in comment                                    spaced-comment
+   8:1    error  Missing JSDoc comment                                                          require-jsdoc
+  12:1    error  Missing JSDoc comment                                                          require-jsdoc
+  12:16   error  Identifier 'insecure_setupPermissions' is not in camel case                    camelcase
+  13:1    error  Line 13 exceeds the maximum line length of 120                                 max-len
+  13:5    error  Unexpected var, use let or const instead                                       no-var
+  13:47   error  Strings must use singlequote                                                   quotes
+  13:178  error  Missing semicolon                                                              semi
+  16:47   error  'event' is defined but never used                                              no-unused-vars
+  18:13   error  Unexpected var, use let or const instead                                       no-var
+  18:56   error  Strings must use singlequote                                                   quotes
+  19:13   error  Expected line before comment                                                   lines-around-comment
+  21:1    error  Line 21 exceeds the maximum line length of 120                                 max-len
+  25:22   error  'item' is never reassigned. Use 'const' instead                                prefer-const
+  27:75   error  '&&' should be placed at the beginning of the line                             operator-linebreak
+  28:45   error  There should be no spaces inside this paren                                    space-in-parens
+  29:17   error  Opening curly brace does not appear on the same line as controlling statement  brace-style
+  31:1    error  Line 31 exceeds the maximum line length of 120                                 max-len
+  31:21   error  Expected space or tab after '//' in comment                                    spaced-comment
+  32:34   error  Missing semicolon                                                              semi
+  35:10   error  Missing semicolon                                                              semi
+
+✖ 740 problems (726 errors, 14 warnings)
+  549 errors and 14 warnings potentially fixable with the `--fix` option.
+

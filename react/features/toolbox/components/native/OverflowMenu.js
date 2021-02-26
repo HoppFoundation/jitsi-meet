@@ -20,14 +20,16 @@ import { TileViewButton } from '../../../video-layout';
 import { VideoShareButton } from '../../../youtube-player/components';
 import HelpButton from '../HelpButton';
 import MuteEveryoneButton from '../MuteEveryoneButton';
-
+import {
+    getLocalParticipant,
+    PARTICIPANT_ROLE
+} from '../../../base/participants';
 import AudioOnlyButton from './AudioOnlyButton';
 import MoreOptionsButton from './MoreOptionsButton';
 import RaiseHandButton from './RaiseHandButton';
 import ScreenSharingButton from './ScreenSharingButton.js';
 import ToggleCameraButton from './ToggleCameraButton';
 import styles from './styles';
-import MuteEveryoneElseButton from './MuteEveryoneElseButton';
 import KickEveryoneElseButton from './KickEveryoneElseButton';
 import ScreenshareButton from './ScreenshareButton';
 import { jitsiLocalStorage } from '@jitsi/js-utils';
@@ -57,7 +59,12 @@ type Props = {
     /**
      * Used for hiding the dialog when the selection was completed.
      */
-    dispatch: Function
+    dispatch: Function,
+
+    /**
+     * whether screenshare buttons should be shown - this is needed for the iOS button
+     */
+    _visibleScreenshare : boolean,
 };
 
 type State = {
@@ -133,7 +140,7 @@ class OverflowMenu extends PureComponent<Props, State> {
      * @returns {ReactElement}
      */
     render() {
-        const { _bottomSheetStyles, __localVideo } = this.props;
+        const { _bottomSheetStyles, __localVideo,_visibleScreenshare } = this.props;
         const { showMore } = this.state;
 
         let {dispatch} = this.props;
@@ -142,7 +149,9 @@ class OverflowMenu extends PureComponent<Props, State> {
             showLabel: true,
             styles: _bottomSheetStyles.buttons
         };
-        var showScreenshare = jitsiLocalStorage.getItem('showScreenshare') == 'true'; // I don't know why this is a string now
+
+        var showScreenshare = jitsiLocalStorage.getItem('showScreenshare') == 'true'; 
+
         const moreOptionsButtonProps = {
             ...buttonProps,
             afterClick: this._onToggleMenu,
@@ -173,10 +182,10 @@ class OverflowMenu extends PureComponent<Props, State> {
                     <MuteEveryoneButton { ...buttonProps } />
                     <HelpButton { ...buttonProps } />
                     {Platform.OS == 'ios' ? <>
-                    <Collapsible collapsed = { showScreenshare }>
+                    <Collapsible collapsed = { showScreenshare && !_visibleScreenshare  }>
                         <ScreenshareButton {...buttonProps} />
                      </Collapsible>
-                    <Collapsible collapsed = { !showScreenshare }>
+                    <Collapsible collapsed = { !showScreenshare && !_visibleScreenshare }>
                         {
                             <IOSRecordButtonWrapper />
                         }
@@ -304,11 +313,27 @@ function _mapStateToProps(state) {
             .find(({ features = {} }) =>
                 String(features['screen-sharing']) === 'true') !== undefined;
     }
+
+
+    // this is here because the iOS screenshare button is a native button and doesn't use the same logic as the other buttons
+    const _localParticipant = getLocalParticipant(state);
+    const isModerator = _localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
+    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS
+    var visible_generally = true
+    const screenShareAllowed = state['features/base/conference'].screenshare;
+
+    if (MODERATOR_KEYS){
+        visible_generally = visible_generally && (((isModerator|| screenShareAllowed)  && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'));
+    }
+    console.log("visible generally")
+    console.log(visible_generally)
     return {
         __localVideo: state['features/base/tracks'],
         _bottomSheetStyles: ColorSchemeRegistry.get(state, 'BottomSheet'),
         _isOpen: isDialogOpen(state, OverflowMenu_),
-        _desktopSharingEnabled: Boolean(desktopSharingEnabled)
+        _desktopSharingEnabled: Boolean(desktopSharingEnabled),
+        _visibleScreenshare: visible_generally
+
     };
 }
 

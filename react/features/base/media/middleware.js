@@ -77,7 +77,8 @@ function _appStateChanged({ dispatch, getState }, next, action) {
         const localVideo = getLocalVideoTrack(getState()['features/base/tracks']);
         if (localVideo && localVideo.videoType === 'desktop') {
             return next(action);
-        }
+        } 
+        
         const { appState } = action;
         const mute = appState !== 'active' && !isLocalVideoTrackDesktop(getState());
 

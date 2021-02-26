@@ -6,7 +6,8 @@ import { translate } from '../../../base/i18n';
 import { IconShareDesktop } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
-import { toggleScreensharing, isLocalVideoTrackDesktop } from '../../../base/tracks';
+import { toggleScreensharing, isLocalVideoTrackDesktop } from '../../../base/tracks/functions';
+
 import { getLocalParticipant, PARTICIPANT_ROLE } from '../../../base/participants';
 
 /**

@@ -28,6 +28,8 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import com.facebook.react.modules.network.OkHttpClientProvider;
+
 import androidx.annotation.Nullable;
 
 import org.jitsi.meet.sdk.JitsiMeet;
@@ -81,6 +83,8 @@ public class MainActivity extends JitsiMeetActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        OkHttpClientProvider.setOkHttpClientFactory(new UserAgentClientFactory());
+
         JitsiMeet.showSplashScreen(this);
         super.onCreate(savedInstanceState);
     }

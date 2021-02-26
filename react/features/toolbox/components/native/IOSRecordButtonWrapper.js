@@ -12,7 +12,9 @@ import {
 import { getLocalTrack, getLocalVideoTrack, createLocalTracksF, replaceLocalTrack } from '../../../base/tracks';
 import { createTaskQueue } from '../../../../../modules/util/helpers';
 import {
-    TRACK_WILL_CREATE
+    TRACK_WILL_CREATE,
+    TRACK_CREATE_ERROR
+
 } from '../../../base/tracks/actionTypes';
 import { JitsiTrackErrors, JitsiTrackEvents } from '../../../base/lib-jitsi-meet';
 
