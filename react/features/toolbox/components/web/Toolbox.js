@@ -486,9 +486,9 @@ class Toolbox extends Component<Props, State> {
         const newRaisedStatus = !_raisedHand;
 
         // uncomment this to enable chat message on raise hand for web
-        // if(!_raisedHand) {
-        //     this.props.dispatch(sendMessage(i18next.t('raisedHandMessage', {'name': _localParticipantName})));
-        // }
+        if(!_raisedHand) {
+            this.props.dispatch(sendMessage(i18next.t('raisedHandMessage', {'name': _localParticipantName})));
+        }
         this.props.dispatch(participantUpdated({
             // XXX Only the local participant is allowed to update without
             // stating the JitsiConference instance (i.e. participant property
@@ -937,12 +937,10 @@ class Toolbox extends Component<Props, State> {
     _isDesktopSharingButtonVisible() {
         const {
             _desktopSharingEnabled,
-            _desktopSharingDisabledTooltipKey,
-            _isModerator,
-            _isScreenShareAllowed
+            _desktopSharingDisabledTooltipKey
         } = this.props;
 
-        return (_isModerator || _isScreenShareAllowed) && (_desktopSharingEnabled || _desktopSharingDisabledTooltipKey);
+        return _desktopSharingEnabled || _desktopSharingDisabledTooltipKey;
     }
 
     /**
@@ -1471,7 +1469,7 @@ function _mapStateToProps(state) {
     return {
         _chatOpen: state['features/chat'].isOpen,
         _conference: conference,
-        _desktopSharingEnabled: desktopSharingEnabled,
+        _desktopSharingEnabled: (isModerator || Boolean(screenshare)) && desktopSharingEnabled,
         _desktopSharingDisabledTooltipKey: desktopSharingDisabledTooltipKey,
         _dialog: Boolean(state['features/base/dialog'].component),
         _feedbackConfigured: Boolean(callStatsID),
