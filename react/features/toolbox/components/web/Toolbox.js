@@ -1028,6 +1028,7 @@ class Toolbox extends Component<Props, State> {
         const {
             _feedbackConfigured,
             _fullScreen,
+            _isSharedVideoAllowed,
             _screensharing,
             _sharingVideo,
             t
@@ -1055,7 +1056,7 @@ class Toolbox extends Component<Props, State> {
             <RecordButton
                 key = 'record'
                 showLabel = { true } />,
-            this._shouldShowButton('sharedvideo')
+            this._shouldShowButton('sharedvideo') && _isSharedVideoAllowed
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.sharedvideo') }
                     icon = { IconShareVideo }
@@ -1429,7 +1430,7 @@ class Toolbox extends Component<Props, State> {
  * @returns {{}}
  */
 function _mapStateToProps(state) {
-    const { conference, locked, screenShareAllowed = screenshare } = state['features/base/conference'];
+    const { conference, locked, screenshare } = state['features/base/conference'];
     let desktopSharingEnabled = JitsiMeetJS.isDesktopSharingEnabled();
     const {
         callStatsID,
@@ -1444,6 +1445,7 @@ function _mapStateToProps(state) {
     const localParticipant = getLocalParticipant(state);
     const localRecordingStates = state['features/local-recording'];
     const localVideo = getLocalVideoTrack(state['features/base/tracks']);
+    const isModerator = localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
 
     var sharedVideoAllowed = true;
     if (HOPP_MODERATOR_KEYS) {
@@ -1473,10 +1475,10 @@ function _mapStateToProps(state) {
         _desktopSharingDisabledTooltipKey: desktopSharingDisabledTooltipKey,
         _dialog: Boolean(state['features/base/dialog'].component),
         _feedbackConfigured: Boolean(callStatsID),
-        _isModerator: localParticipant.role === PARTICIPANT_ROLE.MODERATOR,
+        _isModerator: isModerator,
         _isProfileDisabled: Boolean(state['features/base/config'].disableProfile),
         _isVpaasMeeting: isVpaasMeeting(state),
-        _isScreenShareAllowed: Boolean(screenShareAllowed),
+        _isScreenShareAllowed: Boolean(screenshare),
         _isSharedVideoAllowed: Boolean(sharedVideoAllowed),
         _fullScreen: fullScreen,
         _tileViewEnabled: shouldDisplayTileView(state),
