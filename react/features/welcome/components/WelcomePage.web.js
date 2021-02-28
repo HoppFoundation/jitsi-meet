@@ -364,8 +364,8 @@ class WelcomePage extends AbstractWelcomePage {
                         </a>
                         <a
                             className = 'welcome-badge'
-                            href = { MOBILE_DOWNLOAD_LINK_F_DROID }>
-                            <img src = './images/f-droid-badge.png' />
+                            href = "https://www.microsoft.com/de-de/p/digitales-klassenzimmer/9n9sf818473p">
+                            <img src = './images/ms-store-badge.png' />
                         </a>
                     </div>
                 </div>
