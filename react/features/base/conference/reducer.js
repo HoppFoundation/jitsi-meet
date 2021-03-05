@@ -50,6 +50,7 @@ ReducerRegistry.register(
             return _conferenceFailed(state, action);
 
         case CONFERENCE_JOINED:
+            set(state, 'screenshare', false);
             return _conferenceJoined(state, action);
 
         case CONFERENCE_SUBJECT_CHANGED:
@@ -224,6 +225,7 @@ function _conferenceJoined(state, { conference }) {
          * @type {boolean}
          */
         locked,
+        screenshare:false,
         passwordRequired: undefined
     });
 }

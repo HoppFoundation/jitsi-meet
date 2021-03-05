@@ -128,7 +128,7 @@ export default {
         alignItems: 'center',
         flex: 1,
         flexDirection: 'row',
-        height: 44,
+        height: 70,
         justifyContent: 'space-between',
         paddingHorizontal: 14
     },
@@ -137,6 +137,26 @@ export default {
         color: ColorPalette.white,
         fontSize: 15,
         opacity: 0.6
+    },
+    participantCounter: {
+        color: ColorPalette.white,
+        fontSize: 15,
+        opacity: 0.6,
+        borderWidth: 1,
+        borderColor: ColorPalette.white,
+        borderRadius: 2,
+    },
+    participantCounterContainer: {
+        flex: 1 ,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+    },
+    participantCounterIcon: {
+        color: ColorPalette.white,
+        fontSize: 15,
+        opacity: 0.6,
+        marginBottom:-2
     },
 
     roomName: {
@@ -153,7 +173,7 @@ export default {
         position: 'absolute',
         right: 0
     },
-
+    
     /**
      * The style of the {@link View} which expands over the whole
      * {@link Conference} area and splits it between the {@link Filmstrip} and

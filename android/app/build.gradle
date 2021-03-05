@@ -23,8 +23,8 @@ android {
 
     defaultConfig {
         applicationId 'de.hoppfoundation.klassenzimmer'
-        versionCode 6518917
-        versionName "1.1.4"
+        versionCode 6518918
+        versionName "1.1.6"
 
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion

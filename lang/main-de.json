@@ -281,8 +281,6 @@
         "revokeScreenshareDialog": "Möchten Sie das Bildschirm-Teilen für diesen Teilnehmer verbieten?",
         "revokeScreenshareTitle": "Bildschirm-Teilen verbieten",
         "screenShareWarning": "Das Teilen Ihres Bildschirmes ist ein experimentelles Feature und die Qualität ist bei schlechter Netzverbindung nicht gut. Nutzen Sie diese Funktion nur, wenn Sie sich dessen bewusst sind. Vielen Dank!",
-        "revokeScreenshareDialog": "Möchten Sie das Bildschirm-Teilen für diesen Teilnehmer verbieten?",
-        "revokeScreenshareTitle": "Bildschirm-Teilen verbieten",
         "screenSharingAudio": "Audio teilen",
         "screenSharingFailed": "Ups! Beim Teilen des Bildschirms ist etwas schiefgegangen!",
         "screenSharingFailedTitle": "Bildschirmfreigabe fehlgeschlagen!",
@@ -865,6 +863,7 @@
         "standardDefinition": "Standardauflösung"
     },
     "videothumbnail": {
+        "connectionInfo": "Verbindungs Informationen",
         "domute": "Stummschalten",
         "domuteOthers": "Alle anderen stummschalten",
         "flip": "Spiegeln",

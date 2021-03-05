@@ -83,7 +83,7 @@ public class MainActivity extends JitsiMeetActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        OkHttpClientProvider.setOkHttpClientFactory(new UserAgentClientFactory());
+//        OkHttpClientProvider.setOkHttpClientFactory(new UserAgentClientFactory());
 
         JitsiMeet.showSplashScreen(this);
         super.onCreate(savedInstanceState);

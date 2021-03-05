@@ -6,7 +6,8 @@ import { translate } from '../../../base/i18n';
 import { IconShareDesktop } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
-import { toggleScreensharing, isLocalVideoTrackDesktop } from '../../../base/tracks/functions';
+import { toggleScreensharing } from '../../../base/tracks/actions';
+import {  isLocalVideoTrackDesktop } from '../../../base/tracks/functions';
 
 import { getLocalParticipant, PARTICIPANT_ROLE } from '../../../base/participants';
 
@@ -73,7 +74,7 @@ function _mapStateToProps(state): Object {
     const _localParticipant = getLocalParticipant(state);
     const isModerator = _localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
     const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
-    const screenShareAllowed = state['features/base/conference'].screenshare;
+    const screenShareAllowed = Boolean(state['features/base/conference'].screenshare);
     var visible_generally = true;
     if (MODERATOR_KEYS){
         visible_generally = visible_generally && (((isModerator|| screenShareAllowed)   && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'))

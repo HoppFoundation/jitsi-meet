@@ -74,6 +74,7 @@ MiddlewareRegistry.register(store => next => action => {
  */
 function _appStateChanged({ dispatch, getState }, next, action) {
     if (navigator.product === 'ReactNative') {
+        //needed for iOS screenshare
         const localVideo = getLocalVideoTrack(getState()['features/base/tracks']);
         if (localVideo && localVideo.videoType === 'desktop') {
             return next(action);

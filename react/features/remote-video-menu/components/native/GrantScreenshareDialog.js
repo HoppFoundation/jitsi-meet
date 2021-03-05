@@ -21,7 +21,7 @@ class GrantScreenshareDialog extends AbstractGrantScreenshareDialog {
     render() {
         return (
             <ConfirmDialog
-                contentKey = 'dialog.GrantScreenshareDialog'
+                contentKey = 'dialog.grantScreenshareDialog'
                 onSubmit = { this._onSubmit } />
         );
     }

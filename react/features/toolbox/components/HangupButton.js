@@ -11,10 +11,8 @@ import { AbstractHangupButton } from '../../base/toolbox/components';
 import type { AbstractButtonProps } from '../../base/toolbox/components';
 import { jitsiLocalStorage } from '@jitsi/js-utils';
 import Platform from '../../base/react/Platform';
-
 import { CLOSING_PAGE_MODAL_ID } from '../../closingpage/constants';
 import { setActiveModalId } from '../../base/modal';
-
 if (navigator.product === 'ReactNative'){
     if (Platform.OS == 'ios') {
         console.log('PLATFORM', Platform.OS);
@@ -80,6 +78,7 @@ class HangupButton extends AbstractHangupButton<Props, *> {
     _doHangup() {
         this._hangup();
         if (navigator.product === 'ReactNative') {
+
             const protocol = this.props.locationURL.protocol
             const host = this.props.locationURL.host
             const serverURL = `${protocol}//${host}`
@@ -88,15 +87,25 @@ class HangupButton extends AbstractHangupButton<Props, *> {
             if(shouldShowClosePage){
                 this.props.dispatch(setActiveModalId(CLOSING_PAGE_MODAL_ID,serverURL));
             }
+
+            // console.log("stateprop", this.props.stateprop['features/base/conference'])
+            // console.log(this.props.stateprop['features/base/conference'].screenshare)
+            // this.props.stateprop['features/base/conference'].screenshare = false;
+            // console.log(this.props.stateprop['features/base/conference'].screenshare)
+
+            // this.props.dispatch(revokeScreenshare(this.props.localparticipant));
         }
     }
 }
 
 function _mapStateToProps(state: Object): $Shape<Props> {
     const { locationURL } = state['features/base/connection'];
+    // const stateprop = state
 
     return {
         locationURL
+        // stateprop
+
     };
 }
 

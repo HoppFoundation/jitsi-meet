@@ -21,7 +21,7 @@ class RevokeScreenshareDialog extends AbstractRevokeScreenshareDialog {
     render() {
         return (
             <ConfirmDialog
-                contentKey = 'dialog.RevokeScreenshareDialog'
+                contentKey = 'dialog.revokeScreenshareDialog'
                 onSubmit = { this._onSubmit } />
         );
     }

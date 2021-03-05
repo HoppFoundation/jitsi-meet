@@ -271,6 +271,15 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		41AD6BBF25E9380400AF39BD /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				DEA9F288258A6EA800D4CD74 /* JitsiMeetSDK.framework */,
+				DE050388256E904600DEE3A5 /* WebRTC.xcframework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		5E96ADD5E49F3B3822EF9A52 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +308,7 @@
 				0BEA5C261F7B8F73000D0AB4 /* Watch app */,
 				0BEA5C351F7B8F73000D0AB4 /* WatchKit extension */,
 				4138E636245D9802005E19F6 /* jitsi-meet copy-Info.plist */,
+				41AD6BBF25E9380400AF39BD /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -336,7 +346,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* jitsi-meet */ = {
+		13B07F861A680F5B00A75B9A /* JitsiMeet */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "JitsiMeet" */;
 			buildPhases = (
@@ -448,7 +458,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* jitsi-meet */,
+				13B07F861A680F5B00A75B9A /* JitsiMeet */,
 				FE816EB2248A5AD0004D900E /* ScreenRecorderHopp */,
 				FE816EBD248A5AD0004D900E /* ScreenRecorderHoppSetupUI */,
 			);
@@ -715,7 +725,7 @@
 				CODE_SIGN_ENTITLEMENTS = app.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UARN79NLDY;
@@ -726,7 +736,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -752,7 +762,7 @@
 				CODE_SIGN_ENTITLEMENTS = app.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UARN79NLDY;
 				ENABLE_BITCODE = NO;
@@ -762,7 +772,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -975,7 +985,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScreenRecorderHopp/ScreenRecorderHopp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = UARN79NLDY;
 				ENABLE_BITCODE = NO;
@@ -987,7 +997,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer.ScreenRecorderHopp";
@@ -1014,7 +1024,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = UARN79NLDY;
 				ENABLE_BITCODE = NO;
@@ -1026,7 +1036,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.6;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer.ScreenRecorderHopp";
 				PRODUCT_NAME = "$(TARGET_NAME)";

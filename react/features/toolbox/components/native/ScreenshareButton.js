@@ -14,6 +14,7 @@ import { AbstractButton } from '../../../base/toolbox/components';
 import type { AbstractButtonProps } from '../../../base/toolbox/components';
 import ScreenshareWarningPrompt from './ScreenshareWarningPrompt';
 import { openDialog } from '../../../base/dialog';
+import { jitsiLocalStorage } from '@jitsi/js-utils';
 /**
  * The type of the React {@code Component} props of {@link ScreenshareButton}.
  */
@@ -69,7 +70,8 @@ class ScreenshareButton extends AbstractButton<Props, *> {
 function _mapStateToProps(state, ownProps): Object {
     const _localParticipant = getLocalParticipant(state);
     const isModerator = _localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
-    const screenShareAllowed = state['features/base/conference'].screenshare;
+    const screenShareAllowed =Boolean(state['features/base/conference'].screenshare);
+    //var showScreenshare = jitsiLocalStorage.getItem('showScreenshare') == 'true'; 
 
     const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
     var visible_generally = true;
@@ -79,7 +81,7 @@ function _mapStateToProps(state, ownProps): Object {
     }
     return {
         _localParticipant,
-        visible: visible_generally
+        visible: visible_generally //&& !showScreenshare
     };
 }
 

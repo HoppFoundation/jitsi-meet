@@ -392,7 +392,7 @@ function _mapStateToProps(state) {
     let playerHeight, playerWidth;
 
     if (isWideScreen) {
-        playerHeight = screenHeight;
+        playerHeight = screenHeight*7/10;
         playerWidth = playerHeight * 16 / 9;
     } else {
         playerWidth = screenWidth;

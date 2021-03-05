@@ -35,6 +35,7 @@ import ScreenshareButton from './ScreenshareButton';
 import { jitsiLocalStorage } from '@jitsi/js-utils';
 import IOSRecordButtonWrapper from './IOSRecordButtonWrapper';
 import { Platform } from 'react-native';
+import { first } from 'lodash';
 
 /**
  * The type of the React {@code Component} props of {@link OverflowMenu}.
@@ -150,13 +151,17 @@ class OverflowMenu extends PureComponent<Props, State> {
             styles: _bottomSheetStyles.buttons
         };
 
-        var showScreenshare = jitsiLocalStorage.getItem('showScreenshare') == 'true'; 
 
         const moreOptionsButtonProps = {
             ...buttonProps,
             afterClick: this._onToggleMenu,
             visible: !showMore
         };
+        var showScreenshare = Boolean(jitsiLocalStorage.getItem('showScreenshare'));
+        const firstCollapsed = !_visibleScreenshare || (showScreenshare && _visibleScreenshare )
+        const secondCollapsed = !_visibleScreenshare || !showScreenshare 
+
+
 
         return (
             <BottomSheet
@@ -182,14 +187,15 @@ class OverflowMenu extends PureComponent<Props, State> {
                     <MuteEveryoneButton { ...buttonProps } />
                     <HelpButton { ...buttonProps } />
                     {Platform.OS == 'ios' ? <>
-                    <Collapsible collapsed = { showScreenshare && !_visibleScreenshare  }>
+                    <Collapsible collapsed = { firstCollapsed  }>
                         <ScreenshareButton {...buttonProps} />
                      </Collapsible>
-                    <Collapsible collapsed = { !showScreenshare && !_visibleScreenshare }>
+                    <Collapsible collapsed = { secondCollapsed }>
                         {
                             <IOSRecordButtonWrapper />
                         }
-                    </Collapsible></> : null}
+                    </Collapsible></> : 
+                    null}
                 </Collapsible>
             </BottomSheet>
         );
@@ -320,13 +326,14 @@ function _mapStateToProps(state) {
     const isModerator = _localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
     const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS
     var visible_generally = true
-    const screenShareAllowed = state['features/base/conference'].screenshare;
+    const screenShareAllowed = Boolean(state['features/base/conference'].screenshare);
+    console.log(state['features/base/conference'])
 
     if (MODERATOR_KEYS){
-        visible_generally = visible_generally && (((isModerator|| screenShareAllowed)  && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'));
+        visible_generally = (((isModerator|| screenShareAllowed) 
+         && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'));
     }
-    console.log("visible generally")
-    console.log(visible_generally)
+
     return {
         __localVideo: state['features/base/tracks'],
         _bottomSheetStyles: ColorSchemeRegistry.get(state, 'BottomSheet'),
