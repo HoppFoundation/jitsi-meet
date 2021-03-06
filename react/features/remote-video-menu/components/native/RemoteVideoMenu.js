@@ -50,11 +50,6 @@ type Props = {
     _disableKick: boolean,
 
     /**
-     * Whether or not to display the kick button.
-     */
-    _disablePrivateChat: boolean,
-
-    /**
      * Whether or not to display the remote mute buttons.
      */
     _disableRemoteMute: boolean,
@@ -95,7 +90,7 @@ class RemoteVideoMenu extends PureComponent<Props> {
      * @inheritdoc
      */
     render() {
-        const { _disableKick, _disablePrivateChat, _disableRemoteMute, participant } = this.props;
+        const { _disableKick, _disableRemoteMute, participant } = this.props;
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
@@ -112,7 +107,7 @@ class RemoteVideoMenu extends PureComponent<Props> {
                 <GrantModeratorButton { ...buttonProps } />
                 <GrantScreenshareButton { ...buttonProps } />
                 <PinButton { ...buttonProps } />
-                { !_disablePrivateChat && <PrivateMessageButton { ...buttonProps } /> }
+                <PrivateMessageButton { ...buttonProps } />
                 <MuteEveryoneElseButton { ...buttonProps } />
                 <ConnectionStatusButton { ...buttonProps } />
             </BottomSheet>
@@ -175,14 +170,13 @@ function _mapStateToProps(state, ownProps) {
     const kickOutEnabled = getFeatureFlag(state, KICK_OUT_ENABLED, true);
     const { participant } = ownProps;
     const { remoteVideoMenu = {}, disableRemoteMute } = state['features/base/config'];
-    let { disableKick, disablePrivateChat } = remoteVideoMenu;
+    let { disableKick } = remoteVideoMenu;
 
     disableKick = disableKick || !kickOutEnabled;
 
     return {
         _bottomSheetStyles: ColorSchemeRegistry.get(state, 'BottomSheet'),
         _disableKick: Boolean(disableKick),
-        _disablePrivateChat: Boolean(disablePrivateChat),
         _disableRemoteMute: Boolean(disableRemoteMute),
         _isOpen: isDialogOpen(state, RemoteVideoMenu_),
         _participantDisplayName: getParticipantDisplayName(state, participant.id)

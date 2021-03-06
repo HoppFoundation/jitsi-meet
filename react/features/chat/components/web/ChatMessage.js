@@ -37,11 +37,6 @@ class ChatMessage extends AbstractChatMessage<Props> {
             }
         });
 
-        // TODO krombel: allow messages from moderator:
-        if (message.privateMessage) {
-            return null;
-        }
-
         return (
             <div className = 'chatmessage-wrapper'>
                 <div className = { `chatmessage ${message.privateMessage ? 'privatemessage' : ''}` }>
