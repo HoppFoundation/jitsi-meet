@@ -1,5 +1,6 @@
-jitsi-meet-web (1.0.5390-6) unstable; urgency=low
+jitsi-meet-web (1.0.5390-7) unstable; urgency=low
 
   * Release with customizations for Hopp Foundation (without disabled private messages)
+  * Enable Screenshare by default
 
  -- Matthias Kesler <matthias@kesler-it.de>  Sat, 06 Mar 2021 22:51:00 +0200
