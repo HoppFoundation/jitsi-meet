@@ -1,9 +1,8 @@
 // @flow
 
-import React, { Component } from 'react';
-
+import React from 'react';
+import { Text, View } from 'react-native';
 import { Platform,SafeAreaView, Text, View } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 import { getConferenceName } from '../../../base/conference';
 import { getFeatureFlag, CONFERENCE_TIMER_ENABLED, MEETING_NAME_ENABLED } from '../../../base/flags';
@@ -13,7 +12,8 @@ import { isToolboxVisible } from '../../../toolbox/functions.native';
 import ConferenceTimer from '../ConferenceTimer';
 import ParticipantsCount from './ParticipantsCount';
 
-import styles, { NAVBAR_GRADIENT_COLORS } from './styles';
+import styles from './styles';
+
 
 type Props = {
 
@@ -41,57 +41,42 @@ type Props = {
 /**
  * Implements a navigation bar component that is rendered on top of the
  * conference screen.
+ *
+ * @param {Props} props - The React props passed to this component.
+ * @returns {React.Node}
  */
-class NavigationBar extends Component<Props> {
-    /**
-     * Implements {@Component#render}.
-     *
-     * @inheritdoc
-     */
-    render() {
-        if (!this.props._visible) {
-            return null;
-        }
+const NavigationBar = (props: Props) => {
+    if (!props._visible) {
+        return null;
+    }
 
-        return [
-            <LinearGradient
-                colors = { NAVBAR_GRADIENT_COLORS }
-                key = { 1 }
-                pointerEvents = 'none'
-                style = { styles.gradient }>
-                <SafeAreaView>
-                    <View style = { styles.gradientStretchTop } />
-                </SafeAreaView>
-            </LinearGradient>,
+    return (
+        <View
+            pointerEvents = 'box-none'
+            style = { styles.navBarWrapper }>
+            <PictureInPictureButton
+                styles = { styles.navBarButton } />
             <View
-                key = { 2 }
                 pointerEvents = 'box-none'
-                style = { styles.navBarWrapper }>
-                <PictureInPictureButton
-                    styles = { styles.navBarButton } />
-                <View
-                    pointerEvents = 'box-none'
-                    style = { styles.roomNameWrapper }>
-                    {
-                        this.props._meetingNameEnabled
-                        && <Text
-                            numberOfLines = { 1 }
-                            style = { styles.roomName }>
-                            { this.props._meetingName }
-                        </Text>
-                    }
-                    {
-                        this.props._conferenceTimerEnabled && <ConferenceTimer />
-                    }
+                style = { styles.roomNameWrapper }>
+                {
+                    props._meetingNameEnabled
+                    && <Text
+                        numberOfLines = { 1 }
+                        style = { styles.roomName }>
+                        { props._meetingName }
+                    </Text>
+                }
+                {
+                    props._conferenceTimerEnabled && <ConferenceTimer />
+                }
                     {
                         this.props._participantCountEnabled && <ParticipantsCount/>
                     }
-                </View>
             </View>
-        ];
-    }
-
-}
+        </View>
+    );
+};
 
 /**
  * Maps part of the Redux store to the props of this component.
