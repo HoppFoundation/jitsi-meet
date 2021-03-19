@@ -9,52 +9,31 @@
 /* Begin PBXBuildFile section */
 		0B412F1F1EDEE6E800B1A0A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B412F1E1EDEE6E800B1A0A6 /* ViewController.m */; };
 		0B412F211EDEE95300B1A0A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B412F201EDEE95300B1A0A6 /* Main.storyboard */; };
-		0BD6B4371EF82A6B00D1F4CD /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD6B4361EF82A6B00D1F4CD /* WebRTC.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		4137C14A2449DC9C008864BB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4137C1492449DC9C008864BB /* Launch Screen.storyboard */; };
-		AC6675AE37DE423C19835791 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		B9A28692F5B3A4A36AF88454 /* libPods-JitsiMeet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A32E788C2F08DDC9F28380E9 /* libPods-JitsiMeet.a */; };
-		C9D335549B2E5405F5FDDFD5 /* libPods-ScreenRecorderHopp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D743D392A28815D357C72E08 /* libPods-ScreenRecorderHopp.a */; };
+		4E51B75E25E4115F0038575A /* DarwinNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E51B75D25E4115F0038575A /* DarwinNotificationCenter.m */; };
+		4EC49BB725BEDAC100E76218 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC49B8625BED71300E76218 /* ReplayKit.framework */; };
+		4EC49BBB25BEDAC100E76218 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC49BBA25BEDAC100E76218 /* SampleHandler.m */; };
+		4EC49BBF25BEDAC100E76218 /* JitsiMeetBroadcast Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4EC49BB625BEDAC100E76218 /* JitsiMeetBroadcast Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4EC49BCB25BEDB6400E76218 /* SocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC49BCA25BEDB6400E76218 /* SocketConnection.m */; };
+		4EC49BD125BF19CF00E76218 /* SampleUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC49BD025BF19CF00E76218 /* SampleUploader.m */; };
+		55BEDABDA92D47D399A70A5E /* libPods-JitsiMeet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D878B07B3FBD6E305EAA6B27 /* libPods-JitsiMeet.a */; };
 		DE050389256E904600DEE3A5 /* WebRTC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE050388256E904600DEE3A5 /* WebRTC.xcframework */; };
 		DE05038A256E904600DEE3A5 /* WebRTC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE050388256E904600DEE3A5 /* WebRTC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE4C456121DE1E4E00EA0709 /* FIRUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4C455F21DE1E4E00EA0709 /* FIRUtilities.m */; };
 		DEA9F289258A6EA800D4CD74 /* JitsiMeetSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEA9F288258A6EA800D4CD74 /* JitsiMeetSDK.framework */; };
 		DEA9F28A258A6EA800D4CD74 /* JitsiMeetSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DEA9F288258A6EA800D4CD74 /* JitsiMeetSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FC13295CB433662D15672279 /* libPods-ScreenRecorderHoppSetupUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7B4A2E99BD9C2F5FEDD410 /* libPods-ScreenRecorderHoppSetupUI.a */; };
-		FE01086024A9A4B7006CA22B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01085F24A9A4B7006CA22B /* Queue.swift */; };
-		FE1CD4FE24B592CB00B4EE33 /* SocketShim.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1CD4FD24B592CB00B4EE33 /* SocketShim.swift */; };
-		FE1E60DE24B4DE49000F2550 /* WebRTCModuleBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1E60DD24B4DE49000F2550 /* WebRTCModuleBridge.m */; };
-		FE816EAC248A550A004D900E /* RecordComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE816EAB248A550A004D900E /* RecordComponent.swift */; };
-		FE816EAE248A587E004D900E /* RecordComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = FE816EAD248A587E004D900E /* RecordComponent.m */; };
-		FE816EB5248A5AD0004D900E /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE816EB4248A5AD0004D900E /* ReplayKit.framework */; };
-		FE816EB8248A5AD0004D900E /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE816EB7248A5AD0004D900E /* SampleHandler.swift */; };
-		FE816EBF248A5AD0004D900E /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE816EB4248A5AD0004D900E /* ReplayKit.framework */; };
-		FE816EC1248A5AD0004D900E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE816EC0248A5AD0004D900E /* UIKit.framework */; };
-		FE816EC4248A5AD0004D900E /* BroadcastSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE816EC3248A5AD0004D900E /* BroadcastSetupViewController.swift */; };
-		FE816EC8248A5AD0004D900E /* ScreenRecorderHoppSetupUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FE816EBE248A5AD0004D900E /* ScreenRecorderHoppSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FE816ECB248A5AD0004D900E /* ScreenRecorderHopp.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FE816EB3248A5AD0004D900E /* ScreenRecorderHopp.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FEC6995024DEBDBF00BAC275 /* ScreenShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6994F24DEBDBF00BAC275 /* ScreenShareController.m */; };
-		FED1D3F724AA64DA00FA358E /* CustomBroadcastPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED1D3F624AA64DA00FA358E /* CustomBroadcastPickerView.swift */; };
-		FEF1E8C824C354CC00AA2AEF /* CustomRTCVideoCapturer.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF1E8C724C354CC00AA2AEF /* CustomRTCVideoCapturer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FE816EC6248A5AD0004D900E /* PBXContainerItemProxy */ = {
+		4EC49BBD25BEDAC100E76218 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FE816EBD248A5AD0004D900E;
-			remoteInfo = ScreenRecorderHoppSetupUI;
-		};
-		FE816EC9248A5AD0004D900E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FE816EB2248A5AD0004D900E;
-			remoteInfo = ScreenRecorderHopp;
+			remoteGlobalIDString = 4EC49BB525BEDAC100E76218;
+			remoteInfo = "JitsiMeetBroadcast Extension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -81,14 +60,13 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FE816ED2248A5AD0004D900E /* Embed App Extensions */ = {
+		4EC49B9025BED71300E76218 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				FE816EC8248A5AD0004D900E /* ScreenRecorderHoppSetupUI.appex in Embed App Extensions */,
-				FE816ECB248A5AD0004D900E /* ScreenRecorderHopp.appex in Embed App Extensions */,
+				4EC49BBF25BEDAC100E76218 /* JitsiMeetBroadcast Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,25 +91,29 @@
 		0BEA5C3A1F7B8F73000D0AB4 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		0BEA5C3C1F7B8F73000D0AB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BEA5C3E1F7B8F73000D0AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Digitales Klassenzimmer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digitales Klassenzimmer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* jitsi-meet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jitsi-meet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		18A67354FAA8FC3517DE5C7E /* Pods-ScreenRecorderHoppSetupUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenRecorderHoppSetupUI.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ScreenRecorderHoppSetupUI/Pods-ScreenRecorderHoppSetupUI.release.xcconfig"; sourceTree = "<group>"; };
-		4137C1492449DC9C008864BB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		4138E636245D9802005E19F6 /* jitsi-meet copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "jitsi-meet copy-Info.plist"; path = "/Users/ali/Documents/Projects/Work/tmp/jitsi-meet/ios/app/jitsi-meet copy-Info.plist"; sourceTree = "<absolute>"; };
 		4670A512A688E2DC34528282 /* Pods-jitsi-meet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jitsi-meet.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-jitsi-meet/Pods-jitsi-meet.debug.xcconfig"; sourceTree = "<group>"; };
+		4E51B75C25E4115F0038575A /* DarwinNotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwinNotificationCenter.h; sourceTree = "<group>"; };
+		4E51B75D25E4115F0038575A /* DarwinNotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarwinNotificationCenter.m; sourceTree = "<group>"; };
+		4EC49B8625BED71300E76218 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		4EC49BB625BEDAC100E76218 /* JitsiMeetBroadcast Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "JitsiMeetBroadcast Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EC49BB925BEDAC100E76218 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
+		4EC49BBA25BEDAC100E76218 /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
+		4EC49BBC25BEDAC100E76218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EC49BC925BEDB6400E76218 /* SocketConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketConnection.h; sourceTree = "<group>"; };
+		4EC49BCA25BEDB6400E76218 /* SocketConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketConnection.m; sourceTree = "<group>"; };
+		4EC49BCF25BF19CF00E76218 /* SampleUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleUploader.h; sourceTree = "<group>"; };
+		4EC49BD025BF19CF00E76218 /* SampleUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleUploader.m; sourceTree = "<group>"; };
+		4EC49BDB25BF280A00E76218 /* JitsiMeetBroadcast Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "JitsiMeetBroadcast Extension.entitlements"; sourceTree = "<group>"; };
 		609CB2080B75F75A89923F3D /* Pods-JitsiMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JitsiMeet.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-JitsiMeet/Pods-JitsiMeet.debug.xcconfig"; sourceTree = "<group>"; };
-		6C7B4A2E99BD9C2F5FEDD410 /* libPods-ScreenRecorderHoppSetupUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenRecorderHoppSetupUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7EE42C41E1D55AF1CBE86C7B /* Pods-ScreenRecorderHopp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenRecorderHopp.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ScreenRecorderHopp/Pods-ScreenRecorderHopp.release.xcconfig"; sourceTree = "<group>"; };
-		A32E788C2F08DDC9F28380E9 /* libPods-JitsiMeet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JitsiMeet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B083EB1D4955FF0069CEE7 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
-		B5F2805031146EB4E1C67234 /* Pods-ScreenRecorderHoppSetupUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenRecorderHoppSetupUI.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ScreenRecorderHoppSetupUI/Pods-ScreenRecorderHoppSetupUI.debug.xcconfig"; sourceTree = "<group>"; };
-		CF63262521DF3C06E1AC1ECD /* Pods-ScreenRecorderHopp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenRecorderHopp.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ScreenRecorderHopp/Pods-ScreenRecorderHopp.debug.xcconfig"; sourceTree = "<group>"; };
-		D743D392A28815D357C72E08 /* libPods-ScreenRecorderHopp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenRecorderHopp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D878B07B3FBD6E305EAA6B27 /* libPods-JitsiMeet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JitsiMeet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE050388256E904600DEE3A5 /* WebRTC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = WebRTC.xcframework; path = "../../node_modules/react-native-webrtc/apple/WebRTC.xcframework"; sourceTree = "<group>"; };
 		DE4C455F21DE1E4E00EA0709 /* FIRUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIRUtilities.m; sourceTree = "<group>"; };
 		DE4C456021DE1E4E00EA0709 /* FIRUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIRUtilities.h; sourceTree = "<group>"; };
@@ -140,26 +122,6 @@
 		E58801132278944E008B0561 /* JitsiMeetContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiMeetContext.swift; sourceTree = "<group>"; };
 		E5C97B62227A1EB400199214 /* JitsiMeetCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JitsiMeetCommands.swift; sourceTree = "<group>"; };
 		FC040BBED70876444D89E91C /* Pods-JitsiMeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JitsiMeet.release.xcconfig"; path = "../Pods/Target Support Files/Pods-JitsiMeet/Pods-JitsiMeet.release.xcconfig"; sourceTree = "<group>"; };
-		FE01085F24A9A4B7006CA22B /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		FE1CD4FD24B592CB00B4EE33 /* SocketShim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketShim.swift; sourceTree = "<group>"; };
-		FE1E60DD24B4DE49000F2550 /* WebRTCModuleBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebRTCModuleBridge.m; sourceTree = "<group>"; };
-		FE816EAA248A550A004D900E /* jitsi-meet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jitsi-meet-Bridging-Header.h"; sourceTree = "<group>"; };
-		FE816EAB248A550A004D900E /* RecordComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordComponent.swift; sourceTree = "<group>"; };
-		FE816EAD248A587E004D900E /* RecordComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordComponent.m; sourceTree = "<group>"; };
-		FE816EB3248A5AD0004D900E /* ScreenRecorderHopp.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScreenRecorderHopp.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE816EB4248A5AD0004D900E /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
-		FE816EB7248A5AD0004D900E /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
-		FE816EB9248A5AD0004D900E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FE816EBE248A5AD0004D900E /* ScreenRecorderHoppSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ScreenRecorderHoppSetupUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE816EC0248A5AD0004D900E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		FE816EC3248A5AD0004D900E /* BroadcastSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastSetupViewController.swift; sourceTree = "<group>"; };
-		FE816EC5248A5AD0004D900E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FE97C44F249BA3D700D34880 /* ScreenRecorderHopp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenRecorderHopp.entitlements; sourceTree = "<group>"; };
-		FEC6994E24DEBB3600BAC275 /* ScreenShareController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenShareController.h; sourceTree = "<group>"; };
-		FEC6994F24DEBDBF00BAC275 /* ScreenShareController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShareController.m; sourceTree = "<group>"; };
-		FED1D3F624AA64DA00FA358E /* CustomBroadcastPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBroadcastPickerView.swift; sourceTree = "<group>"; };
-		FEF1E8C624C353B200AA2AEF /* CustomRTCVideoCapturer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomRTCVideoCapturer.h; sourceTree = "<group>"; };
-		FEF1E8C724C354CC00AA2AEF /* CustomRTCVideoCapturer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomRTCVideoCapturer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,30 +129,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BD6B4371EF82A6B00D1F4CD /* WebRTC.framework in Frameworks */,
-				AC6675AE37DE423C19835791 /* (null) in Frameworks */,
-				B9A28692F5B3A4A36AF88454 /* libPods-JitsiMeet.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FE816EB0248A5AD0004D900E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FE816EB5248A5AD0004D900E /* ReplayKit.framework in Frameworks */,
-				C9D335549B2E5405F5FDDFD5 /* libPods-ScreenRecorderHopp.a in Frameworks */,
 				DE050389256E904600DEE3A5 /* WebRTC.xcframework in Frameworks */,
 				DEA9F289258A6EA800D4CD74 /* JitsiMeetSDK.framework in Frameworks */,
+				55BEDABDA92D47D399A70A5E /* libPods-JitsiMeet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FE816EBB248A5AD0004D900E /* Frameworks */ = {
+		4EC49BB325BEDAC100E76218 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE816EBF248A5AD0004D900E /* ReplayKit.framework in Frameworks */,
-				FE816EC1248A5AD0004D900E /* UIKit.framework in Frameworks */,
-				FC13295CB433662D15672279 /* libPods-ScreenRecorderHoppSetupUI.a in Frameworks */,
+				4EC49BB725BEDAC100E76218 /* ReplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,14 +149,13 @@
 		0B26BE711EC5BC4D00EEFB41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DEA9F288258A6EA800D4CD74 /* JitsiMeetSDK.framework */,
+				DE050388256E904600DEE3A5 /* WebRTC.xcframework */,
 				0B26BE6D1EC5BC3C00EEFB41 /* JitsiMeet.framework */,
 				DEFDBBDB25656E3B00344B23 /* WebRTC.xcframework */,
 				0BD6B4361EF82A6B00D1F4CD /* WebRTC.framework */,
-				FE816EB4248A5AD0004D900E /* ReplayKit.framework */,
-				FE816EC0248A5AD0004D900E /* UIKit.framework */,
-				D743D392A28815D357C72E08 /* libPods-ScreenRecorderHopp.a */,
-				6C7B4A2E99BD9C2F5FEDD410 /* libPods-ScreenRecorderHoppSetupUI.a */,
-				A32E788C2F08DDC9F28380E9 /* libPods-JitsiMeet.a */,
+				D878B07B3FBD6E305EAA6B27 /* libPods-JitsiMeet.a */,
+				4EC49B8625BED71300E76218 /* ReplayKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -255,29 +203,25 @@
 				0BBD021F212EB69D00CCB19F /* Types.h */,
 				0B412F1D1EDEE6E800B1A0A6 /* ViewController.h */,
 				0B412F1E1EDEE6E800B1A0A6 /* ViewController.m */,
-				4137C1492449DC9C008864BB /* Launch Screen.storyboard */,
-				FE816EAB248A550A004D900E /* RecordComponent.swift */,
-				FE816EAA248A550A004D900E /* jitsi-meet-Bridging-Header.h */,
-				FE816EAD248A587E004D900E /* RecordComponent.m */,
-				FE01085F24A9A4B7006CA22B /* Queue.swift */,
-				FED1D3F624AA64DA00FA358E /* CustomBroadcastPickerView.swift */,
-				FE1E60DD24B4DE49000F2550 /* WebRTCModuleBridge.m */,
-				FE1CD4FD24B592CB00B4EE33 /* SocketShim.swift */,
-				FEF1E8C624C353B200AA2AEF /* CustomRTCVideoCapturer.h */,
-				FEF1E8C724C354CC00AA2AEF /* CustomRTCVideoCapturer.m */,
-				FEC6994E24DEBB3600BAC275 /* ScreenShareController.h */,
-				FEC6994F24DEBDBF00BAC275 /* ScreenShareController.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		41AD6BBF25E9380400AF39BD /* Recovered References */ = {
+		4EC49BB825BEDAC100E76218 /* JitsiMeetBroadcast Extension */ = {
 			isa = PBXGroup;
 			children = (
-				DEA9F288258A6EA800D4CD74 /* JitsiMeetSDK.framework */,
-				DE050388256E904600DEE3A5 /* WebRTC.xcframework */,
+				4EC49BDB25BF280A00E76218 /* JitsiMeetBroadcast Extension.entitlements */,
+				4EC49BB925BEDAC100E76218 /* SampleHandler.h */,
+				4EC49BBA25BEDAC100E76218 /* SampleHandler.m */,
+				4EC49BC925BEDB6400E76218 /* SocketConnection.h */,
+				4EC49BCA25BEDB6400E76218 /* SocketConnection.m */,
+				4EC49BCF25BF19CF00E76218 /* SampleUploader.h */,
+				4EC49BD025BF19CF00E76218 /* SampleUploader.m */,
+				4EC49BBC25BEDAC100E76218 /* Info.plist */,
+				4E51B75C25E4115F0038575A /* DarwinNotificationCenter.h */,
+				4E51B75D25E4115F0038575A /* DarwinNotificationCenter.m */,
 			);
-			name = "Recovered References";
+			path = "JitsiMeetBroadcast Extension";
 			sourceTree = "<group>";
 		};
 		5E96ADD5E49F3B3822EF9A52 /* Pods */ = {
@@ -285,10 +229,6 @@
 			children = (
 				4670A512A688E2DC34528282 /* Pods-jitsi-meet.debug.xcconfig */,
 				09AA3B93E4CC62D84B424690 /* Pods-jitsi-meet.release.xcconfig */,
-				CF63262521DF3C06E1AC1ECD /* Pods-ScreenRecorderHopp.debug.xcconfig */,
-				7EE42C41E1D55AF1CBE86C7B /* Pods-ScreenRecorderHopp.release.xcconfig */,
-				B5F2805031146EB4E1C67234 /* Pods-ScreenRecorderHoppSetupUI.debug.xcconfig */,
-				18A67354FAA8FC3517DE5C7E /* Pods-ScreenRecorderHoppSetupUI.release.xcconfig */,
 				609CB2080B75F75A89923F3D /* Pods-JitsiMeet.debug.xcconfig */,
 				FC040BBED70876444D89E91C /* Pods-JitsiMeet.release.xcconfig */,
 			);
@@ -299,16 +239,13 @@
 			isa = PBXGroup;
 			children = (
 				B3B083EB1D4955FF0069CEE7 /* app.entitlements */,
-				FE816EB6248A5AD0004D900E /* ScreenRecorderHopp */,
-				FE816EC2248A5AD0004D900E /* ScreenRecorderHoppSetupUI */,
 				0B26BE711EC5BC4D00EEFB41 /* Frameworks */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				13B07FAE1A68108700A75B9A /* src */,
 				5E96ADD5E49F3B3822EF9A52 /* Pods */,
 				0BEA5C261F7B8F73000D0AB4 /* Watch app */,
+				4EC49BB825BEDAC100E76218 /* JitsiMeetBroadcast Extension */,
 				0BEA5C351F7B8F73000D0AB4 /* WatchKit extension */,
-				4138E636245D9802005E19F6 /* jitsi-meet copy-Info.plist */,
-				41AD6BBF25E9380400AF39BD /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -317,30 +254,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Digitales Klassenzimmer.app */,
-				FE816EB3248A5AD0004D900E /* ScreenRecorderHopp.appex */,
-				FE816EBE248A5AD0004D900E /* ScreenRecorderHoppSetupUI.appex */,
+				13B07F961A680F5B00A75B9A /* jitsi-meet.app */,
+				4EC49BB625BEDAC100E76218 /* JitsiMeetBroadcast Extension.appex */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		FE816EB6248A5AD0004D900E /* ScreenRecorderHopp */ = {
-			isa = PBXGroup;
-			children = (
-				FE97C44F249BA3D700D34880 /* ScreenRecorderHopp.entitlements */,
-				FE816EB7248A5AD0004D900E /* SampleHandler.swift */,
-				FE816EB9248A5AD0004D900E /* Info.plist */,
-			);
-			path = ScreenRecorderHopp;
-			sourceTree = "<group>";
-		};
-		FE816EC2248A5AD0004D900E /* ScreenRecorderHoppSetupUI */ = {
-			isa = PBXGroup;
-			children = (
-				FE816EC3248A5AD0004D900E /* BroadcastSetupViewController.swift */,
-				FE816EC5248A5AD0004D900E /* Info.plist */,
-			);
-			path = ScreenRecorderHoppSetupUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,53 +278,33 @@
 				DE11877A21EE09640078D059 /* Setup Google reverse URL handler */,
 				DE4F6D6E22005C0400DE699E /* Setup Dropbox */,
 				0BEA5C491F7B8F73000D0AB4 /* Embed Watch Content */,
-				FE816ED2248A5AD0004D900E /* Embed App Extensions */,
+				4EC49B9025BED71300E76218 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FE816EC7248A5AD0004D900E /* PBXTargetDependency */,
-				FE816ECA248A5AD0004D900E /* PBXTargetDependency */,
+				4EC49BBE25BEDAC100E76218 /* PBXTargetDependency */,
 			);
 			name = JitsiMeet;
 			productName = "Jitsi Meet";
-			productReference = 13B07F961A680F5B00A75B9A /* Digitales Klassenzimmer.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* jitsi-meet.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FE816EB2248A5AD0004D900E /* ScreenRecorderHopp */ = {
+		4EC49BB525BEDAC100E76218 /* JitsiMeetBroadcast Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FE816ECF248A5AD0004D900E /* Build configuration list for PBXNativeTarget "ScreenRecorderHopp" */;
+			buildConfigurationList = 4EC49BC025BEDAC100E76218 /* Build configuration list for PBXNativeTarget "JitsiMeetBroadcast Extension" */;
 			buildPhases = (
-				8E9335F5AA6073F2D5D422D0 /* [CP] Check Pods Manifest.lock */,
-				FE816EAF248A5AD0004D900E /* Sources */,
-				FE816EB0248A5AD0004D900E /* Frameworks */,
-				FE816EB1248A5AD0004D900E /* Resources */,
+				4EC49BB225BEDAC100E76218 /* Sources */,
+				4EC49BB325BEDAC100E76218 /* Frameworks */,
+				4EC49BB425BEDAC100E76218 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ScreenRecorderHopp;
-			productName = ScreenRecorderHopp;
-			productReference = FE816EB3248A5AD0004D900E /* ScreenRecorderHopp.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		FE816EBD248A5AD0004D900E /* ScreenRecorderHoppSetupUI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FE816ECC248A5AD0004D900E /* Build configuration list for PBXNativeTarget "ScreenRecorderHoppSetupUI" */;
-			buildPhases = (
-				254721C8417D070DC4DC6C2D /* [CP] Check Pods Manifest.lock */,
-				FE816EBA248A5AD0004D900E /* Sources */,
-				FE816EBB248A5AD0004D900E /* Frameworks */,
-				FE816EBC248A5AD0004D900E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ScreenRecorderHoppSetupUI;
-			productName = ScreenRecorderHoppSetupUI;
-			productReference = FE816EBE248A5AD0004D900E /* ScreenRecorderHoppSetupUI.appex */;
+			name = "JitsiMeetBroadcast Extension";
+			productName = "JitsiMeetBroadcast Extension";
+			productReference = 4EC49BB625BEDAC100E76218 /* JitsiMeetBroadcast Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -416,13 +313,10 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = UARN79NLDY;
-						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
@@ -433,15 +327,8 @@
 							};
 						};
 					};
-					FE816EB2248A5AD0004D900E = {
-						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = UARN79NLDY;
-						ProvisioningStyle = Automatic;
-					};
-					FE816EBD248A5AD0004D900E = {
-						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = UARN79NLDY;
-						ProvisioningStyle = Automatic;
+					4EC49BB525BEDAC100E76218 = {
+						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
@@ -459,8 +346,7 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* JitsiMeet */,
-				FE816EB2248A5AD0004D900E /* ScreenRecorderHopp */,
-				FE816EBD248A5AD0004D900E /* ScreenRecorderHoppSetupUI */,
+				4EC49BB525BEDAC100E76218 /* JitsiMeetBroadcast Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -472,19 +358,11 @@
 			files = (
 				0B412F211EDEE95300B1A0A6 /* Main.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				4137C14A2449DC9C008864BB /* Launch Screen.storyboard in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FE816EB1248A5AD0004D900E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FE816EBC248A5AD0004D900E /* Resources */ = {
+		4EC49BB425BEDAC100E76218 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -521,50 +399,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "../scripts/run-packager.sh\n";
-		};
-		254721C8417D070DC4DC6C2D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScreenRecorderHoppSetupUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8E9335F5AA6073F2D5D422D0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScreenRecorderHopp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		B6607F42A5CF0C76E98929E2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -649,49 +483,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE816EAE248A587E004D900E /* RecordComponent.m in Sources */,
-				FED1D3F724AA64DA00FA358E /* CustomBroadcastPickerView.swift in Sources */,
-				FE01086024A9A4B7006CA22B /* Queue.swift in Sources */,
-				FE1CD4FE24B592CB00B4EE33 /* SocketShim.swift in Sources */,
 				0B412F1F1EDEE6E800B1A0A6 /* ViewController.m in Sources */,
-				FEF1E8C824C354CC00AA2AEF /* CustomRTCVideoCapturer.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				FE816EAC248A550A004D900E /* RecordComponent.swift in Sources */,
-				FE1E60DE24B4DE49000F2550 /* WebRTCModuleBridge.m in Sources */,
-				FEC6995024DEBDBF00BAC275 /* ScreenShareController.m in Sources */,
 				DE4C456121DE1E4E00EA0709 /* FIRUtilities.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FE816EAF248A5AD0004D900E /* Sources */ = {
+		4EC49BB225BEDAC100E76218 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE816EB8248A5AD0004D900E /* SampleHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FE816EBA248A5AD0004D900E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FE816EC4248A5AD0004D900E /* BroadcastSetupViewController.swift in Sources */,
+				4EC49BCB25BEDB6400E76218 /* SocketConnection.m in Sources */,
+				4EC49BBB25BEDAC100E76218 /* SampleHandler.m in Sources */,
+				4E51B75E25E4115F0038575A /* DarwinNotificationCenter.m in Sources */,
+				4EC49BD125BF19CF00E76218 /* SampleUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FE816EC7248A5AD0004D900E /* PBXTargetDependency */ = {
+		4EC49BBE25BEDAC100E76218 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FE816EBD248A5AD0004D900E /* ScreenRecorderHoppSetupUI */;
-			targetProxy = FE816EC6248A5AD0004D900E /* PBXContainerItemProxy */;
-		};
-		FE816ECA248A5AD0004D900E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FE816EB2248A5AD0004D900E /* ScreenRecorderHopp */;
-			targetProxy = FE816EC9248A5AD0004D900E /* PBXContainerItemProxy */;
+			target = 4EC49BB525BEDAC100E76218 /* JitsiMeetBroadcast Extension */;
+			targetProxy = 4EC49BBD25BEDAC100E76218 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -720,14 +536,12 @@
 			baseConfigurationReference = 609CB2080B75F75A89923F3D /* Pods-JitsiMeet.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconRelease;
-				CLANG_ENABLE_MODULES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = app.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEFINES_MODULE = YES;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = UARN79NLDY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = src/Info.plist;
@@ -736,19 +550,14 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.1.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer";
-				PRODUCT_NAME = "Digitales Klassenzimmer";
+				PRODUCT_NAME = "jitsi-meet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "src/jitsi-meet-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -757,33 +566,91 @@
 			baseConfigurationReference = FC040BBED70876444D89E91C /* Pods-JitsiMeet.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconRelease;
-				CLANG_ENABLE_MODULES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = app.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UARN79NLDY;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = src/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.1.6;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer";
-				PRODUCT_NAME = "Digitales Klassenzimmer";
+				PRODUCT_NAME = "jitsi-meet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "src/jitsi-meet-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				VALIDATE_WORKSPACE = YES;
+			};
+			name = Release;
+		};
+		4EC49BC125BEDAC100E76218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "JitsiMeetBroadcast Extension/JitsiMeetBroadcast Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = UARN79NLDY;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "JitsiMeetBroadcast Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer.broadcast.extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4EC49BC225BEDAC100E76218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "JitsiMeetBroadcast Extension/JitsiMeetBroadcast Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UARN79NLDY;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "JitsiMeetBroadcast Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer.broadcast.extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -901,152 +768,6 @@
 			};
 			name = Release;
 		};
-		FE816ECD248A5AD0004D900E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5F2805031146EB4E1C67234 /* Pods-ScreenRecorderHoppSetupUI.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = UARN79NLDY;
-				ENABLE_BITCODE = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ScreenRecorderHoppSetupUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer.ScreenRecorderHoppSetupUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_WORKSPACE = YES;
-			};
-			name = Debug;
-		};
-		FE816ECE248A5AD0004D900E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18A67354FAA8FC3517DE5C7E /* Pods-ScreenRecorderHoppSetupUI.release.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = UARN79NLDY;
-				ENABLE_BITCODE = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ScreenRecorderHoppSetupUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer.ScreenRecorderHoppSetupUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_WORKSPACE = YES;
-			};
-			name = Release;
-		};
-		FE816ED0248A5AD0004D900E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF63262521DF3C06E1AC1ECD /* Pods-ScreenRecorderHopp.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = ScreenRecorderHopp/ScreenRecorderHopp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = UARN79NLDY;
-				ENABLE_BITCODE = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ScreenRecorderHopp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.1.6;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer.ScreenRecorderHopp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FE816ED1248A5AD0004D900E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7EE42C41E1D55AF1CBE86C7B /* Pods-ScreenRecorderHopp.release.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = ScreenRecorderHopp/ScreenRecorderHopp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = UARN79NLDY;
-				ENABLE_BITCODE = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = ScreenRecorderHopp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.1.6;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.hopp-foundation.klassenzimmer.ScreenRecorderHopp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1059,29 +780,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		4EC49BC025BEDAC100E76218 /* Build configuration list for PBXNativeTarget "JitsiMeetBroadcast Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EC49BC125BEDAC100E76218 /* Debug */,
+				4EC49BC225BEDAC100E76218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FE816ECC248A5AD0004D900E /* Build configuration list for PBXNativeTarget "ScreenRecorderHoppSetupUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FE816ECD248A5AD0004D900E /* Debug */,
-				FE816ECE248A5AD0004D900E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FE816ECF248A5AD0004D900E /* Build configuration list for PBXNativeTarget "ScreenRecorderHopp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FE816ED0248A5AD0004D900E /* Debug */,
-				FE816ED1248A5AD0004D900E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

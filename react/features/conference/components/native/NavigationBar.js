@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { Text, View } from 'react-native';
 import { Platform,SafeAreaView, Text, View } from 'react-native';
 
 import { getConferenceName } from '../../../base/conference';
@@ -71,7 +70,7 @@ const NavigationBar = (props: Props) => {
                     props._conferenceTimerEnabled && <ConferenceTimer />
                 }
                     {
-                        this.props._participantCountEnabled && <ParticipantsCount/>
+                        props._participantCountEnabled && <ParticipantsCount/>
                     }
             </View>
         </View>

@@ -18,7 +18,6 @@ if (navigator.product === 'ReactNative'){
         console.log('PLATFORM', Platform.OS);
     }
 }
-const {ScreenShareController} = require('./native/IOSRecordButton');
 
 /**
  * The type of the React {@code Component} props of {@link HangupButton}.
@@ -57,8 +56,6 @@ class HangupButton extends AbstractHangupButton<Props, *> {
             // FIXME: these should be unified.
             if (navigator.product === 'ReactNative') {
                 if (Platform.OS == 'ios') {
-                    this.props.dispatch({ type: 'END_SCREEN_SHARING' });
-                    ScreenShareController.stopRecording();
                     jitsiLocalStorage.removeItem('showScreenshare')
                 }
                 this.props.dispatch(appNavigate(undefined));

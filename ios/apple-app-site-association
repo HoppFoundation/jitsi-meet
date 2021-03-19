@@ -3,10 +3,13 @@
         "apps": [],
         "details": [
             {
-                "appID": "UARN79NLDY.de.hopp-foundation.klassenzimmer",
+                "appID": "BQNXB4G3KQ.org.jitsi.JitsiMeet.ios",
                 "paths": [ "*" ]
             },
-           
+            {
+                "appID": "UPXU4CQZ5P.com.atlassian.JitsiMeet.ios",
+                "paths": [ "*" ]
+            }
         ]
     }
 }

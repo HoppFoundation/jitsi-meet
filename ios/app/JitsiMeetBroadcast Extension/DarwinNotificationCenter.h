@@ -1,5 +1,5 @@
 /*
- * Copyright @ 2019-present 8x8, Inc.
+ * Copyright @ 2021-present 8x8, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-#import <React/RCTBridge.h>
+#import <Foundation/Foundation.h>
 
-#import "ExternalAPI.h"
-#import "JitsiMeet.h"
+NS_ASSUME_NONNULL_BEGIN
 
-@interface JitsiMeet ()
+extern NSNotificationName const kBroadcastStartedNotification;
+extern NSNotificationName const kBroadcastStoppedNotification;
 
-- (NSDictionary *)getDefaultProps;
-- (RCTBridge *)getReactBridge;
-- (ExternalAPI *)getExternalAPI;
+@interface DarwinNotificationCenter: NSObject
+
++ (instancetype)sharedInstance;
+- (void)postNotificationWithName:(NSNotificationName)name;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -31,9 +31,7 @@ import ScreenSharingButton from './ScreenSharingButton.js';
 import ToggleCameraButton from './ToggleCameraButton';
 import styles from './styles';
 import KickEveryoneElseButton from './KickEveryoneElseButton';
-import ScreenshareButton from './ScreenshareButton';
 import { jitsiLocalStorage } from '@jitsi/js-utils';
-import IOSRecordButtonWrapper from './IOSRecordButtonWrapper';
 import { Platform } from 'react-native';
 import { first } from 'lodash';
 
@@ -188,11 +186,11 @@ class OverflowMenu extends PureComponent<Props, State> {
                     <HelpButton { ...buttonProps } />
                     {Platform.OS == 'ios' ? <>
                     <Collapsible collapsed = { firstCollapsed  }>
-                        <ScreenshareButton {...buttonProps} />
+                        {/* <ScreenshareButton {...buttonProps} /> */}
                      </Collapsible>
                     <Collapsible collapsed = { secondCollapsed }>
                         {
-                            <IOSRecordButtonWrapper />
+                            // <IOSRecordButtonWrapper />
                         }
                     </Collapsible></> : 
                     null}
