@@ -372,6 +372,11 @@ class WelcomePage extends AbstractWelcomePage {
                             href = "https://apps.apple.com/de/app/digitales-klassenzimmer/id1508736201">
                             <img src = './images/mac-app-store.png' />
                         </a>
+                        <a
+                            className = 'welcome-badge'
+                            href = "https://snapcraft.io/digitales-klassenzimmer">
+                            <img src = './images/snap-store-black.svg' />
+                        </a>
                     </div>
                 </div>
             </div>
