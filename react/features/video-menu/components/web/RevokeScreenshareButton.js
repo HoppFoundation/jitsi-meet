@@ -10,7 +10,7 @@ import AbstractRevokeScreenshareButton, {
     type Props
 } from '../AbstractRevokeScreenshareButton';
 
-import RemoteVideoMenuButton from './RemoteVideoMenuButton';
+import VideoMenuButton from './VideoMenuButton';
 
 declare var interfaceConfig: Object;
 
@@ -44,7 +44,7 @@ class RevokeScreenshareButton extends AbstractRevokeScreenshareButton {
         }
 
         return (
-            <RemoteVideoMenuButton
+            <VideoMenuButton
                 buttonText = { t('videothumbnail.revokeScreenshare') }
                 displayClass = 'revokescrennsharelink'
                 icon = { IconCrown }

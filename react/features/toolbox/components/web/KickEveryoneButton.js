@@ -7,7 +7,7 @@ import { IconKick } from '../../../base/icons';
 import { getLocalParticipant, PARTICIPANT_ROLE } from '../../../base/participants';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
-import { KickEveryoneDialog } from '../../../remote-video-menu';
+import { KickEveryoneDialog } from '../../../video-menu';
 
 type Props = AbstractButtonProps & {
 

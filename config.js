@@ -706,7 +706,7 @@ var config = {
         disablePrivateChat: true
     //     // If set to true the 'Grant moderator' button will be disabled.
     //     disableGrantModerator: true
-    // },
+    },
 
     // If set to true all muting operations of remote participants will be disabled.
     // disableRemoteMute: true,

@@ -11,7 +11,7 @@ import {
 import { connect } from '../../../base/redux';
 import { AbstractButton } from '../../../base/toolbox';
 import type { AbstractButtonProps } from '../../../base/toolbox';
-import { muteAllParticipants } from '../../../remote-video-menu/actions';
+import { muteAllParticipants } from '../../../video-menu/actions';
 
 /**
  * The type of the React {@code Component} props of {@link MuteEveryoneElseButton}.

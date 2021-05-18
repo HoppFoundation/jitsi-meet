@@ -12,7 +12,7 @@ import AbstractKickButton, {
 } from '../AbstractKickButton';
 
 import KickEveryoneDialog from './KickEveryoneDialog';
-import RemoteVideoMenuButton from './RemoteVideoMenuButton';
+import VideoMenuButton from './VideoMenuButton';
 
 /**
  * Implements a React {@link Component} which displays a button for kicking
@@ -41,7 +41,7 @@ class KickEveryoneElseButton extends AbstractKickButton {
         const { participantID, t } = this.props;
 
         return (
-            <RemoteVideoMenuButton
+            <VideoMenuButton
                 buttonText = { t('videothumbnail.dokickOthers') }
                 displayClass = { 'kicklink' }
                 icon = { IconKickEveryoneElse }
