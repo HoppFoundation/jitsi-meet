@@ -558,7 +558,7 @@ export function getShareInfoText(
             .catch(error =>
                 logger.error('Error fetching numbers or conferenceID', error))
             .then(defaultDialInNumber => {
-                let dialInfoPageUrl = getDialInfoPageURL(state);
+                let dialInfoPageUrl = getDialInfoPageURL(state, room);
 
                 if (useHtml) {
                     dialInfoPageUrl
@@ -580,11 +580,12 @@ export function getShareInfoText(
  * Generates the URL for the static dial in info page.
  *
  * @param {Object} state - The state from the Redux store.
+ * @param {string?} roomName - The conference name. Optional name, if missing will be extracted from state.
  * @returns {string}
  */
-export function getDialInfoPageURL(state: Object) {
+export function getDialInfoPageURL(state: Object, roomName: ?string) {
     const { didPageUrl } = state['features/dynamic-branding'];
-    const conferenceName = getRoomName(state);
+    const conferenceName = roomName ?? getRoomName(state);
     const { locationURL } = state['features/base/connection'];
     const { href } = locationURL;
     const room = _decodeRoomURI(conferenceName);
@@ -812,6 +813,7 @@ export function isSharingEnabled(sharingFeature: string) {
  * @param {string} sipInviteUrl - The invite service that generates the invitation.
  * @param {string} jwt - The jwt token.
  * @param {string} roomName - The name to the conference.
+ * @param {string} roomPassword - The password of the conference.
  * @param {string} displayName - The user display name.
  * @returns {Promise} - The promise created by the request.
  */
@@ -821,13 +823,19 @@ export function inviteSipEndpoints( // eslint-disable-line max-params
         sipInviteUrl: string,
         jwt: string,
         roomName: string,
+        roomPassword: String,
         displayName: string
 ): Promise<void> {
     if (inviteItems.length === 0) {
         return Promise.resolve();
     }
 
-    const baseUrl = locationURL.href.toLowerCase().replace(`/${roomName}`, '');
+    const regex = new RegExp(`/${roomName}`, 'i');
+    const baseUrl = Object.assign(new URL(locationURL.toString()), {
+        pathname: locationURL.pathname.replace(regex, ''),
+        hash: '',
+        search: ''
+    });
 
     return fetch(
        sipInviteUrl,
@@ -837,7 +845,8 @@ export function inviteSipEndpoints( // eslint-disable-line max-params
                    callUrlInfo: {
                        baseUrl,
                        callName: roomName
-                   }
+                   },
+                   passcode: roomPassword
                },
                sipClientParams: {
                    displayName,
