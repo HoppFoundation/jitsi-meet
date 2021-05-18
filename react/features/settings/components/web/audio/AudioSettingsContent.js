@@ -4,12 +4,15 @@ import React, { Component } from 'react';
 
 import { translate } from '../../../../base/i18n';
 import { IconMicrophoneEmpty, IconVolumeEmpty } from '../../../../base/icons';
+import JitsiMeetJS from '../../../../base/lib-jitsi-meet';
 import { equals } from '../../../../base/redux';
 import { createLocalAudioTracks } from '../../../functions';
 
 import AudioSettingsHeader from './AudioSettingsHeader';
 import MicrophoneEntry from './MicrophoneEntry';
 import SpeakerEntry from './SpeakerEntry';
+
+const browser = JitsiMeetJS.util.browser;
 
 export type Props = {
 
@@ -61,7 +64,7 @@ type State = {
 }
 
 /**
- * Implements a React {@link Component} which displayes a list of all
+ * Implements a React {@link Component} which displays a list of all
  * the audio input & output devices to choose from.
  *
  * @extends Component
@@ -169,11 +172,17 @@ class AudioSettingsContent extends Component<Props, State> {
      * @returns {void}
      */
     async _setTracks() {
+        if (browser.isWebKitBased()) {
+
+            // It appears that at the time of this writing, creating audio tracks blocks the browser's main thread for
+            // long time on safari. Wasn't able to confirm which part of track creation does the blocking exactly, but
+            // not creating the tracks seems to help and makes the UI much more responsive.
+            return;
+        }
+
         this._disposeTracks(this.state.audioTracks);
 
-        const audioTracks = await createLocalAudioTracks(
-            this.props.microphoneDevices
-        );
+        const audioTracks = await createLocalAudioTracks(this.props.microphoneDevices, 5000);
 
         if (this._componentWasUnmounted) {
             this._disposeTracks(audioTracks);
@@ -244,9 +253,15 @@ class AudioSettingsContent extends Component<Props, State> {
                     {this.state.audioTracks.map((data, i) =>
                         this._renderMicrophoneEntry(data, i),
                     )}
-                    <AudioSettingsHeader
-                        IconComponent = { IconVolumeEmpty }
-                        text = { t('settings.speakers') } />
+                    { outputDevices.length > 0 && (
+                        <>
+                            <hr className = 'audio-preview-hr' />
+                            <AudioSettingsHeader
+                                IconComponent = { IconVolumeEmpty }
+                                text = { t('settings.speakers') } />
+                        </>
+                    )
+                    }
                     {outputDevices.map((data, i) =>
                         this._renderSpeakerEntry(data, i),
                     )}

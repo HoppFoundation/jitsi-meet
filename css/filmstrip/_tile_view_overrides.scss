@@ -22,10 +22,6 @@
         display: none;
     }
 
-    #remoteConnectionMessage {
-        z-index: $filmstripVideosZ + 1;
-    }
-
     /**
      * The follow styling uses !important to override inline styles set with
      * javascript.
@@ -47,6 +43,7 @@
      * specifically the various status icons.
      */
     .remotevideomenu,
+    .localvideomenu,
     .videocontainer__toptoolbar {
         z-index: auto;
     }

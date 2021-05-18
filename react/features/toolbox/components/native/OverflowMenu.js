@@ -11,15 +11,16 @@ import { connect } from '../../../base/redux';
 import { StyleType } from '../../../base/styles';
 import { SharedDocumentButton } from '../../../etherpad';
 import { InviteButton } from '../../../invite';
-import { LobbyModeButton } from '../../../lobby/components/native';
 import { AudioRouteButton } from '../../../mobile/audio-mode';
 import { LiveStreamButton, RecordButton } from '../../../recording';
-import { RoomLockButton } from '../../../room-lock';
+import SecurityDialogButton from '../../../security/components/security-dialog/SecurityDialogButton';
+import { SharedVideoButton } from '../../../shared-video/components';
 import { ClosedCaptionButton } from '../../../subtitles';
 import { TileViewButton } from '../../../video-layout';
-import { VideoShareButton } from '../../../youtube-player/components';
+import { getMovableButtons } from '../../functions.native';
 import HelpButton from '../HelpButton';
 import MuteEveryoneButton from '../MuteEveryoneButton';
+import MuteEveryonesVideoButton from '../MuteEveryonesVideoButton';
 
 import AudioOnlyButton from './AudioOnlyButton';
 import MoreOptionsButton from './MoreOptionsButton';
@@ -53,6 +54,11 @@ type Props = {
      * Whether the recoding button should be enabled or not.
      */
     _recordingEnabled: boolean,
+
+    /**
+     * The width of the screen.
+     */
+    _width: number,
 
     /**
      * Used for hiding the dialog when the selection was completed.
@@ -133,8 +139,10 @@ class OverflowMenu extends PureComponent<Props, State> {
      * @returns {ReactElement}
      */
     render() {
-        const { _bottomSheetStyles, __localVideo } = this.props;
-        const { showMore } = this.state;
+        const { _bottomSheetStyles, _screenshare_mod_only, _width } = this.props;
+        const { isModerator, showMore } = this.state;
+        const toolbarButtons = getMovableButtons(_width);
+        const screenshare_allowed = !(_screenshare_mod_only && !isModerator)
 
         let {dispatch} = this.props;
         const buttonProps = {
@@ -156,26 +164,28 @@ class OverflowMenu extends PureComponent<Props, State> {
                 onSwipe = { this._onSwipe }
                 renderHeader = { this._renderMenuExpandToggle }>
                 <AudioRouteButton { ...buttonProps } />
-                <InviteButton { ...buttonProps } />
+                {!toolbarButtons.has('invite') && <InviteButton { ...buttonProps } />}
                 <AudioOnlyButton { ...buttonProps } />
-                <RaiseHandButton { ...buttonProps } />
-                <LobbyModeButton { ...buttonProps } />
+                {!toolbarButtons.has('raisehand') && <RaiseHandButton { ...buttonProps } />}
+                <SecurityDialogButton { ...buttonProps } />
                 <ScreenSharingButton { ...buttonProps } />
                 <MoreOptionsButton { ...moreOptionsButtonProps } />
                 <Collapsible collapsed = { !showMore }>
                     {this._renderModeratorButtons(buttonProps)}
-                    <ToggleCameraButton { ...buttonProps } />
-                    <TileViewButton { ...buttonProps } />
+                    {!toolbarButtons.has('togglecamera') && <ToggleCameraButton { ...buttonProps } />}
+                    {!toolbarButtons.has('tileview') && <TileViewButton { ...buttonProps } />}
+                    <RecordButton { ...buttonProps } />
                     <LiveStreamButton { ...buttonProps } />
-                    <VideoShareButton { ...buttonProps } />
-                    <RoomLockButton { ...buttonProps } />
+                    <SharedVideoButton { ...buttonProps } />
                     <ClosedCaptionButton { ...buttonProps } />
                     <SharedDocumentButton { ...buttonProps } />
                     <MuteEveryoneButton { ...buttonProps } />
+                    <MuteEveryonesVideoButton { ...buttonProps } />
                     <HelpButton { ...buttonProps } />
-                    {Platform.OS == 'ios' ? <><Collapsible collapsed = { showScreenshare }>
+                    {screenshare_allowed && Platform.OS == 'ios' ? <>
+                    <Collapsible collapsed = { showScreenshare }>
                         <ScreenshareButton {...buttonProps} />
-                     </Collapsible>
+                    </Collapsible>
                     <Collapsible collapsed = { !showScreenshare }>
                         {
                             <IOSRecordButtonWrapper />
@@ -292,19 +302,18 @@ class OverflowMenu extends PureComponent<Props, State> {
  * @returns {Props}
  */
 function _mapStateToProps(state) {
-    let { desktopSharingEnabled } = state['features/base/conference'];
-    if (state['features/base/config'].enableFeaturesBasedOnToken) {
-        // we enable desktop sharing if any participant already have this
-        // feature enabled
-        desktopSharingEnabled = getParticipants(state)
-            .find(({ features = {} }) =>
-                String(features['screen-sharing']) === 'true') !== undefined;
+    // krombel check config (necessesary?)
+    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
+    var screenshare_mod_only = false;
+    if (MODERATOR_KEYS) {
+        screenshare_mod_only = MODERATOR_KEYS.includes('desktop');
     }
+
     return {
-        __localVideo: state['features/base/tracks'],
         _bottomSheetStyles: ColorSchemeRegistry.get(state, 'BottomSheet'),
         _isOpen: isDialogOpen(state, OverflowMenu_),
-        _desktopSharingEnabled: Boolean(desktopSharingEnabled)
+        _width: state['features/base/responsive-ui'].clientWidth,
+        _screenshare_mod_only: screenshare_mod_only
     };
 }
 

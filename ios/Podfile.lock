@@ -6,8 +6,6 @@ PODS:
   - AppAuth/ExternalUserAgent (1.4.0)
   - BlueSocket (1.0.52)
   - boost-for-react-native (1.63.0)
-  - BVLinearGradient (2.5.6):
-    - React
   - CocoaLumberjack (3.5.3):
     - CocoaLumberjack/Core (= 3.5.3)
   - CocoaLumberjack/Core (3.5.3)
@@ -293,7 +291,7 @@ PODS:
     - React
   - react-native-splash-screen (3.2.0):
     - React
-  - react-native-webrtc (1.87.3):
+  - react-native-webrtc (1.89.1):
     - React-Core
   - react-native-webview (11.0.2):
     - React-Core
@@ -372,8 +370,6 @@ PODS:
   - Yoga (1.14.0)
 
 DEPENDENCIES:
-  - BlueSocket
-  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - CocoaLumberjack (~> 3.5.3)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector/`)
@@ -445,8 +441,6 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
-  BVLinearGradient:
-    :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -530,7 +524,6 @@ SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BlueSocket: 1acd943acb07b55905291d608649fcfbf8cbd57d
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: 4a5251159a3ed05dc11cc8b74cf937869935814b
@@ -567,7 +560,7 @@ SPEC CHECKSUMS:
   react-native-keep-awake: eba3137546b10003361b37c761f6c429b59814ae
   react-native-netinfo: 8d8db463bcc5db66a8ac5c48a7d86beb3b92f61a
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
-  react-native-webrtc: dc1208bdca2c4d091f7b57859e69332bff6f1986
+  react-native-webrtc: ccb0c21eb4fb04326648fbdb4a5d49977e2cf274
   react-native-webview: b2542d6fd424bcc3e3b2ec5f854f0abb4ec86c87
   React-RCTActionSheet: b72ddbfbe15b44ce691d128e4b582f4bb9abb540
   React-RCTAnimation: cfaefba5024499d336b76ab850e6bd33b232b5e3
@@ -588,6 +581,6 @@ SPEC CHECKSUMS:
   RNWatch: a5320c959c75e72845c07985f3e935e58998f1d3
   Yoga: 7b4209fda2441f99d54dd6cf4c82b094409bb68f
 
-PODFILE CHECKSUM: 2392b02334b302459985697a81bc1037b0da78f4
+PODFILE CHECKSUM: d059cebf82da14a53940a16c24c3330752d4b0c8
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
