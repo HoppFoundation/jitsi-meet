@@ -1,5 +1,7 @@
 // @flow
 
+import clipboardCopy from 'clipboard-copy';
+
 /**
  * A helper function that behaves similar to Object.assign, but only reassigns a
  * property in target if it's defined in source.
@@ -29,27 +31,16 @@ export function assignIfDefined(target: Object, source: Object) {
  * Returns true if the action succeeds.
  *
  * @param {string} textToCopy - Text to be copied.
- * @returns {boolean}
+ * @returns {Promise<boolean>}
  */
-export function copyText(textToCopy: string) {
-    const fakeTextArea = document.createElement('textarea');
-    let result;
-
-    // $FlowFixMe
-    document.body.appendChild(fakeTextArea);
-    fakeTextArea.value = textToCopy;
-    fakeTextArea.select();
-
+export async function copyText(textToCopy: string) {
     try {
-        result = document.execCommand('copy');
-    } catch (err) {
-        result = false;
+        await clipboardCopy(textToCopy);
+
+        return true;
+    } catch (e) {
+        return false;
     }
-
-    // $FlowFixMe
-    document.body.removeChild(fakeTextArea);
-
-    return result;
 }
 
 /**

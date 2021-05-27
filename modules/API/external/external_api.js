@@ -28,12 +28,16 @@ const ALWAYS_ON_TOP_FILENAMES = [
  */
 const commands = {
     avatarUrl: 'avatar-url',
+    cancelPrivateChat: 'cancel-private-chat',
     displayName: 'display-name',
     e2eeKey: 'e2ee-key',
     email: 'email',
     toggleLobby: 'toggle-lobby',
     hangup: 'video-hangup',
+    intiatePrivateChat: 'initiate-private-chat',
+    kickParticipant: 'kick-participant',
     muteEveryone: 'mute-everyone',
+    overwriteConfig: 'overwrite-config',
     password: 'password',
     pinParticipant: 'pin-participant',
     resizeLargeVideo: 'resize-large-video',
@@ -62,6 +66,8 @@ const events = {
     'audio-availability-changed': 'audioAvailabilityChanged',
     'audio-mute-status-changed': 'audioMuteStatusChanged',
     'camera-error': 'cameraError',
+    'chat-updated': 'chatUpdated',
+    'content-sharing-participants-changed': 'contentSharingParticipantsChanged',
     'device-list-changed': 'deviceListChanged',
     'display-name-change': 'displayNameChange',
     'email-change': 'emailChange',
@@ -191,7 +197,7 @@ function parseArguments(args) {
  * @param {any} value - The value to be parsed.
  * @returns {string|undefined} The parsed value that can be used for setting
  * sizes through the style property. If invalid value is passed the method
- * retuns undefined.
+ * returns undefined.
  */
 function parseSizeParam(value) {
     let parsedValue;
@@ -315,7 +321,7 @@ export default class JitsiMeetExternalAPI extends EventEmitter {
         const frameName = `jitsiConferenceFrame${id}`;
 
         this._frame = document.createElement('iframe');
-        this._frame.allow = 'camera; microphone; display-capture';
+        this._frame.allow = 'camera; microphone; display-capture; autoplay; clipboard-write';
         this._frame.src = this._url;
         this._frame.name = frameName;
         this._frame.id = frameName;
@@ -569,6 +575,12 @@ export default class JitsiMeetExternalAPI extends EventEmitter {
      * logLevel: the message log level
      * arguments: an array of strings that compose the actual log message
      * }}
+     * {@code chatUpdated} - receives event notifications about chat state being
+     * updated. The listener will receive object with the following structure:
+     * {{
+     *  'unreadCount': unreadCounter, // the unread message(s) counter,
+     *  'isOpen': isOpen, // whether the chat panel is open or not
+     * }}
      * {@code incomingMessage} - receives event notifications about incoming
      * messages. The listener will receive object with the following structure:
      * {{
@@ -724,12 +736,35 @@ export default class JitsiMeetExternalAPI extends EventEmitter {
     }
 
     /**
+     * Gets a list of the currently sharing participant id's.
+     *
+     * @returns {Promise} - Resolves with the list of participant id's currently sharing.
+     */
+    getContentSharingParticipants() {
+        return this._transport.sendRequest({
+            name: 'get-content-sharing-participants'
+        });
+    }
+
+    /**
      * Returns Promise that resolves with current selected devices.
      *
      * @returns {Promise}
      */
     getCurrentDevices() {
         return getCurrentDevices(this._transport);
+    }
+
+    /**
+     * Returns the current livestream url.
+     *
+     * @returns {Promise} - Resolves with the current livestream URL if exists, with
+     * undefined if not and rejects on failure.
+     */
+    getLivestreamUrl() {
+        return this._transport.sendRequest({
+            name: 'get-livestream-url'
+        });
     }
 
     /**

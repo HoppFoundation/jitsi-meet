@@ -40,7 +40,7 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
-import java.util.Map;
+import java.util.HashMap;
 
 /**
  * The one and only Activity that the Jitsi Meet app needs. The
@@ -83,7 +83,7 @@ public class MainActivity extends JitsiMeetActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        OkHttpClientProvider.setOkHttpClientFactory(new UserAgentClientFactory());
+        OkHttpClientProvider.setOkHttpClientFactory(new UserAgentClientFactory());
 
         JitsiMeet.showSplashScreen(this);
         super.onCreate(savedInstanceState);
@@ -179,8 +179,8 @@ public class MainActivity extends JitsiMeetActivity {
     }
 
     @Override
-    public void onConferenceTerminated(Map<String, Object> data) {
-        Log.d(TAG, "Conference terminated: " + data);
+    protected void onConferenceTerminated(HashMap<String, Object> extraData) {
+        Log.d(TAG, "Conference terminated: " + extraData);
     }
 
     // Activity lifecycle method overrides

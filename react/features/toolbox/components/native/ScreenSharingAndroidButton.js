@@ -5,6 +5,7 @@ import { IconShareDesktop } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 import { toggleScreensharing, isLocalVideoTrackDesktop } from '../../../base/tracks';
+import { getLocalParticipant, PARTICIPANT_ROLE } from '../../../base/participants';
 
 /**
  * The type of the React {@code Component} props of {@link ScreenSharingAndroidButton}.
@@ -66,8 +67,21 @@ class ScreenSharingAndroidButton extends AbstractButton<Props, *> {
  * }}
  */
 function _mapStateToProps(state): Object {
+    const localParticipant = getLocalParticipant(state);
+        const isModerator = localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
+    const screenShareAllowed =Boolean(state['features/base/conference'].screenshare);
+
+    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
+    var visible_generally = true;
+
+    if (MODERATOR_KEYS){
+        visible_generally = visible_generally && (((isModerator|| screenShareAllowed)     && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'));
+    }
+
     return {
-        _screensharing: isLocalVideoTrackDesktop(state)
+        _screensharing: isLocalVideoTrackDesktop(state),
+        visible: visible_generally //&& !showScreenshare
+
     };
 }
 

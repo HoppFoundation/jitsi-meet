@@ -5,7 +5,7 @@ import type { Dispatch } from 'redux';
 
 import { ConfirmDialog, hideDialog } from '../../../base/dialog';
 import { connect } from '../../../base/redux';
-import { kickAllParticipants } from '../../../remote-video-menu/actions';
+import { kickAllParticipants } from '../../../video-menu/actions';
 /**
  * The type of the React {@code Component} props of {@link RoomLockPrompt}.
  */

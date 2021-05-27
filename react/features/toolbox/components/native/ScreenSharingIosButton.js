@@ -121,11 +121,20 @@ class ScreenSharingIosButton extends AbstractButton<Props, *> {
  * }}
  */
 function _mapStateToProps(state): Object {
+    const isModerator = _localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
+    const screenShareAllowed =Boolean(state['features/base/conference'].screenshare);
+
+    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
+    var visible_generally = true;
+
+    if (MODERATOR_KEYS){
+        visible_generally = visible_generally && (((isModerator|| screenShareAllowed)     && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'));
+    }
     return {
         _screensharing: isLocalVideoTrackDesktop(state),
 
         // TODO: this should work on iOS 12 too, but our trick to show the picker doesn't work.
-        visible: Platform.OS === 'ios' && Platform.Version.split('.')[0] >= 14
+        visible: Platform.OS === 'ios' && Platform.Version.split('.')[0] >= 14 && visible_generally
     };
 }
 

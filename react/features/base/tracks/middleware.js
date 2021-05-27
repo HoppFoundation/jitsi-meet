@@ -35,6 +35,8 @@ import {
     setTrackMuted
 } from './functions';
 
+import './subscriber';
+
 declare var APP: Object;
 
 /**
@@ -161,7 +163,6 @@ MiddlewareRegistry.register(store => next => action => {
                 } else {
                     APP.UI.setVideoMuted(participantID);
                 }
-                APP.UI.onPeerVideoTypeChanged(participantID, jitsiTrack.videoType);
             } else if (jitsiTrack.isLocal()) {
                 APP.conference.setAudioMuteStatus(muted);
             } else {

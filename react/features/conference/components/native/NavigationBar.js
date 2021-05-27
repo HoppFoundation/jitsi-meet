@@ -1,7 +1,7 @@
 // @flow
 
-import React from 'react';
 import { Platform,SafeAreaView, Text, View } from 'react-native';
+import React from 'react';
 
 import { getConferenceName } from '../../../base/conference';
 import { getFeatureFlag, CONFERENCE_TIMER_ENABLED, MEETING_NAME_ENABLED } from '../../../base/flags';
@@ -11,6 +11,7 @@ import { isToolboxVisible } from '../../../toolbox/functions.native';
 import ConferenceTimer from '../ConferenceTimer';
 import ParticipantsCount from './ParticipantsCount';
 
+import Labels from './Labels';
 import styles from './styles';
 
 
@@ -57,23 +58,33 @@ const NavigationBar = (props: Props) => {
                 styles = { styles.navBarButton } />
             <View
                 pointerEvents = 'box-none'
-                style = { styles.roomNameWrapper }>
-                {
-                    props._meetingNameEnabled
-                    && <Text
-                        numberOfLines = { 1 }
-                        style = { styles.roomName }>
-                        { props._meetingName }
-                    </Text>
-                }
-                {
-                    props._conferenceTimerEnabled && <ConferenceTimer />
-                }
+                style = { styles.roomNameContainer }>
+                <View
+                    pointerEvents = 'box-none'
+                    style = { styles.roomNameWrapper }>
+                    {
+                        props._meetingNameEnabled
+                        && <View style = { styles.roomNameView }>
+                            <Text
+                                numberOfLines = { 1 }
+                                style = { styles.roomName }>
+                                { props._meetingName }
+                            </Text>
+                        </View>
+                    }
+                    {
+                        props._conferenceTimerEnabled
+                            && <View style = { styles.roomTimerView }>
+                                <ConferenceTimer textStyle = { styles.roomTimer } />
+                            </View>
+                    }
                     {
                         props._participantCountEnabled && <ParticipantsCount/>
                     }
+                </View>
+                </View>
+                <Labels />
             </View>
-        </View>
     );
 };
 

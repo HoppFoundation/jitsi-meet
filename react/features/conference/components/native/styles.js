@@ -14,7 +14,7 @@ export default {
      */
     conference: fixAndroidViewClipping({
         alignSelf: 'stretch',
-        backgroundColor: ColorPalette.appBackground,
+        backgroundColor: '#040404',
         flex: 1
     }),
 
@@ -28,8 +28,7 @@ export default {
     indicatorContainer: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-end',
-        margin: BoxModel.margin
+        justifyContent: 'flex-end'
     },
 
     /**
@@ -104,8 +103,8 @@ export default {
 
     roomTimer: {
         color: ColorPalette.white,
-        fontSize: 15,
-        opacity: 0.6
+        fontSize: 12,
+        fontWeight: '400'
     },
     participantCounter: {
         color: ColorPalette.white,
@@ -128,21 +127,43 @@ export default {
         marginBottom:-2
     },
 
+    roomTimerView: {
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        borderBottomRightRadius: 3,
+        borderTopRightRadius: 3,
+        height: 28,
+        justifyContent: 'center',
+        paddingHorizontal: 10
+    },
+
     roomName: {
         color: ColorPalette.white,
-        fontSize: 17,
+        fontSize: 14,
         fontWeight: '400'
     },
 
-    roomNameWrapper: {
-        flexDirection: 'column',
+    roomNameView: {
+        backgroundColor: 'rgba(0,0,0,0.6)',
+        borderBottomLeftRadius: 3,
+        borderTopLeftRadius: 3,
+        height: 28,
+        justifyContent: 'center',
+        paddingHorizontal: 10
+    },
+
+    roomNameContainer: {
         alignItems: 'center',
         left: 0,
         paddingHorizontal: 48,
         position: 'absolute',
         right: 0
     },
-    
+
+    roomNameWrapper: {
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+
     /**
      * The style of the {@link View} which expands over the whole
      * {@link Conference} area and splits it between the {@link Filmstrip} and
@@ -153,14 +174,9 @@ export default {
         flexDirection: 'column',
         justifyContent: 'flex-end',
         left: 0,
-        paddingBottom: BoxModel.padding,
         position: 'absolute',
         right: 0,
-
-        // Both on Android and iOS there is the status bar which may be visible.
-        // On iPhone X there is the notch. In the two cases BoxModel.margin is
-        // not enough.
-        top: BoxModel.margin * 3
+        top: 0
     },
 
     insecureRoomNameLabel: {
