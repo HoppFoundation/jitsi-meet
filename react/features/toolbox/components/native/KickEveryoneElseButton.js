@@ -6,17 +6,15 @@ import { translate } from '../../../base/i18n';
 import { IconKick } from '../../../base/icons';
 import {
     getLocalParticipant,
-    participantUpdated,
-    PARTICIPANT_ROLE
+    participantUpdated
 } from '../../../base/participants';
 import { connect } from '../../../base/redux';
 import { AbstractButton } from '../../../base/toolbox/components';
 import type { AbstractButtonProps } from '../../../base/toolbox/components';
-import ScreenshareWarningPrompt from './ScreenshareWarningPrompt';
+import KickEveryoneElsePrompt from './KickEveryoneElsePrompt';
 import { openDialog } from '../../../base/dialog';
-import { jitsiLocalStorage } from '@jitsi/js-utils';
 /**
- * The type of the React {@code Component} props of {@link ScreenshareButton}.
+ * The type of the React {@code Component} props of {@link KickEveryoneElseButton}.
  */
 type Props = AbstractButtonProps & {
 
@@ -25,6 +23,7 @@ type Props = AbstractButtonProps & {
      */
     _localParticipant: Object,
 
+  
     /**
      * The redux {@code dispatch} function.
      */
@@ -32,12 +31,12 @@ type Props = AbstractButtonProps & {
 };
 
 /**
- * An implementation of a button  to show screensharing
+ * An implementation of a button to Kick Everyone
  */
-class ScreenshareButton extends AbstractButton<Props, *> {
-    accessibilityLabel = 'toolbar.accessibilityLabel.shareYourScreen';
+class KickEveryoneElseButton extends AbstractButton<Props, *> {
+    accessibilityLabel = 'toolbar.accessibilityLabel.kickEveryone';
     icon = IconKick;
-    label = 'toolbar.accessibilityLabel.shareYourScreen';
+    label = 'toolbar.accessibilityLabel.kickEveryone';
 
     /**
      * Handles clicking / pressing the button.
@@ -47,17 +46,27 @@ class ScreenshareButton extends AbstractButton<Props, *> {
      * @returns {void}
      */
     _handleClick() {
-        this._openPrompt();
+        this._kickEveryoneElse();
     }
+
+  
 
     /**
      * Toggles the rased hand status of the local participant.
      *
      * @returns {void}
      */
-    _openPrompt() {
-        this.props.dispatch(openDialog(ScreenshareWarningPrompt));
+    _kickEveryoneElse() {
+        console.log("kick all")
+        exclude= [this.props._localParticipant.id];
+        this.props.dispatch(openDialog(KickEveryoneElsePrompt, {
+            exclude,
+        }));
+            
+
+        
     }
+
 }
 /**
  * Maps part of the Redux state to the props of this component.
@@ -69,19 +78,10 @@ class ScreenshareButton extends AbstractButton<Props, *> {
  */
 function _mapStateToProps(state, ownProps): Object {
     const _localParticipant = getLocalParticipant(state);
-    const isModerator = _localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
-    const screenShareAllowed =Boolean(state['features/base/conference'].screenshare);
 
-    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
-    var visible_generally = true;
-
-    if (MODERATOR_KEYS){
-        visible_generally = visible_generally && (((isModerator|| screenShareAllowed)     && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'));
-    }
     return {
-        _localParticipant,
-        visible: visible_generally //&& !showScreenshare
+        _localParticipant
     };
 }
 
-export default translate(connect(_mapStateToProps)(ScreenshareButton));
+export default translate(connect(_mapStateToProps)(KickEveryoneElseButton));

@@ -80,16 +80,16 @@ target 'JitsiMeetSDK' do
 end
 
 
-target 'ScreenRecorderHopp' do
-  project 'app/app.xcodeproj'
+# target 'ScreenRecorderHopp' do
+#   project 'app/app.xcodeproj'
   
-  pod 'BlueSocket'
-end
+#   pod 'BlueSocket'
+# end
 
-target 'ScreenRecorderHoppSetupUI' do
-  project 'app/app.xcodeproj'
+# target 'ScreenRecorderHoppSetupUI' do
+#   project 'app/app.xcodeproj'
 
-end
+# end
 
 
 post_install do |installer|
