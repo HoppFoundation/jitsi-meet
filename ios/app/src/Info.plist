@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>Digitales Klassenzimmer</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,7 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
+<<<<<<< HEAD
 	<string>21.2.0</string>
+=======
+	<string>$(MARKETING_VERSION)</string>
+>>>>>>> jitsi_screenshare
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -26,13 +30,22 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>de.hopp-foundation.klassenzimmer</string>
+			<string>org.jitsi.meet</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>de.hopp-foundation.klassenzimmer</string>
+				<string>org.jitsi.meet</string>
 			</array>
 		</dict>
-		<dict/>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.googleusercontent.apps</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.your-id-here</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
@@ -42,6 +55,8 @@
 	<false/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -56,21 +71,27 @@
 		</dict>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Wenn Meetings in deinen Kalender eingetragen werden sollen</string>
+	<string>See your scheduled meetings in the app.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Nehme mit Video an Meetings teil</string>
+	<string>Participate in meetings with video.</string>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>Local network is used for establishing Peer-to-Peer connections.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Nehme mit Ton an Meetings teil.</string>
+	<string>Participate in meetings with voice.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>de.hopp-foundation.jitsi.ios.conference</string>
+		<string>org.jitsi.JitsiMeet.ios.conference</string>
 	</array>
 	<key>RTCAppGroupIdentifier</key>
+<<<<<<< HEAD
 	<string>group.org.jitsi.meet.appgroup</string>
 	<key>RTCScreenSharingExtension</key>
 	<string>org.jitsi.meet.broadcast.extension</string>
+=======
+	<string>group.de.hopp-foundation.screenrecording</string>
+	<key>RTCScreenSharingExtension</key>
+	<string>de.hopp-foundation.klassenzimmer.broadcast</string>
+>>>>>>> jitsi_screenshare
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -78,7 +99,7 @@
 		<string>voip</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>Launch Screen</string>
+	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

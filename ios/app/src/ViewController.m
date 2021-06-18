@@ -34,6 +34,7 @@
 
     JitsiMeetView *view = (JitsiMeetView *) self.view;
     view.delegate = self;
+
     [view join:[[JitsiMeet sharedInstance] getInitialConferenceOptions]];
 }
 
@@ -130,10 +131,13 @@
   NSLog(@"%@%@", @"Chat toggled: ", data);
 }
 
+<<<<<<< HEAD
 - (void)videoMutedChanged:(NSDictionary *)data {
   NSLog(@"%@%@", @"Video muted changed: ", data[@"muted"]);
 }
 
+=======
+>>>>>>> jitsi_screenshare
 #pragma mark - Helpers
 
 - (void)terminate {

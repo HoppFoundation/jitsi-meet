@@ -4,7 +4,11 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
+<<<<<<< HEAD
 		<string>group.org.jitsi.meet.appgroup</string>
+=======
+		<string>group.de.hopp-foundation.screenrecording</string>
+>>>>>>> jitsi_screenshare
 	</array>
 </dict>
 </plist>

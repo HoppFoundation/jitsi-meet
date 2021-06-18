@@ -19,28 +19,28 @@
 #import "FIRUtilities.h"
 #import "Types.h"
 #import "ViewController.h"
-#import "Digitales_Klassenzimmer-Swift.h"
 
 @import Firebase;
 @import JitsiMeetSDK;
-@import ReplayKit;
 
 @implementation AppDelegate
 
 -             (BOOL)application:(UIApplication *)application
   didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
- 
-
     JitsiMeet *jitsiMeet = [JitsiMeet sharedInstance];
+
     jitsiMeet.conferenceActivityType = JitsiMeetConferenceActivityType;
-    jitsiMeet.customUrlScheme = @"de.hopp-foundation.klassenzimmer";
-    jitsiMeet.universalLinkDomains = @[@"meet.jit.si", @"alpha.jitsi.net", @"beta.meet.jit.si", @"jitsi.hopp-foundation.de",@"jitsi.mannheim.ccc.de"];
+    jitsiMeet.customUrlScheme = @"org.jitsi.meet";
+    jitsiMeet.universalLinkDomains = @[@"meet.jit.si", @"alpha.jitsi.net", @"beta.meet.jit.si"];
 
     jitsiMeet.defaultConferenceOptions = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
         [builder setFeatureFlag:@"resolution" withValue:@(360)];
+<<<<<<< HEAD
         [builder setFeatureFlag:@"ios.screensharing.enabled" withBoolean:YES];
         builder.serverURL = [NSURL URLWithString:@"https://jitsi.hopp-foundation.de"];
+=======
+        builder.serverURL = [NSURL URLWithString:@"https://meet.jit.si"];
+>>>>>>> jitsi_screenshare
         builder.welcomePageEnabled = YES;
 
         // Apple rejected our app because they claim requiring a

@@ -5,7 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
+<<<<<<< HEAD
 	<string>Jitsi Meet Broadcast Extension</string>
+=======
+	<string>JitsiMeet Broadcast Extension</string>
+>>>>>>> jitsi_screenshare
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,15 +21,25 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
+<<<<<<< HEAD
 	<string>21.2.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+=======
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+>>>>>>> jitsi_screenshare
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.broadcast-services-upload</string>
 		<key>NSExtensionPrincipalClass</key>
+<<<<<<< HEAD
 		<string>$(PRODUCT_MODULE_NAME).SampleHandler</string>
+=======
+		<string>SampleHandler</string>
+>>>>>>> jitsi_screenshare
 		<key>RPBroadcastProcessMode</key>
 		<string>RPBroadcastProcessModeSampleBuffer</string>
 	</dict>
