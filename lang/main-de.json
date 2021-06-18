@@ -3,8 +3,9 @@
         "add": "Einladen",
         "addContacts": "Laden Sie Ihre Kontakte ein",
         "copyInvite": "Sitzungseinladung kopieren",
-        "copyLink": "Meeting-Link kopieren",
-        "copyStream": "Live-Streaming-Link kopieren",
+        "copyLink": "Konferenzlink kopieren",
+        "copyStream": "Livestreaminglink kopieren",
+        "contacts": "Kontakte",
         "countryNotSupported": "Wir unterstützen dieses Land noch nicht.",
         "countryReminder": "Telefonnummer nicht in den USA? Bitte sicherstellen, dass die Telefonnummer mit dem Ländercode beginnt.",
         "defaultEmail": "Ihre Standard-E-Mail",
@@ -16,15 +17,10 @@
         "inviteMoreMailSubject": "An {{appName}} Meeting teilnehmen",
         "inviteMorePrompt": "Mehr Leute einladen",
         "linkCopied": "Link in die Zwischenablage kopiert",
-        "loading": "Suche nach Personen und Telefonnummern",
-        "loadingNumber": "Telefonnummer wird überprüft",
-        "loadingPeople": "Suche nach einzuladenden Personen",
         "noResults": "Keine passenden Ergebnisse",
-        "noValidNumbers": "Telefonnummer eingeben",
         "outlookEmail": "Outlook-E-Mail",
-        "searchNumbers": "Telefonnummern hinzufügen",
-        "searchPeople": "Nach Personen suchen",
-        "searchPeopleAndNumbers": "Nach Personen suchen oder deren Telefonnummern hinzufügen",
+        "phoneNumbers": "Telefonnummern",
+        "searching": "Suche...",
         "shareInvite": "Einladung zur Versammlung teilen",
         "shareLink": "Teilen Sie den Meeting-Link, um andere einzuladen",
         "shareStream": "Den Livestreaminglink freigeben",
@@ -74,12 +70,17 @@
         },
         "privateNotice": "Private Nachricht an {{recipient}}",
         "title": "Chatten",
-        "you": "Sie"
+        "you": "Sie",
+        "message": "Nachricht",
+        "messageAccessibleTitle": "{{user}} sagt:",
+        "messageAccessibleTitleMe": "Ich sage:",
+        "smileysPanel": "Emoji-Auswahl"
     },
     "chromeExtensionBanner": {
         "installExtensionText": "Installieren Sie die Erweiterung für die Integration von Google Calendar und Office 365",
         "buttonText": "Chrome-Erweiterung installieren",
-        "dontShowAgain": "Hinweis nicht mehr anzeigen"
+        "dontShowAgain": "Hinweis nicht mehr anzeigen",
+        "close": "Schließen"
     },
     "connectingOverlay": {
         "joiningRoom": "Eine Verbindung zu Ihrem Meeting wird hergestellt…"
@@ -208,6 +209,8 @@
         "e2eeLabel": "Ende-zu-Ende-Verschlüsselung aktivieren",
         "e2eeWarning": "WARNUNG: Nicht alle Personen dieser Konferenz scheinen Ende-zu-Ende-Verschlüsselung zu unterstützen. Wenn Sie diese aktivieren, können die entsprechenden Personen nichts mehr sehen oder hören.",
         "enterDisplayName": "Bitte geben Sie hier Ihren Namen ein",
+        "enterDisplayNameToJoin" : "Benutzername für Konferenz eingeben" ,
+        "embedMeeting": "Besprechung einbetten",
         "error": "Fehler",
         "gracefulShutdown": "Der Dienst steht momentan wegen Wartungsarbeiten nicht zur Verfügung. Bitte versuchen Sie es später noch einmal.",
         "grantModeratorDialog": "Sind Sie sicher, dass Sie diesen Teilnehmer zum Moderator ernennen wollen?",
@@ -265,8 +268,9 @@
         "muteParticipantsVideoTitle": "Die Kamera von dieser Person ausschalten?",
         "muteParticipantsVideoBody": "Sie können die Kamera nicht wieder aktivieren, die Teilnehmer können dies aber jederzeit wieder ändern.",
         "Ok": "OK",
-        "passwordLabel": "Dieses Meeting wurde von einem Teilnehmer gesichert. Bitte geben Sie das $t(lockRoomPassword) ein, um dem Meeting beizutreten.",
-        "passwordNotSupported": "Das Festlegen von einem $t(lockRoomPassword) für das Meeting wird nicht unterstützt.",
+        "password": "Passwort",
+        "passwordLabel": "Dieses Meeting wurde gesichert. Bitte geben Sie das $t(lockRoomPasswordUppercase) ein, um dem Meeting beizutreten.",
+        "passwordNotSupported": "Das Festlegen eines Konferenzpassworts wird nicht unterstützt.",
         "passwordNotSupportedTitle": "$t(lockRoomPasswordUppercase) nicht unterstützt",
         "passwordRequired": "$t(lockRoomPasswordUppercase) erforderlich",
         "popupError": "Ihr Browser blockiert Pop-ups von dieser Website. Bitte aktivieren Sie Pop-ups in den Sicherheitseinstellungen des Browsers und versuchen Sie es erneut.",
@@ -274,7 +278,6 @@
         "readMore": "mehr",
         "recording": "Aufnahme",
         "recordingDisabledBecauseOfActiveLiveStreamingTooltip": "Während eines Livestreams nicht möglich",
-        "recordingDisabledForGuestTooltip": "Gäste können keine Aufzeichnungen starten.",
         "recordingDisabledTooltip": "Start der Aufzeichnung deaktiviert.",
         "rejoinNow": "Jetzt erneut beitreten",
         "remoteControlAllowedMessage": "{{user}} hat die Anfrage zur Fernsteuerung angenommen!",
@@ -304,10 +307,11 @@
         "sendPrivateMessageTitle": "Privat antworten?",
         "serviceUnavailable": "Dienst nicht verfügbar",
         "sessTerminated": "Konferenz beendet",
+        "sessionRestarted": "Konferenz neugestartet",
         "Share": "Teilen",
         "shareVideoLinkError": "Bitte einen gültigen YouTube-Link angeben.",
         "shareVideoTitle": "Video teilen",
-        "shareYourScreen": "Bildschirm freigeben",
+        "shareYourScreen": "Bildschirmfreigabe ein-/ausschalten",
         "shareYourScreenDisabled": "Bildschirmfreigabe deaktiviert.",
         "startLiveStreaming": "Livestream starten",
         "startRecording": "Aufnahme starten",
@@ -327,13 +331,15 @@
         "user": "Anmeldename",
         "userIdentifier": "Benutzername",
         "userPassword": "Passwort",
-        "videoLink": "Video link",
-        "WaitForHostMsg": "Die Konferenz <b>{{room}}</b> wurde noch nicht gestartet. Wenn Sie der Organisator sind, authentifizieren Sie sich. Warten Sie andernfalls, bis der Organisator erscheint.",
-        "WaitForHostMsgWOk": "Die Konferenz <b>{{room}}</b> wurde noch nicht gestartet. Wenn Sie der Organisator sind, drücken Sie zum Authentifizieren auf OK. Warten Sie andernfalls, bis der Organisator erscheint.",
+        "videoLink": "Video-Link",
+        "WaitForHostMsg": "Die Konferenz <b>{{room}}</b> wurde noch nicht gestartet. Falls Sie die Konferenz leiten, authentifizieren Sie sich bitte. Warten Sie andernfalls, bis die Konferenz gestartet wird.",
+        "WaitForHostMsgWOk": "Die Konferenz <b>{{room}}</b> wurde noch nicht gestartet. Falls Sie die Konferenz leiten, authentifizieren Sie sich bitte. Warten Sie andernfalls, bis die Konferenz gestartet wird.",
         "WaitingForHostTitle": "Warten auf den Beginn der Konferenz …",
         "whiteboardDialog": "Bei Nutzung des Whiteboards mit unterschiedlichen Endgerätetypen (Handy, Laptop etc.) kann es zu Abweichungen in der Darstellung kommen. Wir empfehlen daher, diese Funktion nur zu nutzen, wenn nur gleiche Gerätetypen (bspw. nur Laptop) im Einsatz sind.",
         "Yes": "Ja",
-        "yourEntireScreen": "Ganzer Bildschirm"
+        "yourEntireScreen": "Ganzer Bildschirm",
+        "remoteUserControls": "Remote Benutzersteuerung von {{username}}",
+        "localUserControls": "Lokale Benutzersteuerung"
     },
     "dialOut": {
         "statusMessage": "ist jetzt {{status}}"
@@ -353,8 +359,20 @@
         "slightBlur": "Hintergrund leicht unscharf",
         "removeBackground": "Hintergrund entfernen",
         "uploadImage": "Bild hochladen",
+        "addBackground": "Hintergrund hinzufügen",
         "pleaseWait": "Bitte warten...",
-        "none": "keiner"
+        "none": "keiner",
+        "uploadedImage": "Hochgeladenes Bild {{index}}",
+        "deleteImage": "Bild löschen",
+        "image1" : "Strand",
+        "image2" : "Weiße neutrale Wand",
+        "image3" : "Weißer leerer Raum",
+        "image4" : "Schwarze Stehlampe",
+        "image5" : "Berg",
+        "image6" : "Wald",
+        "image7" : "Sonnenaufgang",
+        "desktopShareError": "Desktop konnte nicht freigegeben werden",
+        "desktopShare":"Desktopfreigabe"
     },
     "feedback": {
         "average": "Durchschnittlich",
@@ -363,7 +381,8 @@
         "good": "Gut",
         "rateExperience": "Bitte bewerten Sie diese Konferenz",
         "veryBad": "Sehr schlecht",
-        "veryGood": "Sehr gut"
+        "veryGood": "Sehr gut",
+        "star": "Sterne"
     },
     "incomingCall": {
         "answer": "Antworten",
@@ -380,6 +399,7 @@
         "country": "Land",
         "dialANumber": "Um am Meeting teilzunehmen, müssen Sie eine dieser Nummern wählen und dann die PIN eingeben.",
         "dialInConferenceID": "PIN:",
+        "copyNumber":"Nummer kopieren",
         "dialInNotSupported": "Entschuldigung, leider wird das Einwählen derzeit nicht unterstützt.",
         "dialInNumber": "Einwählen:",
         "dialInSummaryError": "Fehler beim Abrufen der Einwahlinformationen. Versuchen Sie es später erneut.",
@@ -387,7 +407,8 @@
         "genericError": "Es ist leider etwas schiefgegangen.",
         "inviteLiveStream": "Klicken Sie auf {{url}}, um den Livestream dieser Konferenz zu öffnen",
         "invitePhone": "Wenn Sie stattdessen per Telefon beitreten möchten, wählen sie: {{number}},,{{conferenceID}}#\n",
-        "invitePhoneAlternatives": "Suchen Sie nach einer anderen Einwahlnummer ?\nMeeting-Einwahlnummern anzeigen: {{url}}\n\n\nWenn Sie sich auch über ein Raumtelefon einwählen, nehmen Sie teil, ohne sich mit dem Ton zu verbinden: {{silentUrl}}",
+        "invitePhoneAlternatives": "Suchen Sie nach einer anderen Einwahlnummer ?\nEinwahlnummern der Konferenz anzeigen: {{url}}\n\n\nWenn Sie sich auch über ein Raumtelefon einwählen, nehmen Sie teil, ohne sich mit dem Ton zu verbinden: {{silentUrl}}",
+        "inviteSipEndpoint": "Um mit SIP teilzunehmen, folgende Adresse nutzen: {{sipUri}}",
         "inviteURLFirstPartGeneral": "Sie wurden zur Teilnahme an einem Meeting eingeladen.",
         "inviteURLFirstPartPersonal": "{{name}} lädt Sie zu einem Meeting ein.\n",
         "inviteURLSecondPart": "\nAm Meeting teilnehmen:\n{{url}}\n",
@@ -416,6 +437,7 @@
         "support": "Support",
         "supportMsg": "Wenn der Fehler erneut auftritt, bitte kontaktieren Sie"
     },
+    "jitsiHome": "{{logo}} Logo, verlinkt zur Homepage",
     "keyboardShortcuts": {
         "focusLocal": "Lokales Video fokussieren",
         "focusRemote": "Auf das Video einer anderen Person fokussieren",
@@ -428,6 +450,7 @@
         "showSpeakerStats": "Sprechstatistik anzeigen",
         "toggleChat": "Chat öffnen oder schließen",
         "toggleFilmstrip": "Video-Miniaturansichten ein- oder ausblenden",
+        "toggleParticipantsPane": "Liste der Anwesenden ein- und ausblenden",
         "toggleScreensharing": "Zwischen Kamera und Bildschirmfreigabe wechseln",
         "toggleShortcuts": "Tastenkombinationen ein- oder ausblenden",
         "videoMute": "Kamera starten oder stoppen"
@@ -535,7 +558,30 @@
         "OldElectronAPPTitle": "Sicherheitslücke!",
         "oldElectronClientDescription1": "Sie scheinen eine alte Version des Jitsi-Meet-Clients zu nutzen. Diese hat bekannte Schwachstellen. Bitte aktualisieren Sie auf unsere ",
         "oldElectronClientDescription2": "aktuelle Version",
-        "oldElectronClientDescription3": "!"
+        "oldElectronClientDescription3": "!",
+        "groupTitle": "Benachrichtigungen"
+    },
+    "participantsPane": {
+        "close": "Schließen",
+        "headings": {
+            "lobby": "Lobby ({{count}})",
+            "participantsList": "Teilnehmer ({{count}})"
+        },
+        "actions": {
+            "muteAll": "Alle stummschalten",
+            "stopVideo": "Video stoppen"
+        }
+    },
+    "participantsPane": {
+        "headings": {
+            "lobby": "Lobby ({{count}})",
+            "participantsList": "Anwesende ({{count}})"
+        },
+        "actions": {
+            "invite": "Person einladen",
+            "muteAll": "Alle stummschalten",
+            "stopVideo": "Kamera ausschalten"
+        }
     },
     "passwordSetRemotely": "von einer anderen Person gesetzt",
     "passwordDigitsOnly": "Bis zu {{number}} Ziffern",
@@ -589,6 +635,7 @@
         "linkCopied": "Link in die Zwischenablage kopiert",
         "lookGood": "Ihr Mikrofon scheint zu funktionieren.",
         "or": "oder",
+        "keyboardShortcuts" : "Tastaturkurzbefehle aktivieren",
         "premeeting": "Vorschau",
         "showScreen": "Konferenzvorschau aktivieren",
         "startWithPhone": "Mit Telefonaudio starten",
@@ -612,6 +659,7 @@
         "ringing": "Es klingelt …"
     },
     "profile": {
+        "avatar": "Benutzerbild",
         "setDisplayNameLabel": "Anzeigename festlegen",
         "setEmailInput": "E-Mail eingeben",
         "setEmailLabel": "E-Mail-Adresse für Gravatar",
@@ -711,8 +759,8 @@
     },
     "speaker": "Sprecher/-in",
     "speakerStats": {
-        "hours": "{{count}} Std.",
-        "minutes": "{{count}} Min.",
+        "hours": "{{count}} Std. ",
+        "minutes": "{{count}} Min. ",
         "name": "Name",
         "seconds": "{{count}} Sek.",
         "speakerStats": "Sprechstatistik",
@@ -729,39 +777,40 @@
         "title": "Die Konferenz wurde unterbrochen, weil der Standby-Modus aktiviert wurde."
     },
     "toolbar": {
-        "accessibilityLabel": {
+            "accessibilityLabel": {
             "audioOnly": "„Nur Audio“ ein-/ausschalten",
             "audioRoute": "Audiogerät auswählen",
             "callQuality": "Qualitätseinstellungen",
             "cc": "Untertitel ein-/ausschalten",
-            "chat": "Chatfenster ein-/ausblenden",
+            "chat": "Chatfenster öffnen / schließen",
             "document": "Geteiltes Dokument schließen",
             "download": "Unsere Apps herunterladen",
             "embedMeeting": "Konferenz einbetten",
             "feedback": "Feedback hinterlassen",
-            "fullScreen": "Vollbildmodus aktivieren/deaktivieren",
-            "grantModerator": "Zum Moderator befördern",
+            "fullScreen": "Vollbildmodus ein-/ausschalten",
+            "grantModerator": "Moderationsrechte vergeben",
+            "hangup": "Konferenz verlassen",
             "grantScreenshare": "Bildschirmteilen erlauben",
-            "hangup": "Anruf beenden",
             "help": "Hilfe",
             "invite": "Teilnehmer einladen",
             "kick": "Teilnehmer entfernen",
             "kickEveryone": "Sitzung für jeden beenden",
             "lobbyButton": "Lobbymodus ein-/ausschalten",
             "localRecording": "Lokale Aufzeichnungssteuerelemente ein-/ausschalten",
-            "lockRoom": "Meeting-Passwort ein-/ausschalten",
-            "moreActions": "Menü „Weitere Aktionen“ ein-/ausschalten",
-            "moreActionsMenu": "Menü „Weitere Aktionen“",
+            "lockRoom": "Konferenzpasswort ein-/ausschalten",
+            "moreActions": "Menü „Weitere Einstellungen“ ein-/ausschalten",
+            "moreActionsMenu": "Menü „Weitere Einstellungen“",
             "moreOptions": "Menü „Weitere Optionen“",
-            "mute": "„Audio stummschalten“ ein-/ausschalten",
+            "mute": "Mikrofon aktivieren / deaktivieren",
             "muteEveryone": "Alle stummschalten",
             "muteEveryoneElse": "Alle anderen stummschalten",
             "muteEveryonesVideo": "Alle Kameras ausschalten",
             "muteEveryoneElsesVideo": "Alle anderen Kameras ausschalten",
+            "participants": "Anwesende",
             "pip": "Bild-in-Bild-Modus ein-/ausschalten",
             "privateMessage": "Private Nachricht senden",
             "profile": "Profil bearbeiten",
-            "raiseHand": "„Melden“ ein-/ausschalten",
+            "raiseHand": "Hand erheben / senken",
             "recording": "Aufzeichnung ein-/ausschalten",
             "remoteMute": "Teilnehmer stummschalten",
             "revokeScreenshare": "Bildschirmteilen verbieten",
@@ -779,7 +828,9 @@
             "toggleCamera": "Kamera wechseln",
             "toggleFilmstrip": "Miniaturansichten ein-/ausschalten",
             "videomute": "„Video stummschalten“ ein-/ausschalten",
-            "selectBackground": "Hintergrund auswählen"
+            "selectBackground": "Hintergrund auswählen",
+            "expand": "Ausklappen",
+            "collapse": "Einklappen"
         },
         "addPeople": "Teilnehmer zur Konferenz hinzufügen",
         "audioSettings": "Ton-Einstellungen",
@@ -800,7 +851,7 @@
         "exitFullScreen": "Vollbildmodus verlassen",
         "exitTileView": "Kachelansicht ausschalten",
         "feedback": "Feedback hinterlassen",
-        "hangup": "Verlassen",
+        "hangup": "Konferenz verlassen",
         "help": "Hilfe",
         "invite": "Teilnehmer einladen",
         "kickEveryone": "Sitzung für jeden beenden",
@@ -811,7 +862,7 @@
         "lowerYourHand": "Hand senken",
         "moreActions": "Weitere Einstellungen",
         "moreOptions": "Weitere Optionen",
-        "mute": "Stummschaltung aktivieren / deaktivieren",
+        "mute": "Mikrofon aktivieren / deaktivieren",
         "muteEveryone": "Alle stummschalten",
         "muteEveryonesVideo": "Alle Kameras ausschalten",
         "noAudioSignalTitle": "Es kommt kein Input von Ihrem Mikrofon!",
@@ -822,10 +873,11 @@
         "noisyAudioInputTitle": "Ihr Mikrofon scheint lärmintensiv zu sein!",
         "noisyAudioInputDesc": "Es klingt, als ob Ihr Mikrofon Störgeräusche verursacht. Bitte überlegen Sie, ob Sie das Gerät stummschalten oder austauschen wollen.",
         "openChat": "Chat öffnen",
+        "participants": "Anwesende",
         "pip": "Bild-in-Bild-Modus einschalten",
         "privateMessage": "Private Nachricht senden",
         "profile": "Profil bearbeiten",
-        "raiseHand": "Hand erheben",
+        "raiseHand": "Hand erheben / senken",
         "raiseYourHand": "Melden",
         "security": "Sicherheitsoptionen",
         "Settings": "Einstellungen",
@@ -870,6 +922,7 @@
         "react-nativeGrantPermissions": "Wählen Sie <b><i>Erlauben</i></b>, wenn der Browser um Berechtigungen bittet.",
         "safariGrantPermissions": "Wählen Sie <b><i>OK</i></b>, wenn der Browser um Berechtigungen bittet."
     },
+    "volumeSlider": "Lautstärkeregler",
     "videoSIPGW": {
         "busy": "Es stehen keine freien Ressourcen zur Verfügung. Bitte versuchen Sie es später noch einmal.",
         "busyTitle": "Keine freien Ressourcen",
@@ -917,6 +970,7 @@
         "videomute": "Person hat die Kamera angehalten"
     },
     "welcomepage": {
+        "addMeetingName": "Besprechungsnamen hinzufügen",
         "accessibilityLabel": {
             "join": "Zum Teilnehmen tippen",
             "roomname": "Konferenzname eingeben"
@@ -937,8 +991,11 @@
         "headerSubtitle": "Sichere und hochqualitative Meetings",
         "info": "Einwahlinformationen",
         "join": "ERSTELLEN / BEITRETEN",
-        "jitsiOnMobile": "Jitsi on mobile – Download unsere Apps und starte ein Meeting von überall",
+        "jitsiOnMobile": "Jitsi unterwegs – einfach unsere Apps herunterladen und Meetings von überall starten",
         "moderatedMessage": "Oder <a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">reservieren Sie sich eine Konferenz-URL</a>, die nur Sie moderieren.",
+        "mobileDownLoadLinkIos": "iOS App Download",
+        "mobileDownLoadLinkAndroid": "Android App Download",
+        "mobileDownLoadLinkFDroid": "F-Droid App Download",
         "privacy": "Datenschutz",
         "recntListDelete": "Löschen",
         "recentLientList": "Letzte",
@@ -950,7 +1007,15 @@
         "sendFeedback": "Feedback senden",
         "startMeeting": "Meeting starten",
         "terms": "AGB",
-        "title": "Euer digitales Klassenzimmer!"
+"title": "Euer digitales Klassenzimmer!",
+"logo":{
+           "calendar":"Kalender Logo",
+           "microsoftLogo":"Microsoft Logo",
+           "logoDeepLinking":"Jitsi Meet Logo",
+           "desktopPreviewThumbnail":"Desktop-Vorschau Thumbnail",
+           "googleLogo":"Google Logo",
+           "policyLogo":"Richtlinienlogo"
+        }
     },
     "lonelyMeetingExperience": {
         "button": "Andere einladen",
@@ -960,6 +1025,7 @@
         "header": "Hilfecenter"
     },
     "lobby": {
+        "admit": "Zulassen",
         "knockingParticipantList": "Liste anklopfender Personen",
         "allow": "Annehmen",
         "backToKnockModeButton": "Kein Passwort, stattdessen Beitritt anfragen",

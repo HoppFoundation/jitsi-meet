@@ -356,12 +356,16 @@ class WelcomePage extends AbstractWelcomePage {
                         <a
                             className = 'welcome-badge'
                             href = { MOBILE_DOWNLOAD_LINK_IOS }>
-                            <img src = './images/app-store-badge.png' />
+                            <img
+                                alt = { t('welcomepage.mobileDownLoadLinkIos') }
+                                src = './images/app-store-badge.png' />
                         </a>
                         <a
                             className = 'welcome-badge'
                             href = { MOBILE_DOWNLOAD_LINK_ANDROID }>
-                            <img src = './images/google-play-badge.png' />
+                            <img
+                                alt = { t('welcomepage.mobileDownLoadLinkAndroid') }
+                                src = './images/google-play-badge.png' />
                         </a>
                         <a
                             className = 'welcome-badge'

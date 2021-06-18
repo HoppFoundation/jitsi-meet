@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 
+import keyboardShortcut from '../../../../../modules/keyboardshortcut/keyboardshortcut';
 import {
     ACTION_SHORTCUT_TRIGGERED,
     createShortcutEvent,
@@ -9,6 +10,7 @@ import {
     sendAnalytics
 } from '../../../analytics';
 import { getToolbarButtons } from '../../../base/config';
+import { isToolbarButtonEnabled } from '../../../base/config/functions.web';
 import { openDialog, toggleDialog } from '../../../base/dialog';
 import { isMobileBrowser } from '../../../base/environment/utils';
 import { translate, i18next } from '../../../base/i18n';
@@ -75,6 +77,8 @@ import {
     VideoQualityDialog
 } from '../../../video-quality';
 import { VideoBackgroundButton } from '../../../virtual-background';
+import { toggleBackgroundEffect } from '../../../virtual-background/actions';
+import { VIRTUAL_BACKGROUND_TYPE } from '../../../virtual-background/constants';
 import { checkBlurSupport } from '../../../virtual-background/functions';
 import {
     setFullScreen,
@@ -102,6 +106,11 @@ import VideoSettingsButton from './VideoSettingsButton';
  * The type of the React {@code Component} props of {@link Toolbox}.
  */
 type Props = {
+
+    /**
+     * String showing if the virtual background type is desktop-share.
+     */
+    _backgroundType: String,
 
     /**
      * Whether or not the chat feature is currently displayed.
@@ -191,6 +200,11 @@ type Props = {
     _locked: boolean,
 
     /**
+     * The JitsiLocalTrack to display.
+     */
+    _localVideo: Object,
+
+    /**
      * Whether or not the overflow menu is visible.
      */
     _overflowMenuVisible: boolean,
@@ -224,6 +238,16 @@ type Props = {
      * Array with the buttons which this Toolbox should display.
      */
     _visibleButtons: Array<string>,
+
+    /**
+     * Handler to check if a button is enabled.
+     */
+     _shouldShowButton: Function,
+
+    /**
+     * Returns the selected virtual source object.
+     */
+     _virtualSource: Object,
 
     /**
      * Invoked to active other features of the app.
@@ -279,6 +303,7 @@ class Toolbox extends Component<Props> {
         this._onToolbarToggleShareAudio = this._onToolbarToggleShareAudio.bind(this);
         this._onToolbarOpenLocalRecordingInfoDialog = this._onToolbarOpenLocalRecordingInfoDialog.bind(this);
         this._onShortcutToggleTileView = this._onShortcutToggleTileView.bind(this);
+        this._onEscKey = this._onEscKey.bind(this);
     }
 
     /**
@@ -289,37 +314,37 @@ class Toolbox extends Component<Props> {
      */
     componentDidMount() {
         const KEYBOARD_SHORTCUTS = [
-            this._shouldShowButton('videoquality') && {
+            this.props._shouldShowButton('videoquality') && {
                 character: 'A',
                 exec: this._onShortcutToggleVideoQuality,
                 helpDescription: 'toolbar.callQuality'
             },
-            this._shouldShowButton('chat') && {
+            this.props._shouldShowButton('chat') && {
                 character: 'C',
                 exec: this._onShortcutToggleChat,
                 helpDescription: 'keyboardShortcuts.toggleChat'
             },
-            this._shouldShowButton('desktop') && {
+            this.props._shouldShowButton('desktop') && {
                 character: 'D',
                 exec: this._onShortcutToggleScreenshare,
                 helpDescription: 'keyboardShortcuts.toggleScreensharing'
             },
-            this._shouldShowButton('participants-pane') && {
+            this.props._shouldShowButton('participants-pane') && {
                 character: 'P',
                 exec: this._onShortcutToggleParticipantsPane,
                 helpDescription: 'keyboardShortcuts.toggleParticipantsPane'
             },
-            this._shouldShowButton('raisehand') && {
+            this.props._shouldShowButton('raisehand') && {
                 character: 'R',
                 exec: this._onShortcutToggleRaiseHand,
                 helpDescription: 'keyboardShortcuts.raiseHand'
             },
-            this._shouldShowButton('fullscreen') && {
+            this.props._shouldShowButton('fullscreen') && {
                 character: 'S',
                 exec: this._onShortcutToggleFullScreen,
                 helpDescription: 'keyboardShortcuts.fullScreen'
             },
-            this._shouldShowButton('tileview') && {
+            this.props._shouldShowButton('tileview') && {
                 character: 'W',
                 exec: this._onShortcutToggleTileView,
                 helpDescription: 'toolbar.tileViewToggle'
@@ -385,6 +410,21 @@ class Toolbox extends Component<Props> {
                 { this._renderToolboxContent() }
             </div>
         );
+    }
+
+    _onEscKey: (KeyboardEvent) => void;
+
+    /**
+     * Key handler for overflow menu.
+     *
+     * @param {KeyboardEvent} e - Esc key click to close the popup.
+     * @returns {void}
+     */
+    _onEscKey(e) {
+        if (e.key === 'Escape') {
+            e.stopPropagation();
+            this._closeOverflowMenuIfOpen();
+        }
     }
 
     /**
@@ -602,6 +642,13 @@ class Toolbox extends Component<Props> {
             {
                 enable: !this.props._chatOpen
             }));
+
+        // Checks if there was any text selected by the user.
+        // Used for when we press simultaneously keys for copying
+        // text messages from the chat board
+        if (window.getSelection().toString() !== '') {
+            return false;
+        }
 
         this._doToggleChat();
     }
@@ -902,6 +949,20 @@ class Toolbox extends Component<Props> {
      * @returns {void}
      */
     _onToolbarToggleScreenshare() {
+        if (this.props._backgroundType === VIRTUAL_BACKGROUND_TYPE.DESKTOP_SHARE) {
+            const noneOptions = {
+                enabled: false,
+                backgroundType: VIRTUAL_BACKGROUND_TYPE.NONE,
+                selectedThumbnail: VIRTUAL_BACKGROUND_TYPE.NONE,
+                backgroundEffectEnabled: false
+            };
+
+            this.props._virtualSource.dispose();
+
+            this.props.dispatch(toggleBackgroundEffect(noneOptions, this.props._localVideo));
+
+            return;
+        }
         if (!this.props._desktopSharingEnabled) {
             return;
         }
@@ -960,7 +1021,7 @@ class Toolbox extends Component<Props> {
         return (
             (_desktopSharingEnabled
             || _desktopSharingDisabledTooltipKey)
-            && this._shouldShowButton('desktop')
+            && this.props._shouldShowButton('desktop')
         );
     }
 
@@ -972,7 +1033,7 @@ class Toolbox extends Component<Props> {
     _isEmbedMeetingVisible() {
         return !this.props._isVpaasMeeting
             && !this.props._isMobile
-            && this._shouldShowButton('embedmeeting');
+            && this.props._shouldShowButton('embedmeeting');
     }
 
     /**
@@ -981,7 +1042,7 @@ class Toolbox extends Component<Props> {
      * @returns {boolean}
      */
     _isProfileVisible() {
-        return !this.props._isProfileDisabled && this._shouldShowButton('profile');
+        return !this.props._isProfileDisabled && this.props._shouldShowButton('profile');
     }
 
     /**
@@ -1005,15 +1066,15 @@ class Toolbox extends Component<Props> {
         const group1 = [
             ...additionalButtons,
 
-            this._shouldShowButton('toggle-camera')
+            this.props._shouldShowButton('toggle-camera')
                 && <ToggleCameraButton
                     key = 'toggle-camera'
                     showLabel = { true } />,
-            this._shouldShowButton('videoquality')
+            this.props._shouldShowButton('videoquality')
                 && <OverflowMenuVideoQualityItem
                     key = 'videoquality'
                     onClick = { this._onToolbarOpenVideoQuality } />,
-            this._shouldShowButton('fullscreen')
+            this.props._shouldShowButton('fullscreen')
                 && !_isMobile
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.fullScreen') }
@@ -1021,49 +1082,49 @@ class Toolbox extends Component<Props> {
                     key = 'fullscreen'
                     onClick = { this._onToolbarToggleFullScreen }
                     text = { _fullScreen ? t('toolbar.exitFullScreen') : t('toolbar.enterFullScreen') } />,
-            (this._shouldShowButton('security') || this._shouldShowButton('info'))
+            (this.props._shouldShowButton('security') || this.props._shouldShowButton('info'))
             && <SecurityDialogButton
                 key = 'security'
                 showLabel = { true } />,
-            this._shouldShowButton('closedcaptions')
+            this.props._shouldShowButton('closedcaptions')
             && <ClosedCaptionButton
                 key = 'closed-captions'
                 showLabel = { true } />,
-            this._shouldShowButton('recording')
+            this.props._shouldShowButton('recording')
                 && <RecordButton
                     key = 'record'
                     showLabel = { true } />,
-            this._shouldShowButton('localrecording')
+            this.props._shouldShowButton('localrecording')
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.localRecording') }
                     icon = { IconRec }
                     key = 'localrecording'
                     onClick = { this._onToolbarOpenLocalRecordingInfoDialog }
                     text = { t('localRecording.dialogTitle') } />,
-            this._shouldShowButton('mute-everyone')
+            this.props._shouldShowButton('mute-everyone')
                 && <MuteEveryoneButton
                     key = 'mute-everyone'
                     showLabel = { true } />,
-            this._shouldShowButton('kick-everyone')
+            this.props._shouldShowButton('kick-everyone')
                 && <KickEveryoneButton
                     key = 'kick-everyone'
                     showLabel = { true } />,
-            this._shouldShowButton('mute-video-everyone')
+            this.props._shouldShowButton('mute-video-everyone')
                 && <MuteEveryonesVideoButton
-                    key = 'mute-everyones-video'
+                    key = 'mute-video-everyone'
                     showLabel = { true } />,
-            this._shouldShowButton('livestreaming')
+            this.props._shouldShowButton('livestreaming')
                 && <LiveStreamButton
                     key = 'livestreaming'
                     showLabel = { true } />
         ];
 
         const group2 = [
-            this._shouldShowButton('sharedvideo') && _isSharedVideoAllowed
+            this.props._shouldShowButton('sharedvideo') && _isSharedVideoAllowed
                 && <SharedVideoButton
                     key = 'sharedvideo'
                     showLabel = { true } />,
-            this._shouldShowButton('shareaudio')
+            this.props._shouldShowButton('shareaudio')
                 && _desktopSharingEnabled
                 && isScreenAudioSupported()
                 && <OverflowMenuItem
@@ -1072,16 +1133,16 @@ class Toolbox extends Component<Props> {
                     key = 'shareaudio'
                     onClick = { this._onToolbarToggleShareAudio }
                     text = { t('toolbar.shareaudio') } />,
-            this._shouldShowButton('etherpad')
+            this.props._shouldShowButton('etherpad')
                 && <SharedDocumentButton
                     key = 'etherpad'
                     showLabel = { true } />,
-            (this._shouldShowButton('select-background') || this._shouldShowButton('videobackgroundblur'))
+            (this.props._shouldShowButton('select-background') || this.props._shouldShowButton('videobackgroundblur'))
                 && <VideoBackgroundButton
                     key = { 'select-background' }
                     showLabel = { true }
                     visible = { !_screensharing && checkBlurSupport() } />,
-            this._shouldShowButton('stats')
+            this.props._shouldShowButton('stats')
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.speakerStats') }
                     icon = { IconPresentation }
@@ -1113,12 +1174,13 @@ class Toolbox extends Component<Props> {
                 className = 'overflow-menu-hr'
                 key = 'hr3' />,
 
-            this._shouldShowButton('settings')
+            this.props._shouldShowButton('settings')
                 && <SettingsButton
                     key = 'settings'
                     showLabel = { true } />,
-            this._shouldShowButton('shortcuts')
+            this.props._shouldShowButton('shortcuts')
                 && !_isMobile
+                && keyboardShortcut.getEnabled()
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.shortcuts') }
                     icon = { IconDeviceDocument }
@@ -1132,7 +1194,7 @@ class Toolbox extends Component<Props> {
                     key = 'embed'
                     onClick = { this._onToolbarOpenEmbedMeeting }
                     text = { t('toolbar.embedMeeting') } />,
-            this._shouldShowButton('feedback')
+            this.props._shouldShowButton('feedback')
                 && _feedbackConfigured
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.feedback') }
@@ -1140,11 +1202,11 @@ class Toolbox extends Component<Props> {
                     key = 'feedback'
                     onClick = { this._onToolbarOpenFeedback }
                     text = { t('toolbar.feedback') } />,
-            this._shouldShowButton('download')
+            this.props._shouldShowButton('download')
                 && <DownloadButton
                     key = 'download'
                     showLabel = { true } />,
-            this._shouldShowButton('help')
+            this.props._shouldShowButton('help')
                 && <HelpButton
                     key = 'help'
                     showLabel = { true } />
@@ -1163,7 +1225,6 @@ class Toolbox extends Component<Props> {
             _chatOpen,
             _desktopSharingEnabled,
             _desktopSharingDisabledTooltipKey,
-            _raisedHand,
             _screensharing,
             t
         } = this.props;
@@ -1191,7 +1252,7 @@ class Toolbox extends Component<Props> {
                     text = { t(`toolbar.${_screensharing ? 'stopScreenSharing' : 'startScreenSharing'}`) } />);
         }
 
-        if (this._shouldShowButton('chat')) {
+        if (this.props._shouldShowButton('chat')) {
             buttons.has('chat')
                 ? mainMenuAdditionalButtons.push(<div
                     className = 'toolbar-button-with-badge'
@@ -1212,24 +1273,26 @@ class Toolbox extends Component<Props> {
                     text = { t(`toolbar.${_chatOpen ? 'closeChat' : 'openChat'}`) } />);
         }
 
-        if (this._shouldShowButton('raisehand')) {
+        if (this.props._shouldShowButton('raisehand')) {
+            const raisedHand = this.props._raisedHand || false;
+
             buttons.has('raisehand')
                 ? mainMenuAdditionalButtons.push(<ToolbarButton
                     accessibilityLabel = { t('toolbar.accessibilityLabel.raiseHand') }
                     icon = { IconRaisedHand }
                     key = 'raisehand'
                     onClick = { this._onToolbarToggleRaiseHand }
-                    toggled = { _raisedHand }
-                    tooltip = { t(`toolbar.${_raisedHand ? 'lowerYourHand' : 'raiseYourHand'}`) } />)
+                    toggled = { raisedHand }
+                    tooltip = { t(`toolbar.${raisedHand ? 'lowerYourHand' : 'raiseYourHand'}`) } />)
                 : overflowMenuAdditionalButtons.push(<OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.raiseHand') }
                     icon = { IconRaisedHand }
                     key = 'raisehand'
                     onClick = { this._onToolbarToggleRaiseHand }
-                    text = { t(`toolbar.${_raisedHand ? 'lowerYourHand' : 'raiseYourHand'}`) } />);
+                    text = { t(`toolbar.${raisedHand ? 'lowerYourHand' : 'raiseYourHand'}`) } />);
         }
 
-        if (this._shouldShowButton('participants-pane') || this._shouldShowButton('invite')) {
+        if (this.props._shouldShowButton('participants-pane') || this.props._shouldShowButton('invite')) {
             buttons.has('participants-pane')
                 ? mainMenuAdditionalButtons.push(
                     <ToolbarButton
@@ -1248,7 +1311,7 @@ class Toolbox extends Component<Props> {
                 );
         }
 
-        if (this._shouldShowButton('tileview')) {
+        if (this.props._shouldShowButton('tileview')) {
             buttons.has('tileview')
                 ? mainMenuAdditionalButtons.push(
                     <TileViewButton
@@ -1272,7 +1335,7 @@ class Toolbox extends Component<Props> {
      * @returns {ReactElement}
      */
     _renderAudioButton() {
-        return this._shouldShowButton('microphone')
+        return this.props._shouldShowButton('microphone')
             ? <AudioSettingsButton
                 key = 'asb'
                 visible = { true } />
@@ -1285,7 +1348,7 @@ class Toolbox extends Component<Props> {
      * @returns {ReactElement}
      */
     _renderVideoButton() {
-        return this._shouldShowButton('camera')
+        return this.props._shouldShowButton('camera')
             ? <VideoSettingsButton
                 key = 'vsb'
                 visible = { true } />
@@ -1329,35 +1392,25 @@ class Toolbox extends Component<Props> {
                         { this._renderVideoButton() }
                         { mainMenuAdditionalButtons }
                         { showOverflowMenuButton && <OverflowMenuButton
+                            ariaControls = 'overflow-menu'
                             isOpen = { _overflowMenuVisible }
                             onVisibilityChange = { this._onSetOverflowVisible }>
                             <ul
                                 aria-label = { t(toolbarAccLabel) }
-                                className = 'overflow-menu'>
+                                className = 'overflow-menu'
+                                id = 'overflow-menu'
+                                onKeyDown = { this._onEscKey }
+                                role = 'menu'>
                                 { this._renderOverflowMenuContent(overflowMenuAdditionalButtons) }
                             </ul>
                         </OverflowMenuButton>}
                         <HangupButton
                             customClass = 'hangup-button'
-                            visible = { this._shouldShowButton('hangup') } />
+                            visible = { this.props._shouldShowButton('hangup') } />
                     </div>
                 </div>
             </div>
         );
-    }
-
-    _shouldShowButton: (string) => boolean;
-
-    /**
-     * Returns if a button name has been explicitly configured to be displayed.
-     *
-     * @param {string} buttonName - The name of the button, as expected in
-     * {@link interfaceConfig}.
-     * @private
-     * @returns {boolean} True if the button should be displayed.
-     */
-    _shouldShowButton(buttonName) {
-        return this.props._visibleButtons.includes(buttonName);
     }
 }
 
@@ -1409,6 +1462,8 @@ function _mapStateToProps(state) {
         _clientWidth: clientWidth,
         _conference: conference,
         _desktopSharingEnabled: (isModerator || Boolean(screenshare)) && desktopSharingEnabled,
+        _backgroundType: state['features/virtual-background'].backgroundType,
+        _virtualSource: state['features/virtual-background'].virtualSource,
         _desktopSharingDisabledTooltipKey: desktopSharingDisabledTooltipKey,
         _dialog: Boolean(state['features/base/dialog'].component),
         _feedbackConfigured: Boolean(callStatsID),
@@ -1422,12 +1477,14 @@ function _mapStateToProps(state) {
         _tileViewEnabled: shouldDisplayTileView(state),
         _localParticipantID: localParticipant.id,
         _localParticipantName: getParticipantDisplayName(state, localParticipant.id),
+        _localVideo: localVideo,
         _localRecState: localRecordingStates,
         _locked: locked,
         _overflowMenuVisible: overflowMenuVisible,
         _participantsPaneOpen: getParticipantsPaneOpen(state),
         _raisedHand: localParticipant.raisedHand,
         _screensharing: (localVideo && localVideo.videoType === 'desktop') || isScreenAudioShared(state),
+        _shouldShowButton: buttonName => isToolbarButtonEnabled(buttonName)(state),
         _visible: isToolboxVisible(state),
         _visibleButtons: getToolbarButtons(state)
     };

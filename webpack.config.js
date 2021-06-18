@@ -77,6 +77,9 @@ const config = {
             ],
             loader: 'babel-loader',
             options: {
+                // Avoid loading babel.config.js, since we only use it for React Native.
+                configFile: false,
+
                 // XXX The require.resolve bellow solves failures to locate the
                 // presets when lib-jitsi-meet, for example, is npm linked in
                 // jitsi-meet.
@@ -221,7 +224,7 @@ module.exports = [
             ...config.plugins,
             ...getBundleAnalyzerPlugin('alwaysontop')
         ],
-        performance: getPerformanceHints(400 * 1024)
+        performance: getPerformanceHints(800 * 1024)
     }),
     Object.assign({}, config, {
         entry: {
