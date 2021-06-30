@@ -10,7 +10,10 @@ import { IconShareDesktop } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 import { isLocalVideoTrackDesktop } from '../../../base/tracks';
-
+import {
+    getLocalParticipant,
+    PARTICIPANT_ROLE
+} from '../../../base/participants';
 /**
  * The type of the React {@code Component} props of {@link ScreenSharingIosButton}.
  */
@@ -138,12 +141,22 @@ class ScreenSharingIosButton extends AbstractButton<Props, *> {
  */
 function _mapStateToProps(state): Object {
     const enabled = getFeatureFlag(state, IOS_SCREENSHARING_ENABLED, false);
+    const _localParticipant = getLocalParticipant(state);
+    const isModerator = _localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
+    const screenShareAllowed =Boolean(state['features/base/conference'].screenshare);
 
+    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
+    var visible_generally = true;
+
+    if (MODERATOR_KEYS){
+        visible_generally = visible_generally && (((isModerator|| screenShareAllowed)     && MODERATOR_KEYS.includes('desktop')) || !MODERATOR_KEYS.includes('desktop'));
+    }
+    
     return {
         _screensharing: isLocalVideoTrackDesktop(state),
 
         // TODO: this should work on iOS 12 too, but our trick to show the picker doesn't work.
-        visible: enabled && Platform.OS === 'ios' && Platform.Version.split('.')[0] >= 14
+        visible: visible_generally && enabled && Platform.OS === 'ios' && Platform.Version.split('.')[0] >= 14
     };
 }
 

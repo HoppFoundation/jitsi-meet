@@ -9,7 +9,7 @@ import { connect } from '../../../base/redux';
 import { PictureInPictureButton } from '../../../mobile/picture-in-picture';
 import { isToolboxVisible } from '../../../toolbox/functions.native';
 import ConferenceTimer from '../ConferenceTimer';
-
+import ParticipantsCount from './ParticipantsCount';
 import Labels from './Labels';
 import styles from './styles';
 
@@ -76,6 +76,9 @@ const NavigationBar = (props: Props) => {
                                 <ConferenceTimer textStyle = { styles.roomTimer } />
                             </View>
                 }
+                {
+                        props._participantCountEnabled && <ParticipantsCount/>
+                    }
                 <Labels />
             </View>
         </View>
@@ -97,7 +100,9 @@ function _mapStateToProps(state) {
         _meetingName: getConferenceName(state),
         _meetingNameEnabled:
             getFeatureFlag(state, MEETING_NAME_ENABLED, true) && !hideConferenceSubject,
-        _visible: isToolboxVisible(state)
+        _visible: isToolboxVisible(state),
+        _participantCountEnabled : Platform.OS === 'ios'
+
     };
 }
 

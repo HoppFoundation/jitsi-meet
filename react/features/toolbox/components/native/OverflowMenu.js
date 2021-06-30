@@ -30,11 +30,6 @@ import ToggleCameraButton from './ToggleCameraButton';
 import styles from './styles';
 import MuteEveryoneElseButton from './MuteEveryoneElseButton';
 import KickEveryoneElseButton from './KickEveryoneElseButton';
-import ScreenshareButton from './ScreenshareButton';
-import { jitsiLocalStorage } from '@jitsi/js-utils';
-import IOSRecordButtonWrapper from './IOSRecordButtonWrapper';
-import { Platform } from 'react-native';
-
 /**
  * The type of the React {@code Component} props of {@link OverflowMenu}.
  */
@@ -76,12 +71,7 @@ type State = {
     /**
      * True if the 'more' button set needas to be rendered.
      */
-    showMore: boolean,
-
-    /**
-     *  whether we are a moderator - we currently check whether there is a sessionId saved in the app
-     */
-    isModerator: boolean
+    showMore: boolean
 }
 
 /**
@@ -106,30 +96,16 @@ class OverflowMenu extends PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.clicked = false;
+        this.state = {
+            scrolledToTop: true,
+            showMore: false
+        };
 
         // Bind event handlers so they are only bound once per instance.
         this._onCancel = this._onCancel.bind(this);
         this._onSwipe = this._onSwipe.bind(this);
         this._onToggleMenu = this._onToggleMenu.bind(this);
         this._renderMenuExpandToggle = this._renderMenuExpandToggle.bind(this);
-        this._renderModeratorButtons = this._renderModeratorButtons.bind(this);
-
-        var sessionId = jitsiLocalStorage.getItem('sessionId');
-
-        if (sessionId) {
-            this.state = {
-                scrolledToTop: true,
-                showMore: false,
-                isModerator: true
-            };
-        } else {
-            this.state = {
-                scrolledToTop: true,
-                showMore: false,
-                isModerator: false
-            };
-        }
     }
 
     /**
@@ -140,17 +116,15 @@ class OverflowMenu extends PureComponent<Props, State> {
      */
     render() {
         const { _bottomSheetStyles, _screenshare_mod_only, _width } = this.props;
-        const { isModerator, showMore } = this.state;
-        const toolbarButtons = getMovableButtons(_width);
         const screenshare_allowed = !(_screenshare_mod_only && !isModerator)
+        const { showMore } = this.state;
+        const toolbarButtons = getMovableButtons(_width);
 
-        let {dispatch} = this.props;
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
             styles: _bottomSheetStyles.buttons
         };
-        var showScreenshare = jitsiLocalStorage.getItem('showScreenshare') == 'true'; // I don't know why this is a string now
 
         const moreOptionsButtonProps = {
             ...buttonProps,
@@ -171,7 +145,6 @@ class OverflowMenu extends PureComponent<Props, State> {
                 <ScreenSharingButton { ...buttonProps } />
                 <MoreOptionsButton { ...moreOptionsButtonProps } />
                 <Collapsible collapsed = { !showMore }>
-                    {this._renderModeratorButtons(buttonProps)}
                     {!toolbarButtons.has('togglecamera') && <ToggleCameraButton { ...buttonProps } />}
                     {!toolbarButtons.has('tileview') && <TileViewButton { ...buttonProps } />}
                     <RecordButton { ...buttonProps } />
@@ -180,37 +153,14 @@ class OverflowMenu extends PureComponent<Props, State> {
                     <ClosedCaptionButton { ...buttonProps } />
                     <SharedDocumentButton { ...buttonProps } />
                     <MuteEveryoneButton { ...buttonProps } />
+                    <KickEveryoneElseButton { ...buttonProps } />
                     <MuteEveryonesVideoButton { ...buttonProps } />
                     <HelpButton { ...buttonProps } />
-                    {screenshare_allowed && Platform.OS == 'ios' ? <>
-                    <Collapsible collapsed = { showScreenshare }>
-                        <ScreenshareButton {...buttonProps} />
-                    </Collapsible>
-                    <Collapsible collapsed = { !showScreenshare }>
-                        {
-                            <IOSRecordButtonWrapper />
-                        }
-                    </Collapsible></> : null}
                 </Collapsible>
             </BottomSheet>
         );
     }
 
-    _renderModeratorButtons: () => React$Element<any>;
-
-    _renderModeratorButtons(buttonProps){
-        const { isModerator } = this.state;
-
-        if (isModerator) {
-            return(
-                <View>
-                    <KickEveryoneElseButton { ...buttonProps } />
-                </View>
-            );
-        }
-        return
-
-    }
     _renderMenuExpandToggle: () => React$Element<any>;
 
     /**
@@ -302,18 +252,10 @@ class OverflowMenu extends PureComponent<Props, State> {
  * @returns {Props}
  */
 function _mapStateToProps(state) {
-    // krombel check config (necessesary?)
-    const MODERATOR_KEYS = state['features/base/config'].HOPP_MODERATOR_KEYS;
-    var screenshare_mod_only = false;
-    if (MODERATOR_KEYS) {
-        screenshare_mod_only = MODERATOR_KEYS.includes('desktop');
-    }
-
     return {
         _bottomSheetStyles: ColorSchemeRegistry.get(state, 'BottomSheet'),
         _isOpen: isDialogOpen(state, OverflowMenu_),
         _width: state['features/base/responsive-ui'].clientWidth,
-        _screenshare_mod_only: screenshare_mod_only
     };
 }
 

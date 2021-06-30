@@ -20,6 +20,7 @@ import KickButton from './KickButton';
 import MuteButton from './MuteButton';
 import MuteEveryoneElseButton from './MuteEveryoneElseButton';
 import PinButton from './PinButton';
+import RevokeScreenshareButton from './RevokeScreenshareButton';
 import styles from './styles';
 
 /**
@@ -116,6 +117,7 @@ class RemoteVideoMenu extends PureComponent<Props> {
                 { !_disableKick && <KickButton { ...buttonProps } /> }
                 { !_disableGrantModerator && <GrantModeratorButton { ...buttonProps } /> }
                 <GrantScreenshareButton { ...buttonProps } />
+                <RevokeScreenshareButton { ...buttonProps } />
                 <PinButton { ...buttonProps } />
                 { !_disablePrivateChat && <PrivateMessageButton { ...buttonProps } /> }
                 <MuteEveryoneElseButton { ...buttonProps } />

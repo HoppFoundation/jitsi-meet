@@ -35,12 +35,8 @@
 
     jitsiMeet.defaultConferenceOptions = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
         [builder setFeatureFlag:@"resolution" withValue:@(360)];
-<<<<<<< HEAD
         [builder setFeatureFlag:@"ios.screensharing.enabled" withBoolean:YES];
         builder.serverURL = [NSURL URLWithString:@"https://jitsi.hopp-foundation.de"];
-=======
-        builder.serverURL = [NSURL URLWithString:@"https://meet.jit.si"];
->>>>>>> jitsi_screenshare
         builder.welcomePageEnabled = YES;
 
         // Apple rejected our app because they claim requiring a

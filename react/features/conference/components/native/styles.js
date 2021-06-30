@@ -28,7 +28,26 @@ export default {
         flex: 1,
         flexDirection: 'row'
     },
-
+    participantCounter: {
+        color: ColorPalette.white,
+        fontSize: 15,
+        opacity: 0.6,
+        borderWidth: 1,
+        borderColor: ColorPalette.white,
+        borderRadius: 2,
+    },
+    participantCounterContainer: {
+        flex: 1 ,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+    },
+    participantCounterIcon: {
+        color: ColorPalette.white,
+        fontSize: 15,
+        opacity: 0.6,
+        marginBottom:-2
+    },
 
     lonelyButton: {
         alignItems: 'center',

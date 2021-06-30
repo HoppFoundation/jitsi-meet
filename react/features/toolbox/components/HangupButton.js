@@ -15,13 +15,6 @@ import Platform from '../../base/react/Platform';
 import { CLOSING_PAGE_MODAL_ID } from '../../closingpage/constants';
 import { setActiveModalId } from '../../base/modal';
 
-if (navigator.product === 'ReactNative'){
-    if (Platform.OS == 'ios') {
-        console.log('PLATFORM', Platform.OS);
-        //const {ScreenShareController} = require('./native/IOSRecordButton');
-    }
-}
-
 /**
  * The type of the React {@code Component} props of {@link HangupButton}.
  */
@@ -59,11 +52,6 @@ class HangupButton extends AbstractHangupButton<Props, *> {
 
             // FIXME: these should be unified.
             if (navigator.product === 'ReactNative') {
-                if (Platform.OS == 'ios') {
-                    this.props.dispatch({ type: 'END_SCREEN_SHARING' });
-                    ScreenShareController.stopRecording();
-                    jitsiLocalStorage.removeItem('showScreenshare')
-                }
                 this.props.dispatch(appNavigate(undefined));
             } else {
                 this.props.dispatch(disconnect(true));

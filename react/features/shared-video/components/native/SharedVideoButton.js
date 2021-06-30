@@ -99,7 +99,7 @@ function _mapStateToProps(state, ownProps): Object {
     const { ownerId, status: sharedVideoStatus } = state['features/shared-video'];
     const localParticipantId = getLocalParticipant(state).id;
     const enabled = getFeatureFlag(state, VIDEO_SHARE_BUTTON_ENABLED, true);
-    const { visible = enabled } = ownProps;
+    let { visible = enabled } = ownProps;
     const localParticipant = getLocalParticipant(state);
     const isModerator = localParticipant.role === PARTICIPANT_ROLE.MODERATOR;
 
@@ -116,6 +116,7 @@ function _mapStateToProps(state, ownProps): Object {
             visible
         };
     }
+
 
     return {
         _isDisabled: false,

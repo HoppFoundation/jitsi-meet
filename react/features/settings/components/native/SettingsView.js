@@ -102,6 +102,8 @@ class SettingsView extends AbstractSettingsView<Props, State> {
     constructor(props) {
         super(props);
         const {
+            disableCallIntegration,
+            disableCrashReporting,
             disableP2P,
             displayName,
             email,

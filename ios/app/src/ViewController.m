@@ -131,13 +131,10 @@
   NSLog(@"%@%@", @"Chat toggled: ", data);
 }
 
-<<<<<<< HEAD
 - (void)videoMutedChanged:(NSDictionary *)data {
   NSLog(@"%@%@", @"Video muted changed: ", data[@"muted"]);
 }
 
-=======
->>>>>>> jitsi_screenshare
 #pragma mark - Helpers
 
 - (void)terminate {
