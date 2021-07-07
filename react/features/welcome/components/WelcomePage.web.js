@@ -368,6 +368,11 @@ class WelcomePage extends AbstractWelcomePage {
                             href = "https://www.microsoft.com/de-de/p/digitales-klassenzimmer/9n9sf818473p">
                             <img src = './images/ms-store-badge.png' />
                         </a>
+                        <a
+                            className = 'welcome-badge'
+                            href = "https://apps.apple.com/de/app/digitales-klassenzimmer/id1508736201">
+                            <img src = './images/mac-app-store.png' />
+                        </a>
                     </div>
                 </div>
             </div>
